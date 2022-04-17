@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 use App\Models\Pathologie;
 
 class MedicationController extends Controller
@@ -11,6 +11,19 @@ class MedicationController extends Controller
     public function list(){
        // return view('user.list');
        echo"something here";
-       return Pathologie::all();
+       $pathologies = array();
+       $pathologies = DB::table('pathologies')
+                    ->where('pathologie','LIKE','c%')
+                    ->get();
+       return $pathologies;
+    }
+
+    public function autocomplete (Request $request){
+        $pathologies = DB::table('pathologies')
+                     ->where('pathologie','LIKE' , '%{'.$request->terms.'}%')
+                     ->get();
+                     return response()->json($pathologies);
+
+
     }
 }

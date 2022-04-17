@@ -34,6 +34,10 @@ Route::get('/prescriptionanalysis', function () {
 
 Route::resource('photos', PathologyController::class);
 
-Route::POST('/autocomplete',[PathologyController::class,'autocomplete'])->name('autocomplete');
+//Route::POST('/autocomplete',[PathologyController::class,'autocomplete'])->name('autocomplete');
 
-Route::get('/list',[MedicationController::class, 'list']);
+ Route::get('/list',function(){
+   return view('user.list');
+}); 
+//Route::get('/list',[MedicationController::class,'list'])->name('list');
+Route::get('/autocomplete',[MedicationController::class,'autocomplete'])->name('autocomplete');

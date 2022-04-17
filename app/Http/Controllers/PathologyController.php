@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pathologie;
-use DB;
+use Illuminate\Support\Facades\DB;
+
 
 class PathologyController extends Controller
 {
-    public function autocomplete (Request $rquest){
+    public function autocomplete (){
         $result = array();
         $sp1 = DB::table('pathologies')
               ->where('pathologies.pathologie','LIKE' , '%' . $_POST['phrase'] . '%')
