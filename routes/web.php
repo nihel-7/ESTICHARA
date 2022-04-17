@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MedicationController;
+use App\Http\Controllers\PathologyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,10 @@ Route::get('/medicationdetail', function () {
 Route::get('/prescriptionanalysis', function () {
     return view('user.prescriptionanalysis');
 });
+
+
+Route::resource('photos', PathologyController::class);
+
+Route::POST('/autocomplete',[PathologyController::class,'autocomplete'])->name('autocomplete');
+
+Route::get('/list',[MedicationController::class, 'list']);

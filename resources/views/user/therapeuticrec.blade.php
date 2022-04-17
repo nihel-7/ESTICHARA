@@ -56,9 +56,12 @@
                       <!-- form start -->
                       
                         <div class="card-body">
-                          <div class="input-group input-group-lg mb-3">
-                            <input class="form-control me-2 " type="search" placeholder="Rechercher maladie" aria-label="Search">
+                          <form>
+                          <div class="form-group input-group-lg mb-3">
+                          <input type="text" name="nom" class="form form-control nom"  placeholder="Nom de la maladie" id="maladie_nom" autocomplete="off" required>
+                         <input type="hidden" name="nomM" id="nomM" required>
                           </div>
+                         </form>
                           <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                               <h2 class="accordion-header" id="headingOne">
@@ -327,11 +330,65 @@
           
 
 
-
+           <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
                   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        </body>
+        
+        
+        <script type="text/javascript">
+                  
+                  $('input[id="maladie_nom"]').keydown(function() { 
+        $(this).autocomplete({
+          appendTo: $(this).parent(), // selectionner l'element pour ajouter la liste des suggestion
+          source: function( request, response ) {
+              $.ajax( {
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},  
+                url: "/autocomplete",
+                method : "POST",
+                data: {
+                  phrase: request.term // value on field input
+                },
+                success: function( data , status , code ) {
+                    response($.map(data.slice(0, 20), function (item) { // slice cut number of element to show
+                     
+
+                      return {
+                          label : item.pathologie, // pour afficher dans la liste des suggestions
+                          value:  item.pathologie // value c la valeur à mettre dans l'input this
+                      };
+                  }));
+                }
+              });
+            },// END SOURCE
+
+          }).data("ui-autocomplete")._renderItem = function (ul, item) {//cette method permet de gérer l'affichage de la liste des suggestions
+               
+
+                 return $("<li></li>")
+                     .data("item.autocomplete", item)//récupérer les donnée de l'autocomplete
+                     //.attr( "data-value", item.id )
+                     .append( item.label)//ajouter à la liste de suggestions
+                     .appendTo(ul); 
+                 };
+      });
+
+
+
+                </script>
+                  <script>
+                    var path = "{{route('autocomplete')}}";
+                    $('input.typeahead').typeahead({
+                      source: function(terms,process){
+                        return $.get(path,{terms:terms},function(data){
+                          return process(data);
+                        });
+                      }
+                    });
+                    </script>
+            </body>
+
     
 </html>
