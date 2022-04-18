@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MedicationController;
 use App\Http\Controllers\PathologyController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,12 +33,19 @@ Route::get('/prescriptionanalysis', function () {
 });
 
 
-Route::resource('photos', PathologyController::class);
 
-//Route::POST('/autocomplete',[PathologyController::class,'autocomplete'])->name('autocomplete');
 
- Route::get('/list',function(){
+
+
+ Route::get('/listis',function(){
    return view('user.list');
 }); 
-//Route::get('/list',[MedicationController::class,'list'])->name('list');
-Route::get('/autocomplete',[MedicationController::class,'autocomplete'])->name('autocomplete');
+Route::post('/list',[MedicationController::class,'list'])->name('list');
+
+Route::controller(SearchController::class)->group(function(){
+    Route::get('demo-search', 'index');
+    Route::get('autocomplete', 'autocomplete')->name('autocomplete');
+    
+});
+
+Route::POST('/easy',[SearchController::class,'getpathologyfunction']);
