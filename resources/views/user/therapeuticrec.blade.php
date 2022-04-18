@@ -3,6 +3,9 @@
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
       </head>
         <body>
           <style type="text/css">
@@ -58,7 +61,7 @@
                         <div class="card-body">
                           <form>
                           <div class="form-group input-group-lg mb-3">
-                          <input type="text" name="nom" class="form form-control nom"  placeholder="Nom de la maladie" id="maladie_nom" autocomplete="off" required>
+                          <input type="text" name="nom" class=" typeahead form form-control "  placeholder="Nom de la maladie" id="maladie_nom" autocomplete="off" >
                          <input type="hidden" name="nomM" id="nomM" required>
                           </div>
                          </form>
@@ -159,6 +162,26 @@
                     </div>
                   </div>
                 </div>
+                <script type="text/javascript">
+    var path = "{{ route('autocomplete') }}";
+  
+    $('#maladie_nom').typeahead({
+        displayText: function(item){ return item.pathologie;},
+        
+            source: function (query, process) {
+                return $.get(path, {
+                    query: query
+                }, function (data) {
+                    console.log(data)
+                    return process(data);
+                });
+            },
+            afterSelect: function(item) {
+                console.log(item.id);
+        $('#nomM').val(item.id);
+  },
+        });
+</script>
                      <script>
             
             var antecedant = document.getElementById("antecedant"),
@@ -338,42 +361,7 @@
                   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         
         
-        <script type="text/javascript">
-                  
-                  $('input[id="maladie_nom"]').keydown(function() { 
-        $(this).autocomplete({
-          appendTo: $(this).parent(), // selectionner l'element pour ajouter la liste des suggestion
-          source: function( request, response ) {
-              $.ajax( {
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},  
-                url: "/autocomplete",
-                method : "POST",
-                data: {
-                  phrase: request.term // value on field input
-                },
-                success: function( data , status , code ) {
-                    response($.map(data.slice(0, 20), function (item) { // slice cut number of element to show
-                     
-
-                      return {
-                          label : item.pathologie, // pour afficher dans la liste des suggestions
-                          value:  item.pathologie // value c la valeur à mettre dans l'input this
-                      };
-                  }));
-                }
-              });
-            },// END SOURCE
-
-          }).data("ui-autocomplete")._renderItem = function (ul, item) {//cette method permet de gérer l'affichage de la liste des suggestions
-               
-
-                 return $("<li></li>")
-                     .data("item.autocomplete", item)//récupérer les donnée de l'autocomplete
-                     //.attr( "data-value", item.id )
-                     .append( item.label)//ajouter à la liste de suggestions
-                     .appendTo(ul); 
-                 };
-      });
+       
 
 
 
