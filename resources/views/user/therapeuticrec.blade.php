@@ -36,7 +36,7 @@
             <section class="content-header">
               <div class="container-fluid" >
                 <div class="row justify-content-md-center mb-2">
-                  <div class="col-md-6" style=" padding-bottom: 19px; padding-top: 19px;">
+                  <div class="col-md-6" style=" padding-bottom: 0px; padding-top: 0px;">
                     <h1 class="text-center text-secondary" >Recherche de medicaments</h1>
                   </div>
                   
@@ -118,7 +118,7 @@
                                   <label for="medoc" class="form-label col-form-label-lg">Interactions medicamenteuse</label>
                                         <div class="input-group input-group-lg mb-3">
                             <input type="search" class="form-control" id="nom2" placeholder="Medicaments">
-                            <input type="search" class="form-control" id="posologie2" placeholder="Dosage..ex: 1x/j">
+                            
                                <div class="col-md-1">
                                 <!-- ajouter-->
                       <button class="border-primary" onclick="addMedicament()">
@@ -139,7 +139,6 @@
                   <thead class="text-center" >
                     <tr>
                         <th><h6>Nom du médicament</h6></th>
-                        <th><h6>posologie</h6></th>
                     </tr>
                   </thead>
                  </table>
@@ -276,15 +275,10 @@
             function checkEmptyInput2()
             {
                 var isEmpty = false,
-                    nom2 = document.getElementById("nom2").value,
-                    posologie2 = document.getElementById("posologie2").value;
+                    nom2 = document.getElementById("nom2").value;
             
                 if(nom2 === ""){
                     alert("renseigner le nom du médicament ");
-                    isEmpty = true;
-                }
-                else if(posologie2 === ""){
-                    alert("posologie not null ");
                     isEmpty = true;
                 }
                 return isEmpty;
@@ -300,16 +294,12 @@
                 if(!checkEmptyInput2()){
                 var newRow = table2.insertRow(table2.length),
                     cell1 = newRow.insertCell(0),
-                    cell2 = newRow.insertCell(1),
-                    nom2 = document.getElementById("nom2").value,
-                    posologie2 = document.getElementById("posologie2").value;
+                    nom2 = document.getElementById("nom2").value;
             
                 cell1.innerHTML = nom2;
-                cell2.innerHTML = posologie2;
                 // call the function to set the event to the new row
                 selectedRowToInput2();
                  document.getElementById("nom2").value = "";
-                document.getElementById("posologie2").value = "";
             }
             }
             
@@ -324,7 +314,6 @@
                       // get the seected row index
                       rIndex = this.rowIndex;
                       document.getElementById("nom2").value = this.cells[0].innerHTML;
-                      document.getElementById("posologie2").value = this.cells[1].innerHTML;
                     };
                 }
             }  
@@ -332,21 +321,17 @@
             
             function editMedicament()
             {
-                var nom2 = document.getElementById("nom2").value,
-                    posologie2 = document.getElementById("posologie2").value;
+                var nom2 = document.getElementById("nom2").value;
                if(!checkEmptyInput()){
                 table2.rows[rIndex].cells[0].innerHTML = nom2;
-                table2.rows[rIndex].cells[1].innerHTML = posologie2;
               }
                document.getElementById("nom2").value = "";
-                document.getElementById("posologie2").value = "";
             }          
             function removeMedicament()
             {
                 table2.deleteRow(rIndex);
                 // clear input text
                 document.getElementById("nom2").value = "";
-                document.getElementById("posologie2").value = "";
             }
         </script>
 
