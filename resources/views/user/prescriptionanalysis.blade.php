@@ -145,8 +145,7 @@
                                     </ul>
                                   <label for="medoc" class="form-label col-form-label-lg">Interactions medicamenteuse</label>
                                   <div class="input-group input-group-lg mb-3">
-                            <input type="search" class="form-control" id="nom2" placeholder="Medicaments">
-                            <input type="search" class="form-control" id="posologie2" placeholder="Dosage..ex: 1x/j">
+                            <input type="search" class="form-control" id="medicament" placeholder="Medicaments">
                                <div class="col-md-1">
                                 <!-- ajouter-->
                       <button class="border-primary" onclick="addMedicament()">
@@ -156,26 +155,15 @@
                     </div>
                     <div class="col-md-1">
                     <!-- supprimer-->
-                      <button class="border-danger" onclick="removeMedicament()">
+                      <button class="border-danger" onclick="deleteMedicament()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="40" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                         <path  class="text-danger" d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                         <path fill-rule="evenodd" class="text-danger" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                         </svg></button>
                       </div>
                       <div class="container mt-1">              
-                  <table id="table2" class="table table-bordered " >
-                  <thead class="text-center" >
-                    <tr>
-                        <th><h6>Nom du médicament</h6></th>
-                        <th><h6>posologie</h6></th>
-                    </tr>
-                  </thead>
-                 </table>
-                </div>
-                          </div>
-                                  
-                                </div>
-                              </div>
+                        <ul id="listMedicament">
+                        </ul>
                             </div>
                           
                           
@@ -283,87 +271,85 @@
                 document.getElementById("posologie").value = "";
             }
         </script>
-        <script>
+       <script>
             
-            var rIndex,
-                table2 = document.getElementById("table2");
-            
+            var medicament = document.getElementById("medicament"),
+                 items = document.querySelectorAll("#listMedicament li"),
+                 tab = [], index;
+         
+             // get the selected li index using array
+             // populate array with li values
+             
+             for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+             }
+             
+             // get li index onclick
+             for(var i = 0; i < items.length; i++){
+                 
+                 items[i].onclick = function(){
+                     index = tab.indexOf(this.innerHTML);
+                     console.log(this.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     medicament.value = this.innerHTML;
+                 };
+                 
+             }
             // check the empty input
-            function checkEmptyInput2()
+            function checkEmptyMedicament()
             {
                 var isEmpty = false,
-                    nom2 = document.getElementById("nom2").value,
-                    posologie2 = document.getElementById("posologie2").value;
+                    medicament = document.getElementById("medicament").value;
             
-                if(nom2 === ""){
-                    alert("renseigner le nom du médicament 2");
-                    isEmpty = true;
-                }
-                else if(posologie2 === ""){
-                    alert("posologie not null 25");
+                if(medicament === ""){
+                    alert("renseigner l'medicament");
                     isEmpty = true;
                 }
                 return isEmpty;
             }
-            
-            // add Row
-            function addMedicament()
+            function refreshArray()
             {
-                // get the table by id
-                // create a new row and cells
-                // get value from input text
-                // set the values into row cell's
-                if(!checkEmptyInput2()){
-                var newRow = table2.insertRow(table2.length),
-                    cell1 = newRow.insertCell(0),
-                    cell2 = newRow.insertCell(1),
-                    nom2 = document.getElementById("nom2").value,
-                    posologie2 = document.getElementById("posologie2").value;
-            
-                cell1.innerHTML = nom2;
-                cell2.innerHTML = posologie2;
-                // call the function to set the event to the new row
-                selectedRowToInput2();
-                 document.getElementById("nom2").value = "";
-                document.getElementById("posologie2").value = "";
+                // clear array
+                tab.length = 0;
+                items = document.querySelectorAll("#listMedicament li");
+                // fill array
+                for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+               }
             }
-            }
-            
-            // display selected row data into input text
-            function selectedRowToInput2()
-            {
-                
-                for(var i = 1; i < table2.rows.length; i++)
-                {
-                    table2.rows[i].onclick = function()
-                    {
-                      // get the seected row index
-                      rIndex = this.rowIndex;
-                      document.getElementById("nom2").value = this.cells[0].innerHTML;
-                      document.getElementById("posologie2").value = this.cells[1].innerHTML;
-                    };
-                }
-            }  
-            selectedRowToInput2();
-            
-            function editMedicament()
-            {
-                var nom2 = document.getElementById("nom2").value,
-                    posologie2 = document.getElementById("posologie2").value;
-               if(!checkEmptyInput()){
-                table2.rows[rIndex].cells[0].innerHTML = nom2;
-                table2.rows[rIndex].cells[1].innerHTML = posologie2;
+
+            function addMedicament(){
+                      if (!checkEmptyMedicament()) {
+                var listNode1 = document.getElementById("listMedicament"),
+                    textNode1 = document.createTextNode(medicament.value),
+                    liNode1 = document.createElement("LI");
+                    
+                    liNode1.appendChild(textNode1);
+                    listNode1.appendChild(liNode1);
+                    medicament.value = "";
+                    refreshArray();
+                    
+                    // add event to the new LI
+                    
+                    liNode.onclick = function(){
+                     index = tab.indexOf(liNode.innerHTML);
+                     console.log(liNode.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     medicament.value = liNode.innerHTML;
+                 };
+                    
+             }}
+             
+              
+              function deleteMedicament(){
+                  
+                      refreshArray();
+                      if(items.length > 0){
+                          items[index].parentNode.removeChild(items[index]);
+                          medicament.value = "";
+                      }
               }
-               document.getElementById("nom2").value = "";
-                document.getElementById("posologie2").value = "";
-            }          
-            function removeMedicament()
-            {
-                table2.deleteRow(rIndex);
-                // clear input text
-                document.getElementById("nom2").value = "";
-                document.getElementById("posologie2").value = "";
-            }
+            
         </script>
         <script>
             
