@@ -34,7 +34,7 @@
               <div class="container-fluid" >
                 <div class="row justify-content-md-center mb-2">
                   <div class="col-md-6" style="  padding-bottom: 19px; padding-top: 19px;">
-                    <h1 class="text-center text-secondary" >Analyse d'ordonnance</h1>
+                    <h1 class="text-center text-secondary" >Analyse de prescription</h1>
                   </div>
                   
                 </div>

@@ -6,18 +6,17 @@
       </head>
         <body>
           <style type="text/css">
-            tr:hover{background-color:#EEE;cursor: pointer}
-            li {
-                   
-                   display : inline;
-                   margin-left:10px;
-                   font-size: 17px;
-                   line-height: 40px;
-                   width: 180px;
-                   height: 40px;
-                   cursor: pointer;
+            body{
+              background-image:url(/image/medicament.jpg);
+            }
+            body .btnCenter{
 
-                }
+              justify-content: center;
+              align-items: center;
+              display: flex;
+              height: 60vh;
+            }
+
           </style>
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div class="container-fluid">
@@ -33,6 +32,10 @@
                 </div>
               </nav>
       <h1> <center>home</center></h1>
+      <div class="btnCenter">
+      <button class="btn">analyse de prescription</button>
+      <button class="btn">recherche par pathologie</button>
+      </div>
     
     
 </html>
