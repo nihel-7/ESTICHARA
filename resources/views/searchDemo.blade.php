@@ -13,7 +13,7 @@
     <form action="easy" method="POST">
     {{ csrf_field() }}
     <input class="typeahead form-control" name="nomp" id="search" type="text">
-    <input class=" form-control" name="idp" id="pathologie_id" type="hidden">
+    <input class=" form-control" name="idp" id="pathologie_id" type="text">
     <button type="submit" class="btn btn-primary">Submit</button>
    </form>
 </div>
