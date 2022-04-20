@@ -6,21 +6,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+      <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+      
       </head>
         <body>
-          <style type="text/css">
-            tr:hover{background-color:#EEE;
-              cursor: pointer
-            }
-            li {
-                   display : inline;
-                   margin-left:10px;
-                   font-size: 17px;
-                   line-height: 40px;
-                   cursor: pointer;
-                }
-
-          </style>
+          
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="/">Pharm-project</a>
@@ -60,11 +50,11 @@
                       
                         <div class="card-body">
                           <form>
-                          <div class="form-group input-group-lg mb-3">
-                          <input type="text" name="nom" class=" typeahead form form-control "  placeholder="Pathologie a traiter " id="maladie_nom" autocomplete="off" >
+                          <div class="form-group input-group-lg ">
+                          <input type="text" name="nom" class=" typeahead form form-control form-control-sm"  placeholder="Pathologie a traiter " id="maladie_nom" autocomplete="off" >
                          <input type="hidden" name="nomM" id="nomM" required>
                           </div>
-                         </form>
+                         
                           <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                               <h2 class="accordion-header" id="headingOne">
@@ -76,65 +66,69 @@
                                 <div class="accordion-body">
 
                                   <div class="row mb-4">
-                                    <div class="col">
-                                      <input type="text" class="form-control input-lg" placeholder="Age" aria-label="age">
+                                    <div class="col-md-4">
+                                      <input type="text" class="form-control form-control-lg " placeholder="Age" aria-label="age">
                                     </div>
-                                    <div class="col ">
-                                      <input type="text" class="form-control" placeholder="Poids" aria-label="poids">
+                                    <div class="col-md-4 ">
+                                      <input type="text" class="form-control form-control-lg" placeholder="Poids" aria-label="poids">
                                     </div>
-                                    <div class="col">
-                                      <select class="form-select" aria-label="Default select example">
+                                    <div class="col-md-4">
+                                      <select class="form-select form-select-lg" aria-label="Default select example">
                                         <option selected>Tranche d'age</option>
+                                        <option value="7">Nourrisson</option>
+                                        <option value="3">Enfant</option>
                                         <option value="1">Adolescent</option>
                                         <option value="2">Adulte</option>
-                                        <option value="3">Enfant</option>
+                                        <option value="4">Femme en age de procreer</option>
                                         <option value="4">Femme enceinte</option>
                                         <option value="5">Femme qui allaite</option>
                                         <option value="6">Femme ménopausée</option>
-                                        <option value="7">Nourrisson</option>
+                                        
                                         
                                       </select>
                                     </div>
                                   </div>
-                                  <div class="input-group input-group-lg mb-3">
-                                      <div class="col">
-                                      <input type="search" class="form-control" id="antecedant" placeholder="Antecedents">
-                                    </div>
-                                    
-                                       <div class="col">
-                                      <input type="search" class="form-control" id="allergie" placeholder="Allergies">  
-                                    </div>
+                                  
+                                    <div class="row mb-4">
+                                    <div class="col-md-6">
+                                    <div class="entry input-group ">
+                                  <input class="form-control" name="fields[]" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>
+                    	              <span class="input-group-btn">
+                                      <button class="btn btn-success btn-add" type="button">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                   </button>
+                                  </span>
+                                   </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                  <div class="entry input-group ">
+                                  <input class=" typeahead form-control" name="fields[]" type="text" id="nomAl" placeholder="Allergie" autocomplete="off" />
+                    	              <span class="input-group-btn">
+                                      <button class="btn btn-success btn-add" type="button">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                   </button>
+                                  </span>
+                                   </div>
+                                   </div>
+                                  </div>
+                                       
                                                        
                                     
                                   </div>
 
-                                   
-                                  <label for="medoc" class="form-label col-form-label-lg">Traitement associe</label>
+                                  <div class="row ml-2 mr-2 mb-2">
+                                  <div class="col-md-12">
+                                  <div class="form-group">
+                                     <label for="medicament" class="form-label mb-2">Traitement associe</label>
 
                                         <div class="input-group input-group-lg mb-3">
-                            <input type="search" class="form-control" id="medicament" placeholder="Medicaments">
-                            
-                               <div class="col-md-1">
-                                <!-- ajouter-->
-                      <button class="border-primary" onclick="addMedicament()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="40" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" class="text-primary" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                      </svg></button>
-                    </div>
-                    <div class="col-md-1">
-                    <!-- supprimer-->
-                      <button class="border-danger" onclick="deleteMedicament()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="40" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                        <path  class="text-danger" d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                        <path fill-rule="evenodd" class="text-danger" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                        </svg></button>
-                      </div>
-                      <div class="container mt-1">              
-                  <ol id="listMedicament">
-                                    </ol>
-                          </div>
-                                  
-                                  
+                                       <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicament" placeholder="Medicaments">
+                                       <span class="input-group-btn">
+                                      <button class="btn btn-success btn-add" type="button">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    </div>
+                                    </div>
+                                    </div>
                                 </div>
                               </div>
                             </div>
@@ -146,11 +140,16 @@
                           <div class="col-md-12 bg-light text-right">
                           <button type="submit" class="btn btn-primary btn-lg ">Lancer recherche</button>
                         </div>
-                        </div>                      
+                        </div>  
+                        </form>   
+                        <br>
+            <small>Press <span class="glyphicon glyphicon-plus gs"></span> to add another form field :)</small>                 
                     </div>
                   </div>
                 </div>
-                <script type="text/javascript">
+
+
+      <script type="text/javascript">
     var path = "{{ route('autocomplete') }}";
   
     $('#maladie_nom').typeahead({
@@ -172,84 +171,68 @@
 </script>
                     
         <script>
-            
-            var medicament = document.getElementById("medicament"),
-                 items = document.querySelectorAll("#listMedicament ol"),
-                 tab = [], index;
-         
-             // get the selected li index using array
-             // populate array with li values
-             
-             for(var i = 0; i < items.length; i++){
-                 tab.push(items[i].innerHTML);
-             }
-             
-             // get li index onclick
-             for(var i = 0; i < items.length; i++){
-                 
-                 items[i].onclick = function(){
-                     index = tab.indexOf(this.innerHTML);
-                     console.log(this.innerHTML + " INDEX = " + index);
-                     // set the selected li value into input text
-                     medicament.value = this.innerHTML;
-                 };
-                 
-             }
-            // check the empty input
-            function checkEmptyMedicament()
-            {
-                var isEmpty = false,
-                    medicament = document.getElementById("medicament").value;
-            
-                if(medicament === ""){
-                    alert("renseigner le medicament");
-                    isEmpty = true;
-                }
-                return isEmpty;
-            }
-            function refreshArray()
-            {
-                // clear array
-                tab.length = 0;
-                items = document.querySelectorAll("#listMedicament li");
-                // fill array
-                for(var i = 0; i < items.length; i++){
-                 tab.push(items[i].innerHTML);
-               }
-            }
+            var path = "{{ route('autocomplete') }}";
+  
+  $('#nomA').typeahead({
+      displayText: function(item){ return item.pathologie;},
+      
+          source: function (query, process) {
+              return $.get(path, {
+                  query: query
+              }, function (data) {
+                  console.log(data)
+                  return process(data);
+              });
+          },
+          afterSelect: function(item) {
+              console.log(item.id);
+     // $('#nomM').val(item.id);
+},
+      });
+        
+        </script>
 
-            function addMedicament(){
-                      if (!checkEmptyMedicament()) {
-                var listNode1 = document.getElementById("listMedicament"),
-                    textNode1 = document.createTextNode(medicament.value),
-                    liNode1 = document.createElement("OL");
-                    
-                    liNode1.appendChild(textNode1);
-                    listNode1.appendChild(liNode1);
-                    medicament.value = "";
-                    refreshArray();
-                    
-                    // add event to the new LI
-                    
-                    liNode.onclick = function(){
-                     index = tab.indexOf(liNode.innerHTML);
-                     console.log(liNode.innerHTML + " INDEX = " + index);
-                     // set the selected li value into input text
-                     medicament.value = liNode.innerHTML;
-                 };
-                    
-             }}
-             
-              
-              function deleteMedicament(){
-                  
-                      refreshArray();
-                      if(items.length > 0){
-                          items[index].parentNode.removeChild(items[index]);
-                          medicament.value = "";
-                      }
-              }
-            
+<script>
+            var path2 = "{{ route('autocompleteA') }}";
+  
+  $('#nomAl').typeahead({
+      displayText: function(item){ return item.allergie;},
+      
+          source: function (query, process) {
+              return $.get(path2, {
+                  query: query
+              }, function (data) {
+                  console.log(data)
+                  return process(data);
+              });
+          },
+          afterSelect: function(item) {
+              console.log(item.id);
+     // $('#nomM').val(item.id);
+},
+      });
+        
+        </script>
+        <script>
+            var path3 = "{{ route('autocompleteM') }}";
+  
+  $('#medicament').typeahead({
+      displayText: function(item){ return item.SP_NOM;},
+      
+          source: function (query, process) {
+              return $.get(path3, {
+                  query: query
+              }, function (data) {
+                  console.log(data)
+                  return process(data);
+              });
+          },
+          afterSelect: function(item) {
+              console.log(item.id);
+     // $('#nomM').val(item.id);
+},
+      });
+        
         </script>
         
 

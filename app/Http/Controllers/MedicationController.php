@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Pathologie;
+use App\Models\Sp_specialite;
 
 class MedicationController extends Controller
 {
@@ -15,32 +15,12 @@ class MedicationController extends Controller
        
     }
 
-    public function autocomplete (Request $request){
-        /*$pathologies = DB::table('pathologies')
-                     ->where('pathologie','LIKE' , '%{'.$request->terms.'}%')
-                     ->get();
-                     return response()->json($pathologies);*/
-        
-     if($request->get('query'))
-     {
-      $query = $request->get('query');
-      $data = DB::table('pathologies')
-        ->where('pathologie', 'LIKE', "%{$query}%")
-        ->get();
-      $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
-      foreach($data as $row)
-      {
-       $output .= '<li><a href="#">'.$row->name.'</a></li>';
-       
-       
-      }
-      $output .= '</ul>';
-      echo $output;
-     }
+    public function autocompleteM (Request $request){
+      $data = Sp_specialite::select('SP_CODE_SQ_PK','SP_NOM')
+      ->where('SP_NOM', 'LIKE', '%'. $request->get('query'). '%')
+      ->get();
 
-        
-
-
+return response()->json($data);
     }
 
     
