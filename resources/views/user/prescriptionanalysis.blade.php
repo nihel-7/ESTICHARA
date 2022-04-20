@@ -82,16 +82,6 @@
                         <path fill-rule="evenodd" class="text-danger" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                         </svg></button>
                       </div>
-                      <div class="container mt-1">              
-                      <table id="table1" class="table table-bordered " >
-                      <thead class="text-center" >
-                         <tr>
-                            <th><h6>Nom du médicament</h6></th>
-                            <th><h6>posologie</h6></th>
-                         </tr>
-                  </thead>
-                 </table>
-                </div>
                           </div>
                           <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
@@ -112,12 +102,14 @@
                                     </div>
                                     <div class="col">
                                       <select class="form-select" aria-label="Default select example">
-                                        <option selected>Type</option>
-                                        <option value="1">nourrisson</option>
-                                        <option value="2">enfant</option>
-                                        <option value="3">adulte</option>
+                                        <option selected>Tranche d'age</option>
+                                        <option value="1">Adolescent</option>
+                                        <option value="2">Adulte</option>
+                                        <option value="3">Enfant</option>
                                         <option value="4">Femme enceinte</option>
-                                        <option value="5">Femme allaite</option>
+                                        <option value="5">Femme qui allaite</option>
+                                        <option value="6">Femme ménopausée</option>
+                                        <option value="7">Nourrisson</option>
                                         
                                       </select>
                                     </div>
