@@ -37,7 +37,7 @@
               <div class="container-fluid" >
                 <div class="row justify-content-md-center mb-2">
                   <div class="col-md-6" style=" padding-bottom: 0px; padding-top: 0px;">
-                    <h2 class="text-center text-secondary" >Recherche Medicaments</h2>
+                    <h2 class="text-center text-secondary" >Recommendation therapeutique</h2>
                   </div>
                   
                 </div>
@@ -61,7 +61,7 @@
                         <div class="card-body">
                           <form>
                           <div class="form-group input-group-lg mb-3">
-                          <input type="text" name="nom" class=" typeahead form form-control "  placeholder="Nom de la maladie" id="maladie_nom" autocomplete="off" >
+                          <input type="text" name="nom" class=" typeahead form form-control "  placeholder="Pathologie a traiter " id="maladie_nom" autocomplete="off" >
                          <input type="hidden" name="nomM" id="nomM" required>
                           </div>
                          </form>
@@ -107,8 +107,35 @@
                                                        
                                     
                                   </div>
+<<<<<<< HEAD
                                   
                                   <label for="medoc" class="form-label col-form-label-lg">Interactions medicamenteuse</label>
+=======
+                                  <ul id="listAntecedant">
+                                    </ul>
+
+                          <div class="input-group input-group-lg mb-3">
+                            
+                                    <input type="search" class="form-control" id="allergie" placeholder="Allergies">
+                                    <div class="col-md-1">
+                                    <button class="border-primary" onclick="addAllergie()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="40" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" class="text-primary" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                      </svg></button>
+                       </div>
+                       <div class="col-md-1">
+                    <!-- supprimer-->
+                      <button class="border-danger" onclick="deleteAllergie()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="40" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path  class="text-danger" d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fill-rule="evenodd" class="text-danger" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                        </svg></button>
+                      </div> 
+                                  </div>
+                                   <ul id="listAllergie">
+                                    </ul>
+                                  <label for="medoc" class="form-label col-form-label-lg">Traitement associe</label>
+>>>>>>> f52d06a5bd350689ba51d045e681775e52f6b31f
                                         <div class="input-group input-group-lg mb-3">
                             <input type="search" class="form-control" id="medicament" placeholder="Medicaments">
                             
