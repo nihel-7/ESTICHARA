@@ -85,57 +85,29 @@
                                     <div class="col">
                                       <select class="form-select" aria-label="Default select example">
                                         <option selected>Tranche d'age</option>
-                                        <option value="1">nourrisson</option>
-                                        <option value="2">enfant</option>
-                                        <option value="3">adulte</option>
+                                        <option value="1">Adolescent</option>
+                                        <option value="2">Adulte</option>
+                                        <option value="3">Enfant</option>
                                         <option value="4">Femme enceinte</option>
-                                        <option value="5">Femme allaite</option>
+                                        <option value="5">Femme qui allaite</option>
+                                        <option value="6">Femme ménopausée</option>
+                                        <option value="7">Nourrisson</option>
                                         
                                       </select>
                                     </div>
                                   </div>
                                   <div class="input-group input-group-lg mb-3">
-                            
-                                    <input type="search" class="form-control" id="antecedant" placeholder="Antecedents">
-                                    <div class="col-md-1">
-                                    <button class="border-primary" onclick="addAntecedant()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="40" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" class="text-primary" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                      </svg></button>
-                       </div>
-                       <div class="col-md-1">
-                    <!-- supprimer-->
-                      <button class="border-danger" onclick="deleteAntecedant()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="40" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                        <path  class="text-danger" d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                        <path fill-rule="evenodd" class="text-danger" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                        </svg></button>
-                      </div>
+                                      <div class="col">
+                                      <input type="search" class="form-control" id="antecedant" placeholder="Antecedents">
+                                    </div>
+                                    
+                                       <div class="col">
+                                      <input type="search" class="form-control" id="allergie" placeholder="Allergies">  
+                                    </div>
+                                                       
                                     
                                   </div>
-                                  <ul id="listAntecedant">
-                                    </ul>
-
-                          <div class="input-group input-group-lg mb-3">
-                            
-                                    <input type="search" class="form-control" id="allergie" placeholder="Allergies">
-                                    <div class="col-md-1">
-                                    <button class="border-primary" onclick="addAllergie()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="40" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" class="text-primary" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                      </svg></button>
-                       </div>
-                       <div class="col-md-1">
-                    <!-- supprimer-->
-                      <button class="border-danger" onclick="deleteAllergie()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="40" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                        <path  class="text-danger" d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                        <path fill-rule="evenodd" class="text-danger" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                        </svg></button>
-                      </div> 
-                                  </div>
-                                   <ul id="listAllergie">
-                                    </ul>
+                                  
                                   <label for="medoc" class="form-label col-form-label-lg">Interactions medicamenteuse</label>
                                         <div class="input-group input-group-lg mb-3">
                             <input type="search" class="form-control" id="medicament" placeholder="Medicaments">
@@ -196,91 +168,7 @@
   },
         });
 </script>
-                     <script>
-            
-            var antecedant = document.getElementById("antecedant"),
-                 items = document.querySelectorAll("#listAntecedant li"),
-                 tab = [], index;
-         
-             // get the selected li index using array
-             // populate array with li values
-             
-             for(var i = 0; i < items.length; i++){
-                 tab.push(items[i].innerHTML);
-             }
-             
-             // get li index onclick
-             for(var i = 0; i < items.length; i++){
-                 
-                 items[i].onclick = function(){
-                     index = tab.indexOf(this.innerHTML);
-                     console.log(this.innerHTML + " INDEX = " + index);
-                     // set the selected li value into input text
-                     antecedant.value = this.innerHTML;
-                 };
-                 
-             }
-            // check the empty input
-            function checkEmpty()
-            {
-                var isEmpty = false,
-                    antecedant = document.getElementById("antecedant").value;
-            
-                if(antecedant === ""){
-                    alert("renseigner l'antecedant");
-                    isEmpty = true;
-                }
-                return isEmpty;
-            }
-            function refreshArray()
-            {
-                // clear array
-                tab.length = 0;
-                items = document.querySelectorAll("#listAntecedant li");
-                // fill array
-                for(var i = 0; i < items.length; i++){
-                 tab.push(items[i].innerHTML);
-               }
-            }
-
-            function addAntecedant(){
-                      if (!checkEmpty()) {
-                var listNode = document.getElementById("listAntecedant"),
-                    textNode = document.createTextNode(antecedant.value),
-                    liNode = document.createElement("LI");
                     
-                    liNode.appendChild(textNode);
-                    listNode.appendChild(liNode);
-                    antecedant.value = "";
-                    refreshArray();
-                    
-                    // add event to the new LI
-                    
-                    liNode.onclick = function(){
-                     index = tab.indexOf(liNode.innerHTML);
-                     console.log(liNode.innerHTML + " INDEX = " + index);
-                     // set the selected li value into input text
-                     antecedant.value = liNode.innerHTML;
-                 };
-                    
-             }}
-             
-             function editLI(){
-                 // edit the selected li using input text
-                 items[index].innerHTML = antecedant.value;
-                 refreshArray();
-              }
-              
-              function deleteAntecedant(){
-                  
-                      refreshArray();
-                      if(items.length > 0){
-                          items[index].parentNode.removeChild(items[index]);
-                          antecedant.value = "";
-                      }
-              }
-            
-        </script>
         <script>
             
             var medicament = document.getElementById("medicament"),
@@ -361,90 +249,7 @@
               }
             
         </script>
-        <script>
-            
-            var allergie = document.getElementById("allergie"),
-                 items = document.querySelectorAll("#listAllergie LI"),
-                 tab = [], index;
-         
-             // get the selected li index using array
-             // populate array with li values
-             
-             for(var i = 0; i < items.length; i++){
-                 tab.push(items[i].innerHTML);
-             }
-             
-             // get li index onclick
-             for(var i = 0; i < items.length; i++){
-                 
-                 items[i].onclick = function(){
-                     index = tab.indexOf(this.innerHTML);
-                     console.log(this.innerHTML + " INDEX = " + index);
-                     // set the selected li value into input text
-                     allergie.value = this.innerHTML;
-                 };
-                 
-             }
-            // check the empty input
-            function checkEmptyMedicament()
-            {
-                var isEmpty = false,
-                    allergie = document.getElementById("allergie").value;
-            
-                if(allergie === ""){
-                    alert("renseigner l'allergie");
-                    isEmpty = true;
-                }
-                return isEmpty;
-            }
-            function refreshArray()
-            {
-                // clear array
-                tab.length = 0;
-                items = document.querySelectorAll("#listMedicament li");
-                // fill array
-                for(var i = 0; i < items.length; i++){
-                 tab.push(items[i].innerHTML);
-               }
-            }
-
-            function addAllergie(){
-                      if (!checkEmptyMedicament()) {
-                var listNode2 = document.getElementById("listAllergie"),
-                    textNode2 = document.createTextNode(allergie.value),
-                    liNode2 = document.createElement("LI");
-                    
-                    liNode2.appendChild(textNode2);
-                    listNode2.appendChild(liNode2);
-                    allergie.value = "";
-                    refreshArray();
-                    
-                    // add event to the new LI
-                    
-                    liNode.onclick = function(){
-                     index = tab.indexOf(liNode.innerHTML);
-                     console.log(liNode.innerHTML + " INDEX = " + index);
-                     // set the selected li value into input text
-                     allergie.value = liNode.innerHTML;
-                 };
-                    
-             }}
-             
-              
-              function deleteAllergie(){
-                  
-                      refreshArray();
-                      if(items.length > 0){
-                          items[index].parentNode.removeChild(items[index]);
-                          allergie.value = "";
-                      }
-              }
-            
-        </script>
-         
-
-          
-
+        
 
            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
