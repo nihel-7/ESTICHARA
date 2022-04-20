@@ -37,7 +37,7 @@
               <div class="container-fluid" >
                 <div class="row justify-content-md-center mb-2">
                   <div class="col-md-6" style=" padding-bottom: 0px; padding-top: 0px;">
-                    <h2 class="text-center text-secondary" >Recherche Medicaments</h2>
+                    <h2 class="text-center text-secondary" >Recommendation therapeutique</h2>
                   </div>
                   
                 </div>
@@ -61,7 +61,7 @@
                         <div class="card-body">
                           <form>
                           <div class="form-group input-group-lg mb-3">
-                          <input type="text" name="nom" class=" typeahead form form-control "  placeholder="Nom de la maladie" id="maladie_nom" autocomplete="off" >
+                          <input type="text" name="nom" class=" typeahead form form-control "  placeholder="Pathologie a traiter " id="maladie_nom" autocomplete="off" >
                          <input type="hidden" name="nomM" id="nomM" required>
                           </div>
                          </form>
@@ -136,7 +136,7 @@
                                   </div>
                                    <ul id="listAllergie">
                                     </ul>
-                                  <label for="medoc" class="form-label col-form-label-lg">Interactions medicamenteuse</label>
+                                  <label for="medoc" class="form-label col-form-label-lg">Traitement associe</label>
                                         <div class="input-group input-group-lg mb-3">
                             <input type="search" class="form-control" id="medicament" placeholder="Medicaments">
                             
