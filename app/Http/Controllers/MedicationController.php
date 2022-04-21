@@ -18,6 +18,7 @@ class MedicationController extends Controller
     public function autocompleteM (Request $request){
       $data = Sp_specialite::select('SP_CODE_SQ_PK','SP_NOM')
       ->where('SP_NOM', 'LIKE', '%'. $request->get('query'). '%')
+      ->limit(5)
       ->get();
 
 return response()->json($data);
