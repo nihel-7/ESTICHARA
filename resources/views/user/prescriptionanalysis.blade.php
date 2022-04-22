@@ -6,10 +6,22 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+      <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
       
       </head>
         <body>
-          
+           <style type="text/css">
+            li {
+                   
+                   display : block;
+                   margin-left:10px;
+                   font-size: 10px;
+                   line-height: 40px;
+                   width: 200px;
+                   height: 40px;
+                   cursor: pointer;
+
+                }</style>
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="/">Pharm-project</a>
@@ -18,13 +30,14 @@
                   </button>
                 </div>
               </nav>
+          
             
           <div class="content-wrapper mt-2" >
             <!-- Content Header (Page header) -->
             <section class="content-header">
               <div class="container-fluid" >
                 <div class="row justify-content-md-center mb-2">
-                  <div class="col-md-6" style="  padding-bottom: 19px; padding-top: 19px;">
+                  <div class="col-md-6" style="  padding-bottom: 0px; padding-top: 0px;">
                     <h1 class="text-center text-secondary" >Analyse de prescription</h1>
                   </div>
                   
@@ -50,40 +63,29 @@
                           
                         <div >
            <table id="medication-table" class="table " >
-               <thead class="thead">
+               <thead class="thead-light">
                    <tr>
-                       <th scope="col">Medicament</th>
-                       <th scope="col">Unite de prise</th>
-                       <th scope="col">Matin</th>
-                       <th scope="col">Midi</th>
-                       <th scope="col">Soir</th>
-                       <th scope="col">Av-coucher</th>
-                       <th scope="col">Forme</th>
+                       <th scope="col"><center>Medicament</center></th>
+                       <th scope="col"><center>Unite de prise</center></th>
+                       <th scope="col"><center>Matin</center></th>
+                       <th scope="col"><center>Midi</center></th>
+                       <th scope="col"><center>Soir</center></th>
+                       <th scope="col"><center>Av-coucher</center></th>
+                       <th scope="col"><center>Forme</center></th>
+                       <th></th>
                    </tr>
                </thead>
                <tbody>
                    <tr id="row_1">
-                     <td >
-                     <input type="search" class="typeahead form-control" id="medicament" placeholder="" autocomplete="off">
-                     </td>
-                     <td >
-                     <input type="text" class="typeahead form-control" id="unite" placeholder="" autocomplete="off">
-                     </td>
-                     <td >
-                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                     </td>
-                     <td >
-                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                     </td>
-                     <td >
-                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                     </td>
-                     <td >
-                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                     </td>
-                     <td >
-                     <input type="search" class="typeahead form-control" id="unite" placeholder="" autocomplete="off">
-                     </td>
+                     <td><input type="search" class="typeahead form-control" name="medicament[]" id="medicament" placeholder="" autocomplete="off"></td>
+                     <td><input type="text" class="typeahead form-control" name="auto[]" id="unite" placeholder="" autocomplete="off"></td>
+                     <td><input type="checkbox" class="form-check-input" name="ch1[]" id="exampleCheck1"></td>
+                     <td><input type="checkbox" class="form-check-input" name="ch2[]" id="exampleCheck2"></td>
+                     <td><input type="checkbox" class="form-check-input" name="ch3[]" id="exampleCheck3"></td>
+                     <td><input type="checkbox" class="form-check-input" name="ch4[]" id="exampleCheck4"></td>
+                     <td><input type="search" class="typeahead form-control" name="auto2[]" id="unite" placeholder="" autocomplete="off"></td>
+                     <td><button type="button" class="btn btn-primary" id="add_btn"><i class="glyphicon glyphicon-plus"></i> </td>
+
                    </tr>
               </tbody>
            </table>
@@ -99,63 +101,73 @@
                               </h2>
                               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-
                                   <div class="row mb-4">
-                                    <div class="col">
+                                    <div class="col-md-4">
                                       <input type="text" class="form-control input-lg" placeholder="Age" aria-label="age">
                                     </div>
-                                    <div class="col ">
+                                    <div class="col-md-4">
                                       <input type="text" class="form-control" placeholder="Poids" aria-label="poids">
                                     </div>
-                                    <div class="col">
+                                    <div class="col-md-4">
                                       <select class="form-select" aria-label="Default select example">
                                         <option selected>Tranche d'age</option>
                                         <option value="1">Nourrisson</option>
                                         <option value="2">Enfant</option>
                                         <option value="3">Adolescent</option>
                                         <option value="3">Adulte</option>
-                                        <option value="4">Femme en age de procreer</option>
                                         <option value="5">Femme enceinte</option>
                                         <option value="6">Femme qui allaite</option>
-                                        <option value="7">Femme ménopausée</option>
-                                        
-                                        
+                                        <option value="4">Femme en age de procreer</option>
                                       </select>
                                     </div>
                                   </div>
-                                  <div class="input-group input-group-lg mb-3">
-                                      <div class="col">
-                                      <input type="search" class="typeahead form-control" id="antecedent" placeholder="Antecedents">
-                                      
-                                    </div>
-                                    
-                                       <div class="col">
-                                      <input type="search" class="typeahead form-control" id="allergie" placeholder="Allergies">  
-                                    </div>
-                                                       
-                                    
+                                  <div class="row mb-4">
+                                    <div class="col-md-6">
+                                    <div class="entry input-group ">
+                                  <input class="form-control" name="fields[]" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
+                                      <span class="input-group-btn">
+                                      <button class="btn btn-success btn-add" type="button" onclick="addAntecedents()">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                  </span>
+                                 
+                                   </div>
+                                   <ul id="listAntecedant">
+                                    </ul>
                                   </div>
-                                  <label for="medoc" class="form-label col-form-label-lg">Interactions medicamenteuse</label>
-                                  <div class="input-group input-group-lg mb-3">
-                            <input type="search" class="typeahead form-control" id="medicamenti" placeholder="Medicaments">
-                               <div class="col-md-1">
-                                <!-- ajouter-->
-                      <button class="border-primary" onclick="addMedicament()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="40" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" class="text-primary" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                      </svg></button>
-                    </div>
-                    <div class="col-md-1">
-                    <!-- supprimer-->
-                      <button class="border-danger" onclick="deleteMedicament()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="40" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                        <path  class="text-danger" d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                        <path fill-rule="evenodd" class="text-danger" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                        </svg></button>
-                      </div>
-                      <div class="container mt-1">              
-                        <ul id="listMedicament">
+                                  <div class="col-md-6">
+                                  <div class="entry input-group ">
+                                  <input class=" typeahead form-control" name="fields[]" type="text" id="nomAl" placeholder="Allergie" autocomplete="off" />
+                                    <span class="input-group-btn">
+                                      <button class="btn btn-success btn-add" type="button" onclick="addAllergie()">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                  </span>
+                                  <span class="input-group-btn">
+                                      <button class="btn btn-danger btn-delete" type="button" onclick="deleteAllergie()">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                  </span>
+                                   </div>
+                                   <ul id="listAllergie">
+                                    </ul>
+                                   </div>
+                                  </div>
+                                  
+                            
+                                  
+                                  <div class="form-group">
+                                     <label for="medicament" class="form-label mb-2">Interactions medicamenteuse</label>
+
+                                        <div class="input-group input-group-lg mb-3">
+                                       <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicament" placeholder="Medicaments">
+                                       <span class="input-group-btn">
+                                      <button class="btn btn-success btn-add" type="button" onclick="addMedicament()">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    </div>
+                                    <ul id="listMedicament">
                         </ul>
+                                    </div>
+                                    </div>
+                                </div>
+                        
                             </div>
                           
                           
@@ -171,13 +183,27 @@
                         </div>
                   </div>
                 </div>
-
-
-          
-
-
-
-                    
+             <!--   <script type="text/javascript">
+                  $(document).ready(function(){
+                    $('#add_btn').on('click',function(){
+                      var html='';
+                      html+='<tr id="row_1">';
+                      html+='<td><input type="search" class="typeahead form-control" name="medicament[]" id="medicament" placeholder="" autocomplete="off"></td>';
+                      html+='<td><input type="text" class="typeahead form-control" name="auto[]" id="unite" placeholder="" autocomplete="off"></td>';
+                      html+='<td><input type="checkbox" class="form-check-input" name="ch1[]" id="exampleCheck1"></td>';
+                      html+='<td><input type="checkbox" class="form-check-input" name="ch2[]" id="exampleCheck2"></td>';
+                      html+='<td><input type="checkbox" class="form-check-input" name="ch3[]" id="exampleCheck3"></td>';
+                      html+='<td><input type="checkbox" class="form-check-input" name="ch4[]" id="exampleCheck4"></td>';
+                      html+='<td><input type="search" class="typeahead form-control" name="auto2[]" id="unite" placeholder="" autocomplete="off"></td>';
+                      html+='<td><button type="button" class="btn btn-primary" id="remove"><i class="glyphicon glyphicon-remove"></i> </td>';
+                      html+='</tr>';
+                      $('tbody').append(html);
+                    })
+                  });
+                  $(document).on('click','#remove',function(){
+                    $(this).closest('tr').remove();
+                  });
+                </script>-->
                   <script>
             var path3 = "{{ route('autocompleteM') }}";
   
@@ -264,8 +290,249 @@
 },
       });
       </script>
-        
+
+        <script>
+            
+            var nomA = document.getElementById("nomA"),
+                 items = document.querySelectorAll("#listAntecedant li"),
+                 tab = [], index;
+         
+             // get the selected li index using array
+             // populate array with li values
+             
+             for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+             }
+             
+             // get li index onclick
+             for(var i = 0; i < items.length; i++){
+                 
+                 items[i].onclick = function(){
+                     index = tab.indexOf(this.innerHTML);
+                     console.log(this.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     nomA.value = this.innerHTML;
+                 };
+                 
+             }
+            // check the empty input
+            function checkEmptyAntecedants()
+            {
+                var isEmpty = false,
+                    nomA = document.getElementById("nomA").value;
+            
+                if(nomA === ""){
+                    alert("renseigner l'Antecedents");
+                    isEmpty = true;
+                }
+                return isEmpty;
+            }
+            function refreshArray()
+            {
+                // clear array
+                tab.length = 0;
+                items = document.querySelectorAll("#listAntecedant li");
+                // fill array
+                for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+               }
+            }
+
+            function addAntecedents(){
+                      if (!checkEmptyAntecedants()) {
+                var listNode = document.getElementById("listAntecedant"),
+                    textNode = document.createTextNode(nomA.value),
+                    liNode = document.createElement("LI");
+                    
+                    liNode.appendChild(textNode);
+                    listNode.appendChild(liNode);
+                    nomA.value = "";
+                    refreshArray();
+                    
+                    // add event to the new LI
+                    
+                    liNode.onclick = function(){
+                     index = tab.indexOf(liNode.innerHTML);
+                     console.log(liNode.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     nomA.value = liNode.innerHTML;
+                 };
+                    
+             }}
+              function deleteAntecedents(){
+                  
+                      refreshArray();
+                      if(items.length > 0){
+                          items[index].parentNode.removeChild(items[index]);
+                          nomA.value = "";
+                      }
+              }
+            
+        </script>
+         <script>
+            
+            var nomAl = document.getElementById("nomAl"),
+                 items = document.querySelectorAll("#listAllergie li"),
+                 tab = [], index;
+         
+             // get the selected li index using array
+             // populate array with li values
+             
+             for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+             }
+             
+             // get li index onclick
+             for(var i = 0; i < items.length; i++){
+                 
+                 items[i].onclick = function(){
+                     index = tab.indexOf(this.innerHTML);
+                     console.log(this.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     nomAl.value = this.innerHTML;
+                 };
+                 
+             }
+            // check the empty input
+            function checkEmptyAllergie()
+            {
+                var isEmpty = false,
+                    nomAl = document.getElementById("nomAl").value;
+            
+                if(nomAl === ""){
+                    alert("renseigner l'Allergie");
+                    isEmpty = true;
+                }
+                return isEmpty;
+            }
+            function refreshArray()
+            {
+                // clear array
+                tab.length = 0;
+                items = document.querySelectorAll("#listAllergie li");
+                // fill array
+                for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+               }
+            }
+
+            function addAllergie(){
+                      if (!checkEmptyAllergie()) {
+                var listNode = document.getElementById("listAllergie"),
+                    textNode = document.createTextNode(nomAl.value),
+                    liNode = document.createElement("LI");
+                    
+                    liNode.appendChild(textNode);
+                    listNode.appendChild(liNode);
+                    nomAl.value = "";
+                    refreshArray();
+                    
+                    // add event to the new LI
+                    
+                    liNode.onclick = function(){
+                     index = tab.indexOf(liNode.innerHTML);
+                     console.log(liNode.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     nomAl.value = liNode.innerHTML;
+                 };
+                    
+             }}
+              function deleteAllergie(){
+                  
+                      refreshArray();
+                      if(items.length > 0){
+                          items[index].parentNode.removeChild(items[index]);
+                          nomAl.value = "";
+                      }
+              }
+            
+        </script>
+         <script>
+            
+            var medicament = document.getElementById("medicament"),
+                 items = document.querySelectorAll("#listMedicament li"),
+                 tab = [], index;
+         
+             // get the selected li index using array
+             // populate array with li values
+             
+             for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+             }
+             
+             // get li index onclick
+             for(var i = 0; i < items.length; i++){
+                 
+                 items[i].onclick = function(){
+                     index = tab.indexOf(this.innerHTML);
+                     console.log(this.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     medicament.value = this.innerHTML;
+                 };
+                 
+             }
+            // check the empty input
+            function checkEmptyMedicament()
+            {
+                var isEmpty = false,
+                    medicament = document.getElementById("medicament").value;
+            
+                if(medicament === ""){
+                    alert("renseigner le medicament");
+                    isEmpty = true;
+                }
+                return isEmpty;
+            }
+            function refreshArray()
+            {
+                // clear array
+                tab.length = 0;
+                items = document.querySelectorAll("#listMedicament li");
+                // fill array
+                for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+               }
+            }
+
+            function addMedicament(){
+                      if (!checkEmptyMedicament()) {
+                var listNode = document.getElementById("listMedicament"),
+                    textNode = document.createTextNode(medicament.value),
+                    liNode = document.createElement("LI");
+                    
+                    liNode.appendChild(textNode);
+                    listNode.appendChild(liNode);
+                    medicament.value = "";
+                    refreshArray();
+                    
+                    // add event to the new LI
+                    
+                    liNode.onclick = function(){
+                     index = tab.indexOf(liNode.innerHTML);
+                     console.log(liNode.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     medicament.value = liNode.innerHTML;
+                 };
+                    
+             }}
+              function deleteMedicament(){
+                  
+                      refreshArray();
+                      if(items.length > 0){
+                          items[index].parentNode.removeChild(items[index]);
+                          medicament.value = "";
+                      }
+              }</script>
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+                    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+               <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        ></script>
         
         </body>
+        
     
 </html>

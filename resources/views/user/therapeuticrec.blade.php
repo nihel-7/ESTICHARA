@@ -11,7 +11,19 @@
       
       </head>
         <body>
-          
+          <style type="text/css">
+            tr:hover{background-color:#EEE;cursor: pointer}
+            li {
+                   
+                   display : block;
+                   margin-left:10px;
+                   font-size: 12px;
+                   line-height: 40px;
+                   width: 180px;
+                   height: 40px;
+                   cursor: pointer;
+
+                }</style>
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="/">Pharm-project</a>
@@ -22,7 +34,7 @@
                 </div>
               </nav>
             
-          <div class="content-wrapper mt-5" >
+          <div class="content-wrapper mt-2" >
             <!-- Content Header (Page header) -->
             <section class="content-header">
               <div class="container-fluid" >
@@ -76,14 +88,13 @@
                                     <div class="col-md-4">
                                       <select class="form-select form-select-lg" aria-label="Default select example">
                                         <option selected>Tranche d'age</option>
-                                        <option value="7">Nourrisson</option>
-                                        <option value="3">Enfant</option>
-                                        <option value="1">Adolescent</option>
-                                        <option value="2">Adulte</option>
+                                        <option value="1">Nourrisson</option>
+                                        <option value="2">Enfant</option>
+                                        <option value="3">Adolescent</option>
+                                        <option value="3">Adulte</option>
+                                        <option value="5">Femme enceinte</option>
+                                        <option value="6">Femme qui allaite</option>
                                         <option value="4">Femme en age de procreer</option>
-                                        <option value="4">Femme enceinte</option>
-                                        <option value="5">Femme qui allaite</option>
-                                        <option value="6">Femme ménopausée</option>
                                         
                                         
                                       </select>
@@ -95,21 +106,32 @@
                                     <div class="entry input-group ">
                                   <input class="form-control" name="fields[]" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
                                       <span class="input-group-btn">
-                                      <button class="btn btn-success btn-add" type="button">
+                                      <button class="btn btn-success btn-add" type="button" onclick="addAntecedents()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                   </span>
+                                  
                                    </div>
+                                    <ul id="listAntecedant">
+                                    </ul>
                                   </div>
+                                  
                                   <div class="col-md-6">
                                   <div class="entry input-group ">
                                   <input class=" typeahead form-control" name="fields[]" type="text" id="nomAl" placeholder="Allergie" autocomplete="off" />
                     	              <span class="input-group-btn">
-                                      <button class="btn btn-success btn-add" type="button">
+                                      <button class="btn btn-success btn-add" type="button" onclick="addAllergie()">
                                     <span class="glyphicon glyphicon-plus"></span>
-                                   </button>
                                   </span>
+                                  <span class="input-group-btn">
+                                      <button class="btn btn-danger btn-delete" type="button" onclick="deleteAllergie()">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                  </span>
+
                                    </div>
+                                   <ul id="listAllergie">
+                                    </ul>
                                    </div>
+                                   
                                   </div>
                                        
                                                        
@@ -124,10 +146,13 @@
                                         <div class="input-group input-group-lg mb-3">
                                        <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicament" placeholder="Medicaments">
                                        <span class="input-group-btn">
-                                      <button class="btn btn-success btn-add" type="button">
+                                      <button class="btn btn-success btn-add" type="button" onclick="addMedicament()">
                                     <span class="glyphicon glyphicon-plus"></span>
+
                                     </div>
+
                                     </div>
+                                    
                                     </div>
                                 </div>
                               </div>
@@ -231,6 +256,162 @@
 },
       });
         
+        </script>
+        <script>
+            
+            var nomA = document.getElementById("nomA"),
+                 items = document.querySelectorAll("#listAntecedant li"),
+                 tab = [], index;
+         
+             // get the selected li index using array
+             // populate array with li values
+             
+             for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+             }
+             
+             // get li index onclick
+             for(var i = 0; i < items.length; i++){
+                 
+                 items[i].onclick = function(){
+                     index = tab.indexOf(this.innerHTML);
+                     console.log(this.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     nomA.value = this.innerHTML;
+                 };
+                 
+             }
+            // check the empty input
+            function checkEmptyAntecedants()
+            {
+                var isEmpty = false,
+                    nomA = document.getElementById("nomA").value;
+            
+                if(nomA === ""){
+                    alert("renseigner l'Antecedents");
+                    isEmpty = true;
+                }
+                return isEmpty;
+            }
+            function refreshArray()
+            {
+                // clear array
+                tab.length = 0;
+                items = document.querySelectorAll("#listAntecedant li");
+                // fill array
+                for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+               }
+            }
+
+            function addAntecedents(){
+                      if (!checkEmptyAntecedants()) {
+                var listNode = document.getElementById("listAntecedant"),
+                    textNode = document.createTextNode(nomA.value),
+                    liNode = document.createElement("LI");
+                    
+                    liNode.appendChild(textNode);
+                    listNode.appendChild(liNode);
+                    nomA.value = "";
+                    refreshArray();
+                    
+                    // add event to the new LI
+                    
+                    liNode.onclick = function(){
+                     index = tab.indexOf(liNode.innerHTML);
+                     console.log(liNode.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     nomA.value = liNode.innerHTML;
+                 };
+                    
+             }}
+              function deleteAntecedents(){
+                  
+                      refreshArray();
+                      if(items.length > 0){
+                          items[index].parentNode.removeChild(items[index]);
+                          nomA.value = "";
+                      }
+              }
+            
+        </script>
+         <script>
+            
+            var nomAl = document.getElementById("nomAl"),
+                 items = document.querySelectorAll("#listAllergie li"),
+                 tab = [], index;
+         
+             // get the selected li index using array
+             // populate array with li values
+             
+             for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+             }
+             
+             // get li index onclick
+             for(var i = 0; i < items.length; i++){
+                 
+                 items[i].onclick = function(){
+                     index = tab.indexOf(this.innerHTML);
+                     console.log(this.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     nomAl.value = this.innerHTML;
+                 };
+                 
+             }
+            // check the empty input
+            function checkEmptyAllergie()
+            {
+                var isEmpty = false,
+                    nomAl = document.getElementById("nomAl").value;
+            
+                if(nomAl === ""){
+                    alert("renseigner l'Allergie");
+                    isEmpty = true;
+                }
+                return isEmpty;
+            }
+            function refreshArray()
+            {
+                // clear array
+                tab.length = 0;
+                items = document.querySelectorAll("#listAllergie li");
+                // fill array
+                for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+               }
+            }
+
+            function addAllergie(){
+                      if (!checkEmptyAllergie()) {
+                var listNode = document.getElementById("listAllergie"),
+                    textNode = document.createTextNode(nomAl.value),
+                    liNode = document.createElement("LI");
+                    
+                    liNode.appendChild(textNode);
+                    listNode.appendChild(liNode);
+                    nomAl.value = "";
+                    refreshArray();
+                    
+                    // add event to the new LI
+                    
+                    liNode.onclick = function(){
+                     index = tab.indexOf(liNode.innerHTML);
+                     console.log(liNode.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     nomAl.value = liNode.innerHTML;
+                 };
+                    
+             }}
+              function deleteAllergie(){
+                  
+                      refreshArray();
+                      if(items.length > 0){
+                          items[index].parentNode.removeChild(items[index]);
+                          nomAl.value = "";
+                      }
+              }
+            
         </script>
         
 
