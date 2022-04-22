@@ -10,18 +10,7 @@
       
       </head>
         <body>
-           <style type="text/css">
-            li {
-                   
-                   display : block;
-                   margin-left:10px;
-                   font-size: 10px;
-                   line-height: 40px;
-                   width: 200px;
-                   height: 40px;
-                   cursor: pointer;
-
-                }</style>
+           
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="/">Pharm-project</a>
@@ -103,33 +92,37 @@
                                 <div class="accordion-body">
                                   <div class="row mb-4">
                                     <div class="col-md-4">
-                                      <input type="text" class="form-control input-lg" placeholder="Age" aria-label="age">
+                                      <input type="text" class="form-control " placeholder="Age" aria-label="age">
                                     </div>
                                     <div class="col-md-4">
                                       <input type="text" class="form-control" placeholder="Poids" aria-label="poids">
                                     </div>
                                     <div class="col-md-4">
-                                      <select class="form-select" aria-label="Default select example">
+                                      <select class="form-select form-select-lg" aria-label="Default select example">
                                         <option selected>Tranche d'age</option>
                                         <option value="1">Nourrisson</option>
                                         <option value="2">Enfant</option>
                                         <option value="3">Adolescent</option>
-                                        <option value="3">Adulte</option>
-                                        <option value="5">Femme enceinte</option>
-                                        <option value="6">Femme qui allaite</option>
-                                        <option value="4">Femme en age de procreer</option>
+                                        <option value="4">Adulte</option>
+                                        <option value="5">Femme en age de procreer</option>
+                                        <option value="6">Femme enceinte</option>
+                                        <option value="7">Femme qui allaite</option>
+                                        <option value="8">Femme ménopausée</option>
                                       </select>
                                     </div>
                                   </div>
                                   <div class="row mb-4">
                                     <div class="col-md-6">
                                     <div class="entry input-group ">
-                                  <input class="form-control" name="fields[]" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
+                                  <input class="typeahead form-control" name="fields[]" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
                                       <span class="input-group-btn">
                                       <button class="btn btn-success btn-add" type="button" onclick="addAntecedents()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                   </span>
-                                 
+                                  <span class="input-group-btn">
+                                      <button class="btn btn-danger btn-delete" type="button" onclick="deleteAntecedents()">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                  </span>
                                    </div>
                                    <ul id="listAntecedant">
                                     </ul>
@@ -154,13 +147,19 @@
                             
                                   
                                   <div class="form-group">
-                                     <label for="medicament" class="form-label mb-2">Interactions medicamenteuse</label>
+                                     <label for="medicament" class="form-label mb-2">Traitements associés</label>
 
                                         <div class="input-group input-group-lg mb-3">
-                                       <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicament" placeholder="Medicaments">
+                                       <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicamenti" placeholder="Medicaments">
                                        <span class="input-group-btn">
                                       <button class="btn btn-success btn-add" type="button" onclick="addMedicament()">
-                                    <span class="glyphicon glyphicon-plus"></span>
+                                      <span class="glyphicon glyphicon-plus"></span>
+                                        </span>
+                                      <span class="input-group-btn">
+                                      <button class="btn btn-danger btn-delete" type="button" onclick="deleteMedicament()">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                  </span>
+                                    
                                     </div>
                                     <ul id="listMedicament">
                         </ul>
@@ -251,7 +250,7 @@
          <script>
             var path = "{{ route('autocomplete') }}";
   
-  $('#antecedent').typeahead({
+  $('#nomA').typeahead({
       displayText: function(item){ return item.pathologie;},
       
           source: function (query, process) {
@@ -273,7 +272,7 @@
 <script>
             var path2 = "{{ route('autocompleteA') }}";
   
-  $('#allergie').typeahead({
+  $('#nomAl').typeahead({
       displayText: function(item){ return item.allergie;},
       
           source: function (query, process) {
@@ -449,7 +448,7 @@
         </script>
          <script>
             
-            var medicament = document.getElementById("medicament"),
+            var medicament = document.getElementById("medicamenti"),
                  items = document.querySelectorAll("#listMedicament li"),
                  tab = [], index;
          
@@ -475,7 +474,7 @@
             function checkEmptyMedicament()
             {
                 var isEmpty = false,
-                    medicament = document.getElementById("medicament").value;
+                    medicament = document.getElementById("medicamenti").value;
             
                 if(medicament === ""){
                     alert("renseigner le medicament");

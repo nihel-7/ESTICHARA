@@ -13,17 +13,7 @@
         <body>
           <style type="text/css">
             tr:hover{background-color:#EEE;cursor: pointer}
-            li {
-                   
-                   display : block;
-                   margin-left:10px;
-                   font-size: 12px;
-                   line-height: 40px;
-                   width: 180px;
-                   height: 40px;
-                   cursor: pointer;
-
-                }</style>
+            </style>
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="/">Pharm-project</a>
@@ -91,10 +81,11 @@
                                         <option value="1">Nourrisson</option>
                                         <option value="2">Enfant</option>
                                         <option value="3">Adolescent</option>
-                                        <option value="3">Adulte</option>
-                                        <option value="5">Femme enceinte</option>
-                                        <option value="6">Femme qui allaite</option>
-                                        <option value="4">Femme en age de procreer</option>
+                                        <option value="4">Adulte</option>
+                                        <option value="5">Femme en age de procreer</option>
+                                        <option value="6">Femme enceinte</option>
+                                        <option value="7">Femme qui allaite</option>
+                                        <option value="8">Femme ménopausée</option>
                                         
                                         
                                       </select>
@@ -109,7 +100,10 @@
                                       <button class="btn btn-success btn-add" type="button" onclick="addAntecedents()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                   </span>
-                                  
+                                  <span class="input-group-btn">
+                                      <button class="btn btn-danger btn-delete" type="button" onclick="deleteAntecedent()">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                  </span>
                                    </div>
                                     <ul id="listAntecedant">
                                     </ul>
@@ -134,29 +128,33 @@
                                    
                                   </div>
                                        
-                                                       
+                                  <div class="form-group">
+                                     <label for="medicament" class="form-label mb-2">Traitements associés</label>
+
+                                        <div class="input-group input-group-lg mb-3">
+                                       <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicamenti" placeholder="Medicaments">
+                                       <span class="input-group-btn">
+                                      <button class="btn btn-success btn-add" type="button" onclick="addMedicament()">
+                                      <span class="glyphicon glyphicon-plus"></span>
+                                        </span>
+                                      <span class="input-group-btn">
+                                      <button class="btn btn-danger btn-delete" type="button" onclick="deleteMedicament()">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                  </span>
+                                    
+                                    </div>
+                                    <ul id="listMedicament">
+                        </ul>
+                                    </div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                                          
                                     
                                   </div>
 
-                                  <div class="row ml-2 mr-2 mb-2">
-                                  <div class="col-md-12">
-                                  <div class="form-group">
-                                     <label for="medicament" class="form-label mb-2">Traitement associe</label>
-
-                                        <div class="input-group input-group-lg mb-3">
-                                       <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicament" placeholder="Medicaments">
-                                       <span class="input-group-btn">
-                                      <button class="btn btn-success btn-add" type="button" onclick="addMedicament()">
-                                    <span class="glyphicon glyphicon-plus"></span>
-
-                                    </div>
-
-                                    </div>
-                                    
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
+                                  
                           
                           
                         <!-- /.card-body -->
@@ -239,7 +237,7 @@
         <script>
             var path3 = "{{ route('autocompleteM') }}";
   
-  $('#medicament').typeahead({
+  $('#medicamenti').typeahead({
       displayText: function(item){ return item.SP_NOM;},
       
           source: function (query, process) {
@@ -325,7 +323,7 @@
                  };
                     
              }}
-              function deleteAntecedents(){
+              function deleteAntecedent(){
                   
                       refreshArray();
                       if(items.length > 0){
@@ -413,7 +411,82 @@
               }
             
         </script>
-        
+         <script>
+            
+            var medicament = document.getElementById("medicamenti"),
+                 items = document.querySelectorAll("#listMedicament li"),
+                 tab = [], index;
+         
+             // get the selected li index using array
+             // populate array with li values
+             
+             for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+             }
+             
+             // get li index onclick
+             for(var i = 0; i < items.length; i++){
+                 
+                 items[i].onclick = function(){
+                     index = tab.indexOf(this.innerHTML);
+                     console.log(this.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     medicament.value = this.innerHTML;
+                 };
+                 
+             }
+            // check the empty input
+            function checkEmptyMedicament()
+            {
+                var isEmpty = false,
+                    medicament = document.getElementById("medicamenti").value;
+            
+                if(medicament === ""){
+                    alert("renseigner le medicament");
+                    isEmpty = true;
+                }
+                return isEmpty;
+            }
+            function refreshArray()
+            {
+                // clear array
+                tab.length = 0;
+                items = document.querySelectorAll("#listMedicament li");
+                // fill array
+                for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+               }
+            }
+
+            function addMedicament(){
+                      if (!checkEmptyMedicament()) {
+                var listNode = document.getElementById("listMedicament"),
+                    textNode = document.createTextNode(medicament.value),
+                    liNode = document.createElement("LI");
+                    
+                    liNode.appendChild(textNode);
+                    listNode.appendChild(liNode);
+                    medicament.value = "";
+                    refreshArray();
+                    
+                    // add event to the new LI
+                    
+                    liNode.onclick = function(){
+                     index = tab.indexOf(liNode.innerHTML);
+                     console.log(liNode.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     medicament.value = liNode.innerHTML;
+                 };
+                    
+             }}
+              function deleteMedicament(){
+                  
+                      refreshArray();
+                      if(items.length > 0){
+                          items[index].parentNode.removeChild(items[index]);
+                          medicament.value = "";
+                      }
+              }</script>
 
            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
