@@ -18,11 +18,21 @@ class MedicationController extends Controller
     public function autocompleteM (Request $request){
       $data = Sp_specialite::select('SP_CODE_SQ_PK','SP_NOM')
       ->where('SP_NOM', 'LIKE', '%'. $request->get('query'). '%')
-      ->limit(4)
+      
       ->get();
 
 return response()->json($data);
     }
 
-    
+    public function autocompleteMF (Request $request){
+        $data = DB::table('sp_specialite')
+        
+        ->where('SP_NOM', 'LIKE', '%'. $request->get('query'). '%')
+        ->join('spfotx_spe_forme_texte', 'SP_CODE_SQ_PK', '=', 'SPFOTX_SP_CODE_FK_PK')
+        ->select('SP_NOM', 'SP_CODE_SQ_PK', 'SPFOTX_TEXTE')
+        ->get();
+  
+  return response()->json($data);
+      }
+  
 }

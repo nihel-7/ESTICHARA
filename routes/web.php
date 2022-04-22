@@ -43,6 +43,7 @@ Route::get('/prescriptionanalysis', function () {
 }); 
 Route::post('/list',[MedicationController::class,'list'])->name('list');
 Route::get('autocompleteM',[MedicationController::class,'autocompleteM'])->name('autocompleteM');
+Route::get('autocompleteMF',[MedicationController::class,'autocompleteMF'])->name('autocompleteMF');
 Route::controller(SearchController::class)->group(function(){
     Route::get('demo-search', 'index');
     Route::get('autocomplete', 'autocomplete')->name('autocomplete');

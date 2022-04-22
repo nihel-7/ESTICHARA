@@ -65,7 +65,7 @@
                      <td><center><input type="checkbox" class="form-check-input" name="ch2[]" id="exampleCheck2"></center></td>
                      <td><center><input type="checkbox" class="form-check-input" name="ch3[]" id="exampleCheck3"></center></td>
                      <td><center><input type="checkbox" class="form-check-input" name="ch4[]"id="exampleCheck4"></center></td>
-                     <td><input type="search" class="typeahead form-control" name="auto2[]" id="unite" placeholder="" autocomplete="off"></td>
+                     <td><input type="search" class="typeahead form-control" name="auto2[]" id="forme" placeholder="" autocomplete="off"></td>
                      <td><button type="button" class="btn btn-primary" id="add_btn"><i class="glyphicon glyphicon-plus"></i> </td>
 
                    </tr>
@@ -218,7 +218,7 @@
         
         </script>
         <script>
-            var path5 = "{{ route('autocompleteM') }}";
+            var path5 = "{{ route('autocompleteMF') }}";
   
   $('#medicament1').typeahead({
       displayText: function(item){ return item.SP_NOM;},
@@ -233,7 +233,8 @@
           },
           afterSelect: function(item) {
               console.log(item.id);
-     // $('#nomM').val(item.id);
+              console.log(item.SPFOTX_TEXTE);
+            $('#forme').val(item.SPFOTX_TEXTE);
 },
       });
         
