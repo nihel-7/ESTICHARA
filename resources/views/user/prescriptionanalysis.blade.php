@@ -10,13 +10,14 @@
       
       </head>
         <body>
-           
+           <style type="text/css">
+            ul:hover{cursor: pointer}
+            </style>
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="/">Pharm-project</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
+                  <div class="mx-auto">
+                  <h3>Analyse de prescription</h3></div>
                 </div>
               </nav>
           
@@ -25,12 +26,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
               <div class="container-fluid" >
-                <div class="row justify-content-md-center mb-2">
-                  <div class="col-md-6" style="  padding-bottom: 0px; padding-top: 0px;">
-                    <h1 class="text-center text-secondary" >Analyse de prescription</h1>
-                  </div>
-                  
-                </div>
+               
               </div><!-- /.container-fluid -->
             </section>
         
@@ -39,12 +35,9 @@
               <div class="container-fluid">
                 <div class="row justify-content-md-center">
                   <!-- left column -->
-                  <div class="col-md-8">
+                  <div class="col-md-10">
                     <!-- general form elements -->
                     <div class="card card-primary w-100">
-                      <div class="card-header">
-                        <h3 class="card-title">Remplire les champs </h3>
-                      </div>
                       <!-- /.card-header -->
                       <!-- form start -->
                       
@@ -53,25 +46,25 @@
                         <div >
            <table id="medication-table" class="table " >
                <thead class="thead-light">
-                   <tr>
-                       <th scope="col"><center>Medicament</center></th>
-                       <th scope="col"><center>Unite de prise</center></th>
-                       <th scope="col"><center>Matin</center></th>
-                       <th scope="col"><center>Midi</center></th>
-                       <th scope="col"><center>Soir</center></th>
-                       <th scope="col"><center>Av-coucher</center></th>
-                       <th scope="col"><center>Forme</center></th>
+                   <tr class="col" >
+                       <th class="col col-md-4">Medicament</th>
+                       <th class="col col-md-2">Unite prise</th>
+                       <th class="col col-md-1"><center>Matin</center></th>
+                       <th class="col col-md-1"><center>Midi</center></th>
+                       <th class="col col-md-1"><center>Soir</center></th>
+                       <th class="col col-md-2"><center>Av-coucher</center></th>
+                       <th class="col col-md-1"><center>Forme</center></th>
                        <th></th>
                    </tr>
                </thead>
                <tbody>
                    <tr id="row_1">
-                     <td><input type="search" class="typeahead form-control" name="medicament[]" id="medicament" placeholder="" autocomplete="off"></td>
+                     <td><input type="search" class="typeahead form-control" name="medicament[]" id="medicament1" placeholder="" autocomplete="off"></td>
                      <td><input type="text" class="typeahead form-control" name="auto[]" id="unite" placeholder="" autocomplete="off"></td>
-                     <td><input type="checkbox" class="form-check-input" name="ch1[]" id="exampleCheck1"></td>
-                     <td><input type="checkbox" class="form-check-input" name="ch2[]" id="exampleCheck2"></td>
-                     <td><input type="checkbox" class="form-check-input" name="ch3[]" id="exampleCheck3"></td>
-                     <td><input type="checkbox" class="form-check-input" name="ch4[]" id="exampleCheck4"></td>
+                     <td><center><input type="checkbox" class="form-check-input" name="ch1[]" id="exampleCheck1"></center></td>
+                     <td><center><input type="checkbox" class="form-check-input" name="ch2[]" id="exampleCheck2"></center></td>
+                     <td><center><input type="checkbox" class="form-check-input" name="ch3[]" id="exampleCheck3"></center></td>
+                     <td><center><input type="checkbox" class="form-check-input" name="ch4[]"id="exampleCheck4"></center></td>
                      <td><input type="search" class="typeahead form-control" name="auto2[]" id="unite" placeholder="" autocomplete="off"></td>
                      <td><button type="button" class="btn btn-primary" id="add_btn"><i class="glyphicon glyphicon-plus"></i> </td>
 
@@ -116,11 +109,11 @@
                                     <div class="entry input-group ">
                                   <input class="typeahead form-control" name="fields[]" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
                                       <span class="input-group-btn">
-                                      <button class="btn btn-success btn-add" type="button" onclick="addAntecedents()">
+                                      <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAntecedent()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                   </span>
                                   <span class="input-group-btn">
-                                      <button class="btn btn-danger btn-delete" type="button" onclick="deleteAntecedents()">
+                                      <button class="btn btn-danger btn-delete" type="button" onclick="deleteAntecedent()">
                                     <span class="glyphicon glyphicon-minus"></span>
                                   </span>
                                    </div>
@@ -131,7 +124,7 @@
                                   <div class="entry input-group ">
                                   <input class=" typeahead form-control" name="fields[]" type="text" id="nomAl" placeholder="Allergie" autocomplete="off" />
                                     <span class="input-group-btn">
-                                      <button class="btn btn-success btn-add" type="button" onclick="addAllergie()">
+                                      <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAllergie()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                   </span>
                                   <span class="input-group-btn">
@@ -152,7 +145,7 @@
                                         <div class="input-group input-group-lg mb-3">
                                        <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicamenti" placeholder="Medicaments">
                                        <span class="input-group-btn">
-                                      <button class="btn btn-success btn-add" type="button" onclick="addMedicament()">
+                                      <button class="btn btn-primary btn-add mr-3" type="button" onclick="addMedicament()">
                                       <span class="glyphicon glyphicon-plus"></span>
                                         </span>
                                       <span class="input-group-btn">
@@ -182,19 +175,19 @@
                         </div>
                   </div>
                 </div>
-             <!--   <script type="text/javascript">
+            <script type="text/javascript">
                   $(document).ready(function(){
                     $('#add_btn').on('click',function(){
                       var html='';
                       html+='<tr id="row_1">';
-                      html+='<td><input type="search" class="typeahead form-control" name="medicament[]" id="medicament" placeholder="" autocomplete="off"></td>';
+                      html+='<td><input type="search" class="typeahead form-control" name="medicament[]" id="medicament1" placeholder="" autocomplete="off"></td>';
                       html+='<td><input type="text" class="typeahead form-control" name="auto[]" id="unite" placeholder="" autocomplete="off"></td>';
-                      html+='<td><input type="checkbox" class="form-check-input" name="ch1[]" id="exampleCheck1"></td>';
-                      html+='<td><input type="checkbox" class="form-check-input" name="ch2[]" id="exampleCheck2"></td>';
-                      html+='<td><input type="checkbox" class="form-check-input" name="ch3[]" id="exampleCheck3"></td>';
-                      html+='<td><input type="checkbox" class="form-check-input" name="ch4[]" id="exampleCheck4"></td>';
+                      html+='<td><center><input type="checkbox" class="form-check-input" name="ch1[]" id="exampleCheck1"></center></td>';
+                      html+='<td><center><input type="checkbox" class="form-check-input" name="ch2[]" id="exampleCheck2"></center></td>';
+                      html+='<td><center><input type="checkbox" class="form-check-input" name="ch3[]" id="exampleCheck3"></center></td>';
+                      html+='<td><center><input type="checkbox" class="form-check-input" name="ch4[]" id="exampleCheck4"></center></td>';
                       html+='<td><input type="search" class="typeahead form-control" name="auto2[]" id="unite" placeholder="" autocomplete="off"></td>';
-                      html+='<td><button type="button" class="btn btn-primary" id="remove"><i class="glyphicon glyphicon-remove"></i> </td>';
+                      html+='<td><button type="button" class="btn btn-danger" id="remove"><i class="glyphicon glyphicon-minus"></i> </td>';
                       html+='</tr>';
                       $('tbody').append(html);
                     })
@@ -202,7 +195,7 @@
                   $(document).on('click','#remove',function(){
                     $(this).closest('tr').remove();
                   });
-                </script>-->
+                </script>
                   <script>
             var path3 = "{{ route('autocompleteM') }}";
   
@@ -211,6 +204,27 @@
       
           source: function (query, process) {
               return $.get(path3, {
+                  query: query
+              }, function (data) {
+                  console.log(data)
+                  return process(data);
+              });
+          },
+          afterSelect: function(item) {
+              console.log(item.id);
+     // $('#nomM').val(item.id);
+},
+      });
+        
+        </script>
+        <script>
+            var path5 = "{{ route('autocompleteM') }}";
+  
+  $('#medicament1').typeahead({
+      displayText: function(item){ return item.SP_NOM;},
+      
+          source: function (query, process) {
+              return $.get(path5, {
                   query: query
               }, function (data) {
                   console.log(data)
@@ -289,25 +303,24 @@
 },
       });
       </script>
-
         <script>
             
             var nomA = document.getElementById("nomA"),
-                 items = document.querySelectorAll("#listAntecedant li"),
-                 tab = [], index;
+                 itemsA = document.querySelectorAll("#listAntecedant li"),
+                 tabA = [], index;
          
              // get the selected li index using array
              // populate array with li values
              
-             for(var i = 0; i < items.length; i++){
-                 tab.push(items[i].innerHTML);
+             for(var i = 0; i < itemsA.length; i++){
+                 tabA.push(itemsA[i].innerHTML);
              }
              
              // get li index onclick
-             for(var i = 0; i < items.length; i++){
+             for(var i = 0; i < itemsA.length; i++){
                  
-                 items[i].onclick = function(){
-                     index = tab.indexOf(this.innerHTML);
+                 itemsA[i].onclick = function(){
+                     index = tabA.indexOf(this.innerHTML);
                      console.log(this.innerHTML + " INDEX = " + index);
                      // set the selected li value into input text
                      nomA.value = this.innerHTML;
@@ -326,18 +339,18 @@
                 }
                 return isEmpty;
             }
-            function refreshArray()
+            function refreshArrayA()
             {
                 // clear array
-                tab.length = 0;
-                items = document.querySelectorAll("#listAntecedant li");
+                tabA.length = 0;
+                itemsA = document.querySelectorAll("#listAntecedant li");
                 // fill array
-                for(var i = 0; i < items.length; i++){
-                 tab.push(items[i].innerHTML);
+                for(var i = 0; i < itemsA.length; i++){
+                 tabA.push(itemsA[i].innerHTML);
                }
             }
 
-            function addAntecedents(){
+            function addAntecedent(){
                       if (!checkEmptyAntecedants()) {
                 var listNode = document.getElementById("listAntecedant"),
                     textNode = document.createTextNode(nomA.value),
@@ -346,25 +359,24 @@
                     liNode.appendChild(textNode);
                     listNode.appendChild(liNode);
                     nomA.value = "";
-                    refreshArray();
+                    refreshArrayA();
                     
                     // add event to the new LI
                     
                     liNode.onclick = function(){
-                     index = tab.indexOf(liNode.innerHTML);
+                     index = tabA.indexOf(liNode.innerHTML);
                      console.log(liNode.innerHTML + " INDEX = " + index);
                      // set the selected li value into input text
                      nomA.value = liNode.innerHTML;
                  };
                     
              }}
-              function deleteAntecedents(){
+              function deleteAntecedent(){
                   
-                      refreshArray();
-                      if(items.length > 0){
-                          items[index].parentNode.removeChild(items[index]);
+                      refreshArrayA();
+                          itemsA[index].parentNode.removeChild(itemsA[index]);
                           nomA.value = "";
-                      }
+                      
               }
             
         </script>
@@ -404,7 +416,7 @@
                 }
                 return isEmpty;
             }
-            function refreshArray()
+            function refreshArrayAl()
             {
                 // clear array
                 tab.length = 0;
@@ -424,7 +436,7 @@
                     liNode.appendChild(textNode);
                     listNode.appendChild(liNode);
                     nomAl.value = "";
-                    refreshArray();
+                    refreshArrayAl();
                     
                     // add event to the new LI
                     
@@ -438,7 +450,7 @@
              }}
               function deleteAllergie(){
                   
-                      refreshArray();
+                      refreshArrayAl();
                       if(items.length > 0){
                           items[index].parentNode.removeChild(items[index]);
                           nomAl.value = "";

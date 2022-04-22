@@ -69,7 +69,7 @@
               </nav>
       <div class="btnCenter">
       <button class="btn1"><a href="/prescriptionanalysis">analyse de prescription</a></button>
-      <button class="btn1"><a href="/therapeuticrec">recherche par pathologie</a></button>
+      <button class="btn1"><a href="/therapeuticrec">Recommendation therapeutique</a></button>
       </div>
     
     

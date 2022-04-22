@@ -12,15 +12,13 @@
       </head>
         <body>
           <style type="text/css">
-            tr:hover{background-color:#EEE;cursor: pointer}
+            ul:hover{cursor: pointer}
             </style>
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="/">Pharm-project</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  
+                  <div class="mx-auto">
+                  <h3>Recommendation therapeutique</h3></div>
                 </div>
               </nav>
             
@@ -30,7 +28,7 @@
               <div class="container-fluid" >
                 <div class="row justify-content-md-center mb-2">
                   <div class="col-md-6" style=" padding-bottom: 0px; padding-top: 0px;">
-                    <h2 class="text-center text-secondary" >Recommendation therapeutique</h2>
+                    
                   </div>
                   
                 </div>
@@ -45,9 +43,7 @@
                   <div class="col-md-8">
                     <!-- general form elements -->
                     <div class="card card-primary w-100">
-                      <div class="card-header">
-                        <h4 class="card-title">Remplire les champs </h4>
-                      </div>
+                     
                       <!-- /.card-header -->
                       <!-- form start -->
                       
@@ -97,7 +93,7 @@
                                     <div class="entry input-group ">
                                   <input class="form-control" name="fields[]" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
                                       <span class="input-group-btn">
-                                      <button class="btn btn-success btn-add" type="button" onclick="addAntecedents()">
+                                      <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAntecedents()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                   </span>
                                   <span class="input-group-btn">
@@ -113,7 +109,7 @@
                                   <div class="entry input-group ">
                                   <input class=" typeahead form-control" name="fields[]" type="text" id="nomAl" placeholder="Allergie" autocomplete="off" />
                     	              <span class="input-group-btn">
-                                      <button class="btn btn-success btn-add" type="button" onclick="addAllergie()">
+                                      <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAllergie()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                   </span>
                                   <span class="input-group-btn">
@@ -134,7 +130,7 @@
                                         <div class="input-group input-group-lg mb-3">
                                        <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicamenti" placeholder="Medicaments">
                                        <span class="input-group-btn">
-                                      <button class="btn btn-success btn-add" type="button" onclick="addMedicament()">
+                                      <button class="btn btn-primary btn-add mr-3" type="button" onclick="addMedicament()">
                                       <span class="glyphicon glyphicon-plus"></span>
                                         </span>
                                       <span class="input-group-btn">
@@ -258,21 +254,21 @@
         <script>
             
             var nomA = document.getElementById("nomA"),
-                 items = document.querySelectorAll("#listAntecedant li"),
-                 tab = [], index;
+                 itemsA = document.querySelectorAll("#listAntecedant li"),
+                 tabA = [], index;
          
              // get the selected li index using array
              // populate array with li values
              
-             for(var i = 0; i < items.length; i++){
-                 tab.push(items[i].innerHTML);
+             for(var i = 0; i < itemsA.length; i++){
+                 tabA.push(itemsA[i].innerHTML);
              }
              
              // get li index onclick
-             for(var i = 0; i < items.length; i++){
+             for(var i = 0; i < itemsA.length; i++){
                  
-                 items[i].onclick = function(){
-                     index = tab.indexOf(this.innerHTML);
+                 itemsA[i].onclick = function(){
+                     index = tabA.indexOf(this.innerHTML);
                      console.log(this.innerHTML + " INDEX = " + index);
                      // set the selected li value into input text
                      nomA.value = this.innerHTML;
@@ -291,14 +287,14 @@
                 }
                 return isEmpty;
             }
-            function refreshArray()
+            function refreshArrayA()
             {
                 // clear array
-                tab.length = 0;
-                items = document.querySelectorAll("#listAntecedant li");
+                tabA.length = 0;
+                itemsA = document.querySelectorAll("#listAntecedant li");
                 // fill array
-                for(var i = 0; i < items.length; i++){
-                 tab.push(items[i].innerHTML);
+                for(var i = 0; i < itemsA.length; i++){
+                 tabA.push(itemsA[i].innerHTML);
                }
             }
 
@@ -311,12 +307,12 @@
                     liNode.appendChild(textNode);
                     listNode.appendChild(liNode);
                     nomA.value = "";
-                    refreshArray();
+                    refreshArrayA();
                     
                     // add event to the new LI
                     
                     liNode.onclick = function(){
-                     index = tab.indexOf(liNode.innerHTML);
+                     index = tabA.indexOf(liNode.innerHTML);
                      console.log(liNode.innerHTML + " INDEX = " + index);
                      // set the selected li value into input text
                      nomA.value = liNode.innerHTML;
@@ -325,15 +321,15 @@
              }}
               function deleteAntecedent(){
                   
-                      refreshArray();
-                      if(items.length > 0){
-                          items[index].parentNode.removeChild(items[index]);
+                      refreshArrayA();
+                      if(itemsA.length > 0){
+                          itemsA[index].parentNode.removeChild(itemsA[index]);
                           nomA.value = "";
                       }
               }
             
         </script>
-         <script>
+        <script>
             
             var nomAl = document.getElementById("nomAl"),
                  items = document.querySelectorAll("#listAllergie li"),
@@ -369,7 +365,7 @@
                 }
                 return isEmpty;
             }
-            function refreshArray()
+            function refreshArrayAl()
             {
                 // clear array
                 tab.length = 0;
@@ -389,7 +385,7 @@
                     liNode.appendChild(textNode);
                     listNode.appendChild(liNode);
                     nomAl.value = "";
-                    refreshArray();
+                    refreshArrayAl();
                     
                     // add event to the new LI
                     
@@ -403,11 +399,10 @@
              }}
               function deleteAllergie(){
                   
-                      refreshArray();
-                      if(items.length > 0){
+                      refreshArrayAl();
                           items[index].parentNode.removeChild(items[index]);
                           nomAl.value = "";
-                      }
+                      
               }
             
         </script>
