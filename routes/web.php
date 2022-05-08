@@ -6,6 +6,9 @@ use App\Http\Controllers\PathologyController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AllergieController;
 use App\Http\Controllers\MedicamentController;
+use Illuminate\Routing\RouteRegistrar;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +22,9 @@ use App\Http\Controllers\MedicamentController;
 
 Route::get('/', function () {
     return view('user.home');
+});
+Route::get('/welcome', function () {
+    return view('welcome');
 });
 Route::get('/therapeuticrec', function () {
     return view('user.therapeuticrec');
@@ -52,3 +58,31 @@ Route::controller(SearchController::class)->group(function(){
 
 Route::POST('/easy',[SearchController::class,'getpathologyfunction']);
 Route::get('autocompleteA',[AllergieController::class,'autocompleteA'])->name('autocompleteA');
+Auth::routes();
+///////------------------authentification
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('user')->name('user.')->group(function(){
+	Route::middleware(['guest:web'])->group(function(){
+		Route::view('/login','user.login')->name('login');
+		Route::view('/register','user.register')->name('register');
+		Route::Post('/create',[UserController::class,'create'])->name('create');
+		Route::Post('/dologin',[UserController::class,'doLogin'])->name('dologin');
+	});
+	Route::middleware(['auth:web'])->group(function(){
+		Route::view('/home','user.home')->name('home');
+		Route::Post('/logout',[UserController::class,'logout'])->name('logout');
+	});
+});
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('admin')->name('admin.')->group(function(){
+	Route::middleware(['guest:admin'])->group(function(){
+		Route::view('/login','admin.login')->name('login');
+		Route::Post('/dologin',[AdminController::class,'doLogin'])->name('dologin');
+	});
+	Route::middleware(['auth:admin'])->group(function(){
+		Route::view('/home','admin.home')->name('home');
+		Route::Post('/logout',[AdminController::class,'logout'])->name('logout');
+	});
+});
