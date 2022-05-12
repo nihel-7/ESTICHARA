@@ -21,6 +21,10 @@ return [
         'driver'=>'eloquent',
         'model'=>App\Models\Admin::class,
     ],
+    'Pharmacien'=>[
+        'driver'=>'eloquent',
+        'model'=>App\Models\Pharmacien::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -53,6 +57,10 @@ return [
             'driver'=>'session',
             'provider'=>'admins',
         ],
+        'pharmacien'=>[
+            'driver'=>'session',
+            'provider'=>'pharmaciens',
+        ],
     ],
 
     /*
@@ -80,6 +88,11 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
+        ],
+
+        'pharmaciens' => [           //le nom du table
+            'driver' => 'eloquent',
+            'model' => App\Models\Pharmacien::class,
         ],
 
         // 'users' => [
@@ -113,6 +126,10 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
+        ],
+        'pharmaciens' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Pharmacien::class,
         ],
     ],
 
