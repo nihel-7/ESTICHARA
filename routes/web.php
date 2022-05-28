@@ -11,6 +11,8 @@ use Illuminate\Routing\RouteRegistrar;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Pharmacien\PharmacienController;
+use App\Http\Controllers\AnalyseController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,6 +60,7 @@ Route::controller(SearchController::class)->group(function(){
     
 });
 
+
 Route::POST('/easy',[SearchController::class,'getpathologyfunction']);
 Route::get('autocompleteA',[AllergieController::class,'autocompleteA'])->name('autocompleteA');
 Auth::routes();
@@ -100,3 +103,10 @@ Route::prefix('pharmacien')->name('pharmacien.')->group(function(){
         Route::view('/home','pharmacien.home')->name('home');
     });
 });
+/// analyse de prescription
+Route::get('/pre_analyser/{prescription_id}' , 'AnalyseController@pre_analyser')->name('analyse.pre');
+Route::resource('/analyse', 'AnalyseController')->middleware('auth');
+Route::get('/analyses', 'AnalyseController@index2')->middleware('auth')->name('analyse.index2');
+//Route::get('/patient/{patient_id}&{pre_risque_id}/analysePharmaceutique', 'AnalyseController@analyse_ph')->middleware('auth');
+Route::get('/patient/{patient_id}&{pre_risque_id}/pre_analyse_interne', 'AnalyseController@pre_analyse_interne')->middleware('auth');
+Route::get('/patient/{patient_id}&{pre_risque_id}/details_education', 'AnalyseController@details_education')->middleware('auth');

@@ -42,9 +42,9 @@
                       <!-- form start -->
                       
                         <div class="card-body">
-                          
+                         <form> 
                         <div >
-           <table id="medication-table" class="table " >
+           <table id="medication_table" class="table " >
                <thead class="thead-light">
                    <tr class="col" >
                        <th class="col col-md-4">Medicament</th>
@@ -59,19 +59,22 @@
                </thead>
                <tbody>
                    <tr id="row_1">
-                     <td><input type="search" class="typeahead form-control" name="medicament[]" id="medicament1" placeholder="" autocomplete="off"></td>
-                     <td><input type="text" class="typeahead form-control" name="auto[]" id="unite" placeholder="" autocomplete="off"></td>
-                     <td><center><input type="checkbox" class="form-check-input" name="ch1[]" id="exampleCheck1"></center></td>
-                     <td><center><input type="checkbox" class="form-check-input" name="ch2[]" id="exampleCheck2"></center></td>
-                     <td><center><input type="checkbox" class="form-check-input" name="ch3[]" id="exampleCheck3"></center></td>
-                     <td><center><input type="checkbox" class="form-check-input" name="ch4[]"id="exampleCheck4"></center></td>
-                     <td><input type="search" class="typeahead form-control" name="auto2[]" id="forme" placeholder="" autocomplete="off"></td>
-                     <td><button type="button" class="btn btn-primary" id="add_btn"><i class="glyphicon glyphicon-plus"></i> </td>
-
-                   </tr>
-              </tbody>
+                     <td><input type="search" data-field-name="medicament" class="typeahead form-control" name="medicament[]" id="medicament" placeholder="" autocomplete="off"></td>
+                     <td><input type="text"  data-field-name="unite" class="typeahead form-control" name="auto[]" id="unite_1" placeholder="" autocomplete="off"></td>
+                     <td><center><input type="checkbox" class="form-check-input" name="ch1[]" id="exampleCheck_1"></center></td>
+                     <td><center><input type="checkbox" class="form-check-input" name="ch2[]" id="exampleCheck_2"></center></td>
+                     <td><center><input type="checkbox" class="form-check-input" name="ch3[]" id="exampleCheck_3"></center></td>
+                     <td><center><input type="checkbox" class="form-check-input" name="ch4[]"id="exampleCheck_4"></center></td>
+                     <td><input type="search" data-field-name="forme" class="typeahead form-control" name="auto2[]" id="forme_1" placeholder="" autocomplete="off"></td>
+                     <td><button type="button" class="btn btn-danger delete_row" id="delete_1"><i class="glyphicon glyphicon-minus"></i></button></td>
+                      
+                    </tr>
+                </tbody>
            </table>
-      </div>
+           <div class="text-right">
+                          <button type="button" class="btn btn-primary" id="addNew"><i class="glyphicon glyphicon-plus"></i></button>
+                        </div></div>
+    </form>
                           
                           
                           <div class="accordion" id="accordionExample">
@@ -170,33 +173,127 @@
                     </div>
                      <div class="card-footer">
                           <div class="col-md-12 bg-light text-right">
+                            <a href="{{route('analyse.pre')}}">
                           <button type="submit" class="btn btn-primary btn-lg ">Lancer Analyse</button>
                         </div>
                         </div>
                   </div>
                 </div>
             <script type="text/javascript">
-                  $(document).ready(function(){
-                    $('#add_btn').on('click',function(){
-                      var html='';
-                      html+='<tr id="row_1">';
-                      html+='<td><input type="search" class="typeahead form-control" name="medicament[]" id="medicament1" placeholder="" autocomplete="off"></td>';
-                      html+='<td><input type="text" class="typeahead form-control" name="auto[]" id="unite" placeholder="" autocomplete="off"></td>';
-                      html+='<td><center><input type="checkbox" class="form-check-input" name="ch1[]" id="exampleCheck1"></center></td>';
-                      html+='<td><center><input type="checkbox" class="form-check-input" name="ch2[]" id="exampleCheck2"></center></td>';
-                      html+='<td><center><input type="checkbox" class="form-check-input" name="ch3[]" id="exampleCheck3"></center></td>';
-                      html+='<td><center><input type="checkbox" class="form-check-input" name="ch4[]" id="exampleCheck4"></center></td>';
-                      html+='<td><input type="search" class="typeahead form-control" name="auto2[]" id="unite" placeholder="" autocomplete="off"></td>';
-                      html+='<td><button type="button" class="btn btn-danger" id="remove"><i class="glyphicon glyphicon-minus"></i> </td>';
-                      html+='</tr>';
-                      $('tbody').append(html);
-                    })
-                  });
-                  $(document).on('click','#remove',function(){
-                    $(this).closest('tr').remove();
-                  });
-                </script>
-                  <script>
+             $(document).ready(function(){
+  var rowcount, addbtn, tableBody, imgpath, basepath;
+  addbtn=$("#addNew");
+  rowcount=$("#medication_table tbody tr").length+1;
+  tableBody=$("#medication_table tbody");
+  basepath=$("#base_path").val();
+
+  function formHtml(){
+      var html ='<tr id="row_'+rowcount+'">';
+        html+='<td><input type="search" data-field-name="medicament" class="typeahead form-control" name="medicament[]" id="medicament'+rowcount+'" placeholder="" autocomplete="off">';
+        html+='</td>';
+        html+='<td><input type="text" data-field-name="unite" class="typeahead form-control" name="auto[]" id="unite_'+rowcount+'" placeholder="" autocomplete="off">';
+        html+='</td>';
+        html+='<td><center><input type="checkbox" data-field-name="ch1" class="form-check-input" name="ch1[]" id="exampleCheck_'+rowcount+'"></center>';
+        html+='</td>';
+        html+='<td><center><input type="checkbox" data-field-name="ch2" class="form-check-input" name="ch2[]" id="exampleCheck_'+rowcount+'"></center>';
+        html+='</td>';
+        html+='<td><center><input type="checkbox" data-field-name="ch3" class="form-check-input" name="ch3[]" id="exampleCheck_'+rowcount+'"></center>';
+        html+='</td>';
+        html+='<td><center><input type="checkbox" data-field-name="ch4" class="form-check-input" name="ch4[]" id="exampleCheck_'+rowcount+'"></center>';
+        html+='</td>';
+        html+='<td><input type="search" data-field-name="forme" class="typeahead form-control" name="auto2[]" id="forme_'+rowcount+'" placeholder="" autocomplete="off">';
+        html+='</td>';
+        html+='<td><button type="button" class="btn btn-danger delete_row" id="delete_'+rowcount+'"><i class="glyphicon glyphicon-minus"></i>';
+        html+='</td>';
+        html+='</tr>';
+        rowcount++;
+        return html;
+  }
+
+  function addNewRow()
+  {
+    var html =formHtml();
+    console.log(html);
+    tableBody.append(html);
+  }
+  function deleteRow()
+  {
+    var rowNo;
+    id =$(this).attr('id');
+    console.log(id);
+    idArr =id.split("_");
+    console.log(idArr);
+    rowNo =idArr[idArr.length-1];
+    console.log(rowNo);
+    $("#row_"+rowNo).remove();
+
+  }
+  function handleAutocomplete(){
+    var fieldName, currentEle;
+    currentEle=$(this);
+    fieldName= currentEle.data('field-name');
+    if(typeof fieldName ==='undefined'){
+      return false;
+    }
+    currentEle.autocomplete({
+      source: function(data , cb){
+        $.ajax({
+          url: basepath +'/get-medicament',
+          methode: 'GET',
+          dataType:'json',
+          data:{
+            name: data.term,
+            fieldName: fieldName
+          },
+          success: function(res){
+            var result;
+            result=[
+            {
+              label: 'there is no matching record found for'+data.term,
+              value:''
+            }];
+            if (res.length)
+            {
+              result=$.map(res,function(obj){
+              return {
+                label :obj[fieldName],
+                value : obj[fieldName],
+                data :obj
+            }; 
+            });
+          }
+
+              cb(result);
+        }
+      });
+    },
+    autofocus: true,
+    minLength: 1,
+    select:function(event , selectedData){
+      if(selectedData && selectedData.item && selectedData.item.data)
+      {
+        console.log(selectedData);
+        var rowNo,data;
+        rowNo= get(currentEle);
+        data = selectedData.item.data;
+        $('#medicament_'+rowNo).val(data.name);
+      }
+    }
+    });
+
+  }
+
+  function registerEvents()
+  {
+    addbtn.on('click',addNewRow);
+    $(document).on('click','.delete_row',deleteRow);
+    $(document).on('focus','.autocomplete_txt',handleAutocomplete);
+
+  }
+  registerEvents();
+});
+           </script>
+                  <!--<script>
             var path3 = "{{ route('autocompleteM') }}";
   
   $('#medicament').typeahead({
@@ -216,8 +313,8 @@
 },
       });
         
-        </script>
-        <script>
+        </script>-->
+      <!--  <script>
             var path5 = "{{ route('autocompleteMF') }}";
   
   $('#medicament1').typeahead({
@@ -238,7 +335,7 @@
 },
       });
         
-        </script>
+        </script>-->
         
         <script>
             var path4 = "{{ route('autocompleteM') }}";
@@ -535,6 +632,7 @@
                           medicament.value = "";
                       }
               }</script>
+
          <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
                     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
@@ -543,7 +641,7 @@
                   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
                <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         ></script>
-        
+                
         </body>
         
     
