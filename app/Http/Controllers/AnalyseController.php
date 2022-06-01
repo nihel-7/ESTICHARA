@@ -173,7 +173,7 @@ class AnalyseController extends Controller
         return response()->json(['array_id' => $id_regles_active,'si' => $si,'alors' => $alors,'commentaire'=>$commentraire]);
     }
 
-   public function pre_analyser($patient_id  , $pres_id) 
+   public function pre_analyser($pres_id) 
    {
 
         // 1- recuperer le profile patient ( age , pathologie , allergie , poids )
@@ -182,7 +182,7 @@ class AnalyseController extends Controller
         // 4 - lancer la préanalyse
 
         // recuperer le profile patient
-        $patient = Patient::find($patient_id);
+        //$patient = Patient::find($patient_id);
 
         //recuperer les regles actives
         $regles = Regle::all()->where('active' ,'1');
@@ -211,7 +211,7 @@ class AnalyseController extends Controller
        foreach ($reglees as $reglee) 
         {           
                     $_SESSION['conditionET'] = 0;
-                    $alert2 = self::analyseInterne($reglee->si , $patient , $prescription);
+                    $alert2 = self::analyseInterne($reglee->si , $prescription);
                     if($_SESSION['conditionET'] == 1){
                         if(strchr($alert2,"0")!=null) $resultatAnalyse[$c] = 0;
                         else {
@@ -259,17 +259,6 @@ class AnalyseController extends Controller
                     }
                     //if($c==3)return $alert2."--".$reglee->id."------->".$resultatAnalyse[$c]."car".$_SESSION['conditionET'];
 
-                    if($resultatAnalyse[$c] == 1){
-                        $regl= RegleEduPatient::where(['patient_id' => $patient->id,'regle_id' => $reglee->id,'prescription_id' => $prescription->id])->first();   
-                        if($regl != null){}else{
-                       $prescription->etatAnalyseTherap = "risqueTherap";
-                        $prescription->save();  
-                        $edu_regle_pres = new RegleEduPatient();
-                        $edu_regle_pres->patient_id = $patient->id;
-                        $edu_regle_pres->regle_id = $reglee->id;
-                        $edu_regle_pres->prescription_id = $prescription->id;
-                        $edu_regle_pres->save();}
-                    }
                     $c++;
         }
         
