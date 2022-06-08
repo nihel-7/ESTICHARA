@@ -15,6 +15,10 @@ use Auth;
 
 class AnalyseController extends Controller
 {
+    public function openn(Request $request)
+    {
+        dd($request);
+    }
 
     public function update (Request $request , $id) {
         $intervention = Intervention::find($id);

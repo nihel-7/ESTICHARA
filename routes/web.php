@@ -104,9 +104,6 @@ Route::prefix('pharmacien')->name('pharmacien.')->group(function(){
     });
 });
 /// analyse de prescription
-Route::get('/pre_analyser/{prescription_id}' , 'AnalyseController@pre_analyser')->name('analyse.pre');
-Route::resource('/analyse', 'AnalyseController')->middleware('auth');
-Route::get('/analyses', 'AnalyseController@index2')->middleware('auth')->name('analyse.index2');
-//Route::get('/patient/{patient_id}&{pre_risque_id}/analysePharmaceutique', 'AnalyseController@analyse_ph')->middleware('auth');
-Route::get('/patient/{patient_id}&{pre_risque_id}/pre_analyse_interne', 'AnalyseController@pre_analyse_interne')->middleware('auth');
-Route::get('/patient/{patient_id}&{pre_risque_id}/details_education', 'AnalyseController@details_education')->middleware('auth');
+
+///////////////////////////////////
+
