@@ -59,13 +59,13 @@
                </thead>
                <tbody>
                    <tr id="row_1">
-                     <td><input type="search" data-field-name="medicament" class="typeahead form-control" name="medicament[]" id="medicament" placeholder="" autocomplete="off"></td>
+                     <td><input type="search" data-field-name="medicament" class="typeahead form-control" name="medicament[]" id="medicament1" placeholder="" autocomplete="off"></td>
                      <td><input type="text"  data-field-name="unite" class="typeahead form-control" name="auto[]" id="unite_1" placeholder="" autocomplete="off"></td>
                      <td><center><input type="checkbox" class="form-check-input" name="ch1[]" id="exampleCheck_1"></center></td>
                      <td><center><input type="checkbox" class="form-check-input" name="ch2[]" id="exampleCheck_2"></center></td>
                      <td><center><input type="checkbox" class="form-check-input" name="ch3[]" id="exampleCheck_3"></center></td>
                      <td><center><input type="checkbox" class="form-check-input" name="ch4[]"id="exampleCheck_4"></center></td>
-                     <td><input type="search" data-field-name="forme" class="typeahead form-control" name="auto2[]" id="forme_1" placeholder="" autocomplete="off"></td>
+                     <td><input type="search" data-field-name="forme" class="typeahead form-control" name="auto2[]" id="forme" placeholder="" autocomplete="off"></td>
                      <td><button type="button" class="btn btn-danger delete_row" id="delete_1"><i class="glyphicon glyphicon-minus"></i></button></td>
                       
                     </tr>
@@ -173,7 +173,7 @@
                     </div>
                      <div class="card-footer">
                           <div class="col-md-12 bg-light text-right">
-                            <a href="{{route('analyse.pre')}}">
+                            <a href="#">
                           <button type="submit" class="btn btn-primary btn-lg ">Lancer Analyse</button>
                         </div>
                         </div>
@@ -314,7 +314,7 @@
       });
         
         </script>-->
-      <!--  <script>
+       <script>
             var path5 = "{{ route('autocompleteMF') }}";
   
   $('#medicament1').typeahead({
