@@ -14,8 +14,8 @@ class SearchController extends Controller
     
     public function autocomplete(Request $request)
     {
-        $data = Pathologie::select('id','pathologie')
-                    ->where('pathologie', 'LIKE', '%'. $request->get('query'). '%')
+        $data = Pathologie::select('id','CCL_NOM')
+                    ->where('CCL_NOM', 'LIKE', '%'. $request->get('query'). '%')
                     ->get();
      
         return response()->json($data);

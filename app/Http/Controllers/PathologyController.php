@@ -11,8 +11,8 @@ class PathologyController extends Controller
 {
     public function autocomplete (){
         $result = array();
-        $sp1 = DB::table('pathologies')
-              ->where('pathologies.pathologie','LIKE' , '%' . $_POST['phrase'] . '%')
+        $sp1 = DB::table('ccl_classeclinique')
+              ->where('ccl_classeclinique.CCL_NOM','LIKE' , '%' . $_POST['phrase'] . '%')
               ->limit(15)     
               ->get();
           $result =  $sp1; 
@@ -21,12 +21,13 @@ class PathologyController extends Controller
    
    
     public function autocomple (Request $rquest){
-        $data = Pathologie::select("pathologie")
-                        ->where("pathologie","LIKE","%{$request->terms}%")
+        $data = Pathologie::select("CCL_NOM")
+                        ->where("CCL_NOM","LIKE","%{$request->terms}%")
                         ->get();
                 
                         return response()->json($data);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,6 +36,13 @@ class PathologyController extends Controller
     public function index()
     {
         //
+    }
+    public function search()
+    {
+        $nom=request()->input('nom');
+        
+        $noms=pathologie::where('pathologie','like',"%$nom%");
+        return $noms->get();
     }
 
     /**
@@ -102,5 +110,6 @@ class PathologyController extends Controller
     {
         //
     }
+
 }
 

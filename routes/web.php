@@ -103,7 +103,7 @@ Route::prefix('pharmacien')->name('pharmacien.')->group(function(){
         Route::view('/home','pharmacien.home')->name('home');
     });
 });
-/// analyse de prescription
+///search pathologie
 
-///////////////////////////////////
+Route::get('/search',[PathologyController::class,'search'])->name('searchPathologie');
 

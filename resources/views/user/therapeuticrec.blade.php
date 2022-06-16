@@ -48,7 +48,7 @@
                       <!-- form start -->
                       
                         <div class="card-body">
-                          <form>
+                          <form action="{{route('searchPathologie')}}">
                           <div class="form-group input-group-lg ">
                           <input type="text" name="nom" class=" typeahead form form-control form-control-sm"  placeholder="Pathologie a traiter " id="maladie_nom" autocomplete="off" >
                          <input type="hidden" name="nomM" id="nomM" required>
@@ -170,7 +170,7 @@
     var path = "{{ route('autocomplete') }}";
   
     $('#maladie_nom').typeahead({
-        displayText: function(item){ return item.pathologie;},
+        displayText: function(item){ return item.CCL_NOM;},
         
             source: function (query, process) {
                 return $.get(path, {
@@ -191,7 +191,7 @@
             var path = "{{ route('autocomplete') }}";
   
   $('#nomA').typeahead({
-      displayText: function(item){ return item.pathologie;},
+      displayText: function(item){ return item.CCL_NOM;},
       
           source: function (query, process) {
               return $.get(path, {
