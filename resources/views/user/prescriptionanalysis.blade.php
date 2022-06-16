@@ -54,9 +54,7 @@
                        <th class="col col-md-1"><center>Soir</center></th>
                        <th class="col col-md-2"><center>Av-coucher</center></th>
                        <th class="col col-md-1"><center>Forme</center></th>
-                       <th><div class="text-right">
-                          <button type="button" class="btn btn-primary" id="addNew"><i class="glyphicon glyphicon-plus"></i></button>
-                        </div></th>
+                       <th></th>
                    </tr>
                </thead>
                <tbody>
@@ -73,7 +71,9 @@
                     </tr>
                 </tbody>
            </table>
-           </div>
+           <div class="text-right">
+                          <button type="button" class="btn btn-primary" id="addNew"><i class="glyphicon glyphicon-plus"></i></button>
+                        </div></div>
     </form>
                           
                           
@@ -173,11 +173,7 @@
                     </div>
                      <div class="card-footer">
                           <div class="col-md-12 bg-light text-right">
-<<<<<<< HEAD
-                            
-=======
                             <a href="#">
->>>>>>> 8f978a734ccf5f2fe6828932997acb4126e14110
                           <button type="submit" class="btn btn-primary btn-lg ">Lancer Analyse</button>
                         </div>
                         </div>
