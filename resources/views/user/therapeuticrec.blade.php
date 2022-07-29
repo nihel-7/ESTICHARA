@@ -181,8 +181,8 @@
                 });
             },
             afterSelect: function(item) {
-                console.log(item.id);
-        $('#nomM').val(item.id);
+                console.log(item.CCL_CODE_SQ_PK);
+        $('#nomM').val(item.CCL_CODE_SQ_PK);
   },
         });
 </script>
@@ -202,7 +202,7 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.id);
+              console.log(item.CCL_CODE_SQ_PK);
      // $('#nomM').val(item.id);
 },
       });
