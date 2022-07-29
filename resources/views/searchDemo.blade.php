@@ -111,7 +111,7 @@
     var path = "{{ route('autocomplete') }}";
   
     $('#search').typeahead({
-        displayText: function(item){ return item.pathologie;},
+        displayText: function(item){ return item.CCL_NOM;},
         
             source: function (query, process) {
                 return $.get(path, {

@@ -169,7 +169,7 @@
       <script type="text/javascript">
     var path = "{{ route('autocomplete') }}";
   
-    $('#maladie_nom').typeahead({
+    $('#nom').typeahead({
         displayText: function(item){ return item.CCL_NOM;},
         
             source: function (query, process) {
