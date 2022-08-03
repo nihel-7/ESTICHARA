@@ -109,7 +109,7 @@
    </script> 
     
 <script type="text/javascript">
-    var path = "{{ route('autocomplete') }}";
+    var path = "{{ route('autocomplete/action') }}";
   
     $('#search').typeahead({
         displayText: function(item){ return item.CCL_NOM;},

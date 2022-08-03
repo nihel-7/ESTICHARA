@@ -54,56 +54,29 @@ class PathologyController extends Controller
 return response()->json($data);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-=======
     function index ()
->>>>>>> Stashed changes
     {
         return view('user.therapeuticrec');
     }
     function action ($Request request)
     {
-<<<<<<< Updated upstream
         $nom=request()->input('nom');
         
         $noms=pathologie::where('CCL_NOM','like',"%$nom%");
         return $noms->get();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+    public function action(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-=======
         $data = $request->all();
         $query = $data['query'];
         $filter_data =Ccl_classeclinique::select('CCL_NOM')
                                         ->where('CCL_NOM','LIKE','%'.$query.'%')
                                         ->get();
->>>>>>> Stashed changes
 
-        return response()->json($filter_data);                                
+        return response()->json($filter_data);
+                                        
     }
 
 }
