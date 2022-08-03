@@ -23,7 +23,7 @@ class MedicationController extends Controller
 
 return response()->json($data);
     }
-
+//////pour la forme
     public function autocompleteMF (Request $request){
         $data = DB::table('sp_specialite')
         

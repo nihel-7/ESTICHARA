@@ -106,12 +106,13 @@
 		return false;
 	});
 });
-   </script>  
+   </script> 
+    
 <script type="text/javascript">
-    var path = "{{ route('autocomplete') }}";
+    var path = "{{ route('autocomplete/action') }}";
   
     $('#search').typeahead({
-        displayText: function(item){ return item.pathologie;},
+        displayText: function(item){ return item.CCL_NOM;},
         
             source: function (query, process) {
                 return $.get(path, {
