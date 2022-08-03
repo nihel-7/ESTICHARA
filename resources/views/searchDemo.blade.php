@@ -106,7 +106,8 @@
 		return false;
 	});
 });
-   </script>  
+   </script> 
+    
 <script type="text/javascript">
     var path = "{{ route('autocomplete') }}";
   

@@ -7,6 +7,7 @@
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 
+   
       <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
       
       </head>
@@ -48,10 +49,10 @@
                       <!-- form start -->
                       
                         <div class="card-body">
-                          <form action="{{route('searchPathologie')}}">
+                          <form >
                           <div class="form-group input-group-lg ">
-                          <input type="text" name="nom" class=" typeahead form form-control form-control-sm"  placeholder="Pathologie a traiter " id="maladie_nom" autocomplete="off" >
-                         <input type="hidden" name="nomM" id="nomM" required>
+                          <input type="text" name="nompath" class=" typeahead form form-control form-control-sm"  placeholder="Pathologie a traiter " id="nompath" autocomplete="off" >
+                         
                           </div>
                          
                           <div class="accordion" id="accordionExample">
@@ -167,28 +168,35 @@
 
 
       <script type="text/javascript">
-    var path = "{{ route('autocomplete') }}";
+    var path = "{{ url('therapeuticrec/action') }}";
   
+<<<<<<< Updated upstream
     $('#nom').typeahead({
         displayText: function(item){ return item.CCL_NOM;},
         
+=======
+    $('#nompath').typeahead({
+             
+>>>>>>> Stashed changes
             source: function (query, process) {
-                return $.get(path, {
-                    query: query
-                }, function (data) {
-                    console.log(data)
+                return $.get(path,{query: query},function (data){
                     return process(data);
                 });
+<<<<<<< Updated upstream
             },
             afterSelect: function(item) {
                 console.log(item.CCL_CODE_SQ_PK);
         $('#nomM').val(item.CCL_CODE_SQ_PK);
   },
+=======
+            }
+            
+>>>>>>> Stashed changes
         });
 </script>
                     
         <script>
-            var path = "{{ route('autocomplete') }}";
+            var path7 = "{{ route('autocomplete') }}";
   
   $('#nomA').typeahead({
       displayText: function(item){ return item.CCL_NOM;},

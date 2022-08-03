@@ -105,5 +105,7 @@ Route::prefix('pharmacien')->name('pharmacien.')->group(function(){
 });
 ///search pathologie
 
-Route::get('/search',[PathologyController::class,'search'])->name('searchPathologie');
+Route::get('/index',[PathologyController::class,'index'])->name('index');
+Route::get('/therapeuticrec/action',[PathologyController::class,'action'])->name('therapeuticrec.action');
+
 

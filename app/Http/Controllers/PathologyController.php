@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class PathologyController extends Controller
 {
+<<<<<<< Updated upstream
     /*public function autocomplete (){
         $result = array();
         $sp1 = DB::table('ccl_classeclinique')
@@ -59,11 +60,15 @@ return response()->json($data);
      * @return \Illuminate\Http\Response
      */
     public function index()
+=======
+    function index ()
+>>>>>>> Stashed changes
     {
-        //
+        return view('user.therapeuticrec');
     }
-    public function search()
+    function action ($Request request)
     {
+<<<<<<< Updated upstream
         $nom=request()->input('nom');
         
         $noms=pathologie::where('CCL_NOM','like',"%$nom%");
@@ -90,50 +95,15 @@ return response()->json($data);
     {
         //
     }
+=======
+        $data = $request->all();
+        $query = $data['query'];
+        $filter_data =Ccl_classeclinique::select('CCL_NOM')
+                                        ->where('CCL_NOM','LIKE','%'.$query.'%')
+                                        ->get();
+>>>>>>> Stashed changes
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return response()->json($filter_data);                                
     }
 
 }
