@@ -41,7 +41,7 @@ class PathologyController extends Controller
     {
         $nom=request()->input('nom');
         
-        $noms=pathologie::where('pathologie','like',"%$nom%");
+        $noms=pathologie::where('CCL_NOM','like',"%$nom%");
         return $noms->get();
     }
 
