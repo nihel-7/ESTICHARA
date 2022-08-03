@@ -51,8 +51,8 @@
                         <div class="card-body">
                           <form >
                           <div class="form-group input-group-lg ">
-                          <input type="text" name="nompath" class=" typeahead form form-control form-control-sm"  placeholder="Pathologie a traiter " id="nompath" autocomplete="off" >
-                         
+                          <input type="text" name="nom" class=" typeahead form form-control form-control-sm"  placeholder="Pathologie a traiter " id="nom" autocomplete="off" >
+                          <input type="hidden" name="nomM" id="nomM" required>
                           </div>
                          
                           <div class="accordion" id="accordionExample">
@@ -168,30 +168,20 @@
 
 
       <script type="text/javascript">
-    var path = "{{ url('therapeuticrec/action') }}";
+    var path = "{{ url('autocomplete') }}";
   
-<<<<<<< Updated upstream
     $('#nom').typeahead({
         displayText: function(item){ return item.CCL_NOM;},
         
-=======
-    $('#nompath').typeahead({
-             
->>>>>>> Stashed changes
             source: function (query, process) {
                 return $.get(path,{query: query},function (data){
                     return process(data);
                 });
-<<<<<<< Updated upstream
             },
             afterSelect: function(item) {
                 console.log(item.CCL_CODE_SQ_PK);
         $('#nomM').val(item.CCL_CODE_SQ_PK);
   },
-=======
-            }
-            
->>>>>>> Stashed changes
         });
 </script>
                     
@@ -221,7 +211,7 @@
             var path2 = "{{ route('autocompleteA') }}";
   
   $('#nomAl').typeahead({
-      displayText: function(item){ return item.allergie;},
+      displayText: function(item){ return item.CDF_NOM;},
       
           source: function (query, process) {
               return $.get(path2, {
@@ -232,7 +222,7 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.id);
+              console.log(item.CDF_NUMERO_PK);
      // $('#nomM').val(item.id);
 },
       });

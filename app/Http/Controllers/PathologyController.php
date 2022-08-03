@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class PathologyController extends Controller
 {
-<<<<<<< Updated upstream
+
     /*public function autocomplete (){
         $result = array();
         $sp1 = DB::table('ccl_classeclinique')
@@ -54,30 +54,4 @@ class PathologyController extends Controller
 return response()->json($data);
     }
 
-    function index ()
-    {
-        return view('user.therapeuticrec');
-    }
-    function action ($Request request)
-    {
-        $nom=request()->input('nom');
-        
-        $noms=pathologie::where('CCL_NOM','like',"%$nom%");
-        return $noms->get();
-    }
-
-    
-    public function action(Request $request)
-    {
-        $data = $request->all();
-        $query = $data['query'];
-        $filter_data =Ccl_classeclinique::select('CCL_NOM')
-                                        ->where('CCL_NOM','LIKE','%'.$query.'%')
-                                        ->get();
-
-        return response()->json($filter_data);
-                                        
-    }
-
 }
-

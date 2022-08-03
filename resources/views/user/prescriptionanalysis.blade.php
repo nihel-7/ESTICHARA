@@ -363,7 +363,7 @@
             var path = "{{ route('autocomplete') }}";
   
   $('#nomA').typeahead({
-      displayText: function(item){ return item.pathologie;},
+      displayText: function(item){ return item.CCL_NOM;},
       
           source: function (query, process) {
               return $.get(path, {
@@ -374,7 +374,7 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.id);
+              console.log(item.CCL_CODE_SQ_PK);
      // $('#nomM').val(item.id);
 },
       });
@@ -385,7 +385,7 @@
             var path2 = "{{ route('autocompleteA') }}";
   
   $('#nomAl').typeahead({
-      displayText: function(item){ return item.allergie;},
+      displayText: function(item){ return item.CDF_NOM;},
       
           source: function (query, process) {
               return $.get(path2, {
@@ -396,7 +396,7 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.id);
+              console.log(item.CDF_NUMERO_PK);
      // $('#nomM').val(item.id);
 },
       });
