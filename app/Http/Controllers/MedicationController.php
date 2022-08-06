@@ -11,7 +11,7 @@ class MedicationController extends Controller
     public function list(Request $request){
        // return view('user.list');
        echo"something here";
-       return $request->input();
+       return $request->input('search');
        
     }
 

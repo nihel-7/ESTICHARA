@@ -49,7 +49,8 @@
                       <!-- form start -->
                       
                         <div class="card-body">
-                          <form >
+                  <form method="post" action="recresult" >
+                  {{ csrf_field() }}
                           <div class="form-group input-group-lg ">
                           <input type="text" name="nom" class=" typeahead form form-control form-control-sm"  placeholder="Pathologie a traiter " id="nom" autocomplete="off" >
                           <input type="hidden" name="nomM" id="nomM" required>
@@ -141,7 +142,7 @@
                                     
                                     </div>
                                     <ul id="listMedicament">
-                        </ul>
+                         </ul>
                                     </div>
                                     </div>
                                 </div>
@@ -161,7 +162,7 @@
                           <button type="submit" class="btn btn-primary btn-lg ">Lancer recherche</button>
                         </div>
                         </div>  
-                        </form>  
+                    </form>  
                     </div>
                   </div>
                 </div>

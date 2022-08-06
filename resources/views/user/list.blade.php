@@ -14,7 +14,7 @@
         <div class="container">  
         <form  method="post"  action="list">
         {{ csrf_field() }}
-              <input class="form-control" id="search" type="text">
+              <input class="form-control" id="search" name="search" type="text">
     
         </form>
 </section>

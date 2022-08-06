@@ -12,7 +12,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Pharmacien\PharmacienController;
 use App\Http\Controllers\AnalyseController;
-
+use App\Http\Controllers\RecresultController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +23,7 @@ use App\Http\Controllers\AnalyseController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//pages
 Route::get('/', function () {
     return view('user.home');
 });
@@ -51,19 +51,27 @@ Route::get('/prescriptionanalysis', function () {
  Route::get('/listis',function(){
    return view('user.list');
 }); 
+
+//autocomplete
 Route::post('/list',[MedicationController::class,'list'])->name('list');
 Route::get('autocompleteM',[MedicationController::class,'autocompleteM'])->name('autocompleteM');
 Route::get('autocompleteMF',[MedicationController::class,'autocompleteMF'])->name('autocompleteMF');
 Route::controller(SearchController::class)->group(function(){
-    Route::get('demo-search', 'index');
+    Route::get('demo-search', 'index')->name('demo-search');
     Route::get('autocomplete', 'autocomplete')->name('autocomplete');
     
 });
 
 
+
 Route::POST('/easy',[SearchController::class,'getpathologyfunction']);
 Route::get('autocompleteA',[AllergieController::class,'autocompleteA'])->name('autocompleteA');
 Auth::routes();
+
+
+//forms
+
+Route::post('/recresult',[RecresultController::class,'getData'])->name('recresult');
 ///////------------------authentication
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::prefix('user')->name('user.')->group(function(){
