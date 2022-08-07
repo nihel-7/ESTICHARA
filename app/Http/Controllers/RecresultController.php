@@ -19,7 +19,7 @@ class RecresultController extends Controller
 
        
 
-       return $data ;
+       return view('user.recresult',['listmed'=>$data]);
 
         }
 }

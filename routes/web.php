@@ -49,8 +49,9 @@ Route::get('/prescriptionanalysis', function () {
 
 
  Route::get('/listis',function(){
-   return view('user.list');
-}); 
+   return view('user.list');});
+
+ 
 
 //autocomplete
 Route::post('/list',[MedicationController::class,'list'])->name('list');
@@ -70,8 +71,16 @@ Auth::routes();
 
 
 //forms
-
+Route::get('/recresulttest',function(){
+	return view('user.recresult');
+}); 
 Route::post('/recresult',[RecresultController::class,'getData'])->name('recresult');
+
+
+
+
+
+
 ///////------------------authentication
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::prefix('user')->name('user.')->group(function(){

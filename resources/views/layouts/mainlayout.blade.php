@@ -16,9 +16,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="/"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 10%; height: 10%;"><path d="M12,4.33l7,6.12V20H15V14H9v6H5V10.45l7-6.12M12,3,4,10V21h6V15h4v6h6V10L12,3Z" class="style-scope yt-icon"></path>Pharm-project22</g></svg>Pharm-project<!--css-build:shady--></a>
-                  <div class="mx-auto">
-                  <h3>Analyse de prescription</h3></div>
-                </div>
+                  
               </nav>
               
             
