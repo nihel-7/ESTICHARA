@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class RecresultController extends Controller
 {
     function getData(Request $req){
-        return $req->input('nom') ;
+        return $req->input('nomM') ;
         }
 }
