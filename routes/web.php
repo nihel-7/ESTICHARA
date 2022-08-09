@@ -124,5 +124,7 @@ Route::prefix('pharmacien')->name('pharmacien.')->group(function(){
 
 Route::get('/index',[PathologyController::class,'index'])->name('index');
 Route::get('/therapeuticrec/action',[PathologyController::class,'action'])->name('therapeuticrec.action');
+Route::get('/show_infos/{id}', [App\Http\Controllers\MedicamentController::class, 'show_info'])->name('show_info');
+
 
 

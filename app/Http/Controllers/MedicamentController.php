@@ -27,4 +27,5 @@ class MedicamentController extends Controller
       {
         return view('user.prescriptionanalysis');
       }*/
+   
 }
