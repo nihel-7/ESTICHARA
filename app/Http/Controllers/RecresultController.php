@@ -14,7 +14,7 @@ class RecresultController extends Controller
        $data = DB::table('spccl_specialite_classecl')
        ->where('SPCCL_CCL_CODE_FK_PK','=',$medid)
        ->join('sp_specialite','SPCCL_SP_CODE_FK_PK','=','SP_CODE_SQ_PK')
-       ->select('SP_CODE_SQ_PK','SP_NOM')
+       ->select('SP_CODE_SQ_PK','SP_NOM','SP_NOMLONG')
        ->get();
 
        

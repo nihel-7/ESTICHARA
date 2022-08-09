@@ -43,6 +43,7 @@
                                     <tr>
                                         <th  type="hidden">Id</th>
                                         <th>Nom</th>
+                                        <th>Details</th>
                                         
                                     </tr>
                                 </thead>
@@ -50,7 +51,8 @@
                                   @foreach ($listmed  as $med)
                                   <tr style="cursor: pointer;" onClick="window.location.href='/show_info/{{$med->SP_CODE_SQ_PK}}'">
                                     <td>{{$med->SP_CODE_SQ_PK}}</td>
-                                    <td type="hidden">{{$med->SP_NOM}}</td> 
+                                    <td >{{$med->SP_NOM}}</td> 
+                                    <td >{{$med->SP_NOMLONG}}</td> 
                                 
                                   </tr>
                                   @endforeach   
