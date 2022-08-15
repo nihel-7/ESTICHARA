@@ -96,8 +96,13 @@
             <div class="card  mb-3" style="max-width: 18rem;">
               <h5 class="card-header text-white bg-warning ">effect secondaire</h5>
               <div class="card-body">
-                <h5 class="card-title">Aucun</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              @if(!$eis)
+                  <h5 class="card-title">Aucun</h5>
+                  @else
+                  @foreach($eis as $ei)
+                  <p class="card-text">{{$ei->FEITX1_TEXTE}}</p>
+                  @endforeach
+                  @endif
               </div>
             </div>
         </div>
