@@ -22,9 +22,9 @@ class RecresultController extends Controller
        return view('user.recresult',['listmed'=>$data]);
 
         }
-        public function show_info ()
+        public function show_info (Request $request)
         {
-          //recuperation des infos 
+          return view('user.medicationdetail',['listmed'=>$data]); 
       
         }
 }
