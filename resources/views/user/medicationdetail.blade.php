@@ -82,8 +82,13 @@
               <div class="card  mb-3 " style="max-width: 18rem;">
                 <h5 class="card-header text-white " style=" background-color:#07461a;">Recommendation</h5>
                 <div class="card-body">
-                  <h5 class="card-title">Details</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  @if(!$recs)
+                  <h5 class="card-title">Aucun</h5>
+                  @else
+                  @foreach($recs as $rec)
+                  <p class="card-text">{{$rec->FCPMTX_TEXTE}}</p>
+                  @endforeach
+                  @endif
                 </div>
               </div>
           </div>
@@ -100,8 +105,13 @@
             <div class="card  mb-3" style="max-width: 18rem;">
               <h5 class="card-header text-white bg-danger "> contre indication</h5>
               <div class="card-body">
+                @if(!$cis)
                 <h5 class="card-title">Aucun</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                @else
+                @foreach($cis as $ci)
+                <p class="card-text">{{$ci->FCPMTX_NATURECIPEMG_FK_PK}}.{{$ci->FCPMTX_TEXTE}} </p>
+                @endforeach 
+                @endif
               </div>
             </div>
         </div>

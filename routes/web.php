@@ -36,9 +36,7 @@ Route::get('/therapeuticrec', function () {
 Route::get('/analysisresult', function () {
     return view('user.analysisresult');
 });
-Route::get('/medicationdetail', function () {
-    return view('user.medicationdetail');
-});
+
 Route::get('/prescriptionanalysis', function () {
     return view('user.prescriptionanalysis');
 });
@@ -77,6 +75,10 @@ Route::get('/recresulttest',function(){
 Route::post('/recresult',[RecresultController::class,'getData'])->name('recresult');
 
 
+
+//medicationdetail
+
+Route::get('/medicationdetail/{id}',[MedicationController::class,'MedInfo'])->name('medicationdetail');
 
 
 
