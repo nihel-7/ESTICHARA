@@ -43,7 +43,7 @@
                     <div class="tab-content" id="myTabContent">
                       <div class="card-body">
                       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h5 class="card-title">Nom , Type , Forme</h5>
+                    <h5 class="card-title">{{$med->SP_NOMLONG}}</h5>
                     <p class="card-text"></p>
                     
                   </div>
@@ -108,9 +108,13 @@
                 @if(!$cis)
                 <h5 class="card-title">Aucun</h5>
                 @else
+                @foreach($cis2 as $ci2)
+                <p class="card-text">2{{$ci2->FCPTTX1_TXTCI}} </p>
+                @endforeach
                 @foreach($cis as $ci)
-                <p class="card-text">{{$ci->FCPMTX_NATURECIPEMG_FK_PK}}.{{$ci->FCPMTX_TEXTE}} </p>
+                <p class="card-text">{{$ci->FCPMTX_TEXTE}} </p>
                 @endforeach 
+                 
                 @endif
               </div>
             </div>
