@@ -67,8 +67,14 @@ return response()->json($data);
         ->where('FCPMTX_NATURECIPEMG_FK_PK','=','P')
         ->select('FCPMTX_TEXTE','FCPMTX_NATURECIPEMG_FK_PK','FCPMTX_CDF_TER_CODE_FK_PK')
         ->get();
+
+        $pos = DB::table('spatr_spec_avistransparence')
+        ->where('SPATR_SP_CODE_FK_PK','=',$id)
+        ->join('atr_aviscommissiontransparence','ATR_CODE_SQ_PK','=','SPATR_SP_CODE_FK_PK')
+        ->select('ATR_TEXTE')
+        ->first();
         
-          return view('user.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei]);
+          return view('user.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos]);
         
 
         

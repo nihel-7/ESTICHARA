@@ -72,8 +72,11 @@
               <div class="card  mb-3 ml-3" style="max-width: 18rem;">
                 <h5 class="card-header text-white " style=" background-color: rgba(252, 118, 8, 0.89);">Modalité de prise</h5>
                 <div class="card-body">
+                  @if(!$pos)
                   <h5 class="card-title">Aucun</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  @else
+                  <p class="card-text">{{$pos->ATR_TEXTE}}</p>
+                  @endif
                 </div>
               </div>
           </div>
