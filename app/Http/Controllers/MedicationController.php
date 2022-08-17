@@ -70,8 +70,8 @@ return response()->json($data);
 
         $pos = DB::table('spatr_spec_avistransparence')
         ->where('SPATR_SP_CODE_FK_PK','=',$id)
-        ->join('atr_aviscommissiontransparence','ATR_CODE_SQ_PK','=','SPATR_SP_CODE_FK_PK')
-        ->select('ATR_TEXTE')
+        ->join('atr_aviscommissiontransparence','ATR_CODE_SQ_PK','=','SPATR_ATR_CODE_FK_PK')
+        ->select('ATR_TEXTE','ATR_CODE_SQ_PK')
         ->first();
         
           return view('user.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos]);
