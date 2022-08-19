@@ -120,11 +120,8 @@ Route::prefix('pharmacien')->name('pharmacien.')->group(function(){
         Route::view('/home','pharmacien.home')->name('home');
     });
 });
-///search pathologie
-
-Route::get('/index',[PathologyController::class,'index'])->name('index');
-Route::get('/therapeuticrec/action',[PathologyController::class,'action'])->name('therapeuticrec.action');
-Route::get('/show_infos/{id}', [App\Http\Controllers\MedicamentController::class, 'show_info'])->name('show_info');
+Route::get('/getDetail', [App\Http\Controllers\RecresultController::class,'getDetail'])->name('getDetail');
+Route::get('/show_info/{id}', [App\Http\Controllers\RecresultController::class,'show_info'])->name('show_info');
 
 
 
