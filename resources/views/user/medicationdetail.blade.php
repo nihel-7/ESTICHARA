@@ -44,7 +44,7 @@
                     <div class="tab-content" id="myTabContent">
                       <div class="card-body">
                       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h5 class="card-title">Nom , Type , Forme</h5>
+                    <h5 class="card-title">{{$med->SP_NOMLONG}}</h5>
                     <p class="card-text"></p>
                     
                   </div>
@@ -73,8 +73,11 @@
               <div class="card  mb-3 ml-3" style="max-width: 18rem;">
                 <h5 class="card-header text-white " style=" background-color: rgba(252, 118, 8, 0.89);">Modalité de prise</h5>
                 <div class="card-body">
+                  @if(!$pos)
                   <h5 class="card-title">Aucun</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  @else
+                  <p class="card-text">{{$pos->ATR_TEXTE}}</p>
+                  @endif
                 </div>
               </div>
           </div>
@@ -83,8 +86,13 @@
               <div class="card  mb-3 " style="max-width: 18rem;">
                 <h5 class="card-header text-white " style=" background-color:#07461a;">Recommendation</h5>
                 <div class="card-body">
-                  <h5 class="card-title">Details</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  @if(!$recs)
+                  <h5 class="card-title">Aucun</h5>
+                  @else
+                  @foreach($recs as $rec)
+                  <p class="card-text">{{$rec->FCPMTX_TEXTE}}</p>
+                  @endforeach
+                  @endif
                 </div>
               </div>
           </div>
@@ -92,8 +100,13 @@
             <div class="card  mb-3" style="max-width: 18rem;">
               <h5 class="card-header text-white bg-warning ">effect secondaire</h5>
               <div class="card-body">
-                <h5 class="card-title">Aucun</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              @if(!$eis)
+                  <h5 class="card-title">Aucun</h5>
+                  @else
+                  @foreach($eis as $ei)
+                  <p class="card-text">{{$ei->FEITX1_TEXTE}}</p>
+                  @endforeach
+                  @endif
               </div>
             </div>
         </div>
@@ -101,8 +114,17 @@
             <div class="card  mb-3" style="max-width: 18rem;">
               <h5 class="card-header text-white bg-danger "> contre indication</h5>
               <div class="card-body">
+                @if(!$cis)
                 <h5 class="card-title">Aucun</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                @else
+                @foreach($cis2 as $ci2)
+                <p class="card-text">2{{$ci2->FCPTTX1_TXTCI}} </p>
+                @endforeach
+                @foreach($cis as $ci)
+                <p class="card-text">{{$ci->FCPMTX_TEXTE}} </p>
+                @endforeach 
+                 
+                @endif
               </div>
             </div>
         </div>
