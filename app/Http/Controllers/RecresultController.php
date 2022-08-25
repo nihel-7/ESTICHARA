@@ -19,6 +19,21 @@ class RecresultController extends Controller
        ->get();
        return view('user.recresult',['listmed'=>$data]);
     }
+    
+    function test(Request $req){
+       $etat=$req->input('etat');
+       $age=$req->input('age');
+       $ante=$req->input('antecedents');
+       $allergie=$req->input('allergie');
+       $med=$req->input('medicament');
+       $list=$req->input('list');
+
+       dd($req->all());
+
+
+    }
+    
+    
     public function getDetail()
     {
       $meds =sp_specialite::get();

@@ -72,7 +72,7 @@ Auth::routes();
 Route::get('/recresulttest',function(){
 	return view('user.recresult');
 }); 
-Route::post('/recresult',[RecresultController::class,'getData'])->name('recresult');
+Route::post('/recresult',[RecresultController::class,'test'])->name('recresult');
 
 
 
