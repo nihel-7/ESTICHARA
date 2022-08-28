@@ -66,6 +66,60 @@ class RecresultController extends Controller
           } }
 
        }
+       if($etat) {
+        if($etat=="nouveau-né"){
+          foreach($data as $key => $med){
+            $cis = DB::table('fcpmsp_cipemg_spe')
+           ->where('FCPMSP_SP_CODE_FK_PK','=',$med->SP_CODE_SQ_PK)
+           ->join('fcpmtx_fichecipemg_texte','FCPMSP_FCPM_CODE_FK_PK','=','FCPMTX_FCPM_CODE_FK_PK')
+           ->where('FCPMTX_NATURECIPEMG_FK_PK','=','C')
+           ->select('FCPMTX_TEXTE','FCPMTX_NATURECIPEMG_FK_PK','FCPMTX_FCPM_CODE_FK_PK')
+           ->get();
+              foreach($cis as $ci){
+                if(str_contains($ci->FCPMTX_TEXTE, 'nouveau-né')){
+                  unset($data[$key]);
+                }
+              }
+
+          } }
+
+       }
+       if($etat) {
+        if($etat=="nourrisson"){
+          foreach($data as $key => $med){
+            $cis = DB::table('fcpmsp_cipemg_spe')
+           ->where('FCPMSP_SP_CODE_FK_PK','=',$med->SP_CODE_SQ_PK)
+           ->join('fcpmtx_fichecipemg_texte','FCPMSP_FCPM_CODE_FK_PK','=','FCPMTX_FCPM_CODE_FK_PK')
+           ->where('FCPMTX_NATURECIPEMG_FK_PK','=','C')
+           ->select('FCPMTX_TEXTE','FCPMTX_NATURECIPEMG_FK_PK','FCPMTX_FCPM_CODE_FK_PK')
+           ->get();
+              foreach($cis as $ci){
+                if(str_contains($ci->FCPMTX_TEXTE, 'nourrisson')){
+                  unset($data[$key]);
+                }
+              }
+
+          } }
+
+       }
+       if($etat) {
+        if($etat=="enfant"){
+          foreach($data as $key => $med){
+            $cis = DB::table('fcpmsp_cipemg_spe')
+           ->where('FCPMSP_SP_CODE_FK_PK','=',$med->SP_CODE_SQ_PK)
+           ->join('fcpmtx_fichecipemg_texte','FCPMSP_FCPM_CODE_FK_PK','=','FCPMTX_FCPM_CODE_FK_PK')
+           ->where('FCPMTX_NATURECIPEMG_FK_PK','=','C')
+           ->select('FCPMTX_TEXTE','FCPMTX_NATURECIPEMG_FK_PK','FCPMTX_FCPM_CODE_FK_PK')
+           ->get();
+              foreach($cis as $ci){
+                if(str_contains($ci->FCPMTX_TEXTE, 'enfant')){
+                  unset($data[$key]);
+                }
+              }
+
+          } }
+
+       }
        return view('user.recresult',['listmed'=>$data]);
        //dd($data->all());
        //return $etat;

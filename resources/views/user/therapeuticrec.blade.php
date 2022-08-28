@@ -54,6 +54,7 @@
                                     <div class="col-md-4">
                                       <select name="etat" class="form-select form-select-lg" aria-label="Default select example">
                                         <option selected>Tranche d'age</option>
+                                        <option value="nouveau-né">nouveau-né</option>
                                         <option value="nourrisson">Nourrisson</option>
                                         <option value="enfant">Enfant</option>
                                         <option value="adolescent">Adolescent</option>
