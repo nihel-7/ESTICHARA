@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class RecresultController extends Controller
 {
     function getData(Request $req)
-    {
+    { $catfp=0;
        // return $req->input('nomM') ;
        $etat=$req->input('etat');
        $age=$req->input('age');
@@ -120,12 +120,41 @@ class RecresultController extends Controller
           } }
 
        }
-       return view('user.recresult',['listmed'=>$data]);
+       if($etat) {
+        if($etat=="femme ménopausée"){
+          foreach($data as $key => $med){
+            $cis = DB::table('fcpmsp_cipemg_spe')
+           ->where('FCPMSP_SP_CODE_FK_PK','=',$med->SP_CODE_SQ_PK)
+           ->join('fcpmtx_fichecipemg_texte','FCPMSP_FCPM_CODE_FK_PK','=','FCPMTX_FCPM_CODE_FK_PK')
+           ->where('FCPMTX_NATURECIPEMG_FK_PK','=','C')
+           ->select('FCPMTX_TEXTE','FCPMTX_NATURECIPEMG_FK_PK','FCPMTX_FCPM_CODE_FK_PK')
+           ->get();
+              foreach($cis as $ci){
+                if(str_contains($ci->FCPMTX_TEXTE, 'femme ménopausée')){
+                  unset($data[$key]);
+                }
+              }
+
+          } }
+
+       }
+       if($etat) {
+        if($etat=="femme em age de procreer"){
+          $catfp=1;
+
+       }
+       return view('user.recresult',['listmed'=>$data,'catfp'=>$catfp]);
        //dd($data->all());
        //return $etat;
     }
+  }
     
-    function test(Request $req){
+    
+  
+  
+  
+  
+  function test(Request $req){
        $etat=$req->input('etat');
        $age=$req->input('age');
        $ante=$req->input('antecedents');
@@ -139,7 +168,7 @@ class RecresultController extends Controller
     }
     
     
-    public function getDetail()
+   /* public function getDetail()
     {
       $meds =sp_specialite::get();
       return view('user.medicationdetail',compact('meds'));
@@ -149,5 +178,5 @@ class RecresultController extends Controller
     {
       $detail=sp_specialite::find($id);          
       return view('user.medicationdetail',compact('detail'));       
-    }
+    }*/
 }

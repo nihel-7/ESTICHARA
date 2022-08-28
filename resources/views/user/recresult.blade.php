@@ -49,7 +49,7 @@
                                 </thead>
                                 <tbody>
                                   @foreach ($listmed  as $med)
-                                  <tr style="cursor: pointer;" onClick="window.location.href='/medicationdetail/{{$med->SP_CODE_SQ_PK}}'">
+                                  <tr style="cursor: pointer;" onClick="window.location.href='/medicationdetail/{{$med->SP_CODE_SQ_PK}}/{{$catfp}}'">
                                     <td>{{$med->SP_CODE_SQ_PK}}</td>
                                     <td >{{$med->SP_NOM}}</td> 
                                     <td >{{$med->SP_NOMLONG}}</td> 
