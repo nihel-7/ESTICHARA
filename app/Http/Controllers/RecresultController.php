@@ -15,7 +15,7 @@ class RecresultController extends Controller
        $age=$req->input('age');
        $ante=$req->input('antecedents');
        $allergie=$req->input('allergie');
-       $med=$req->input('medicament');
+       $medi=$req->input('medicament');
        $medid=$req->input('nomM');
       
        /*$ci2 = DB::table('fcptsp_cipemg_spe')
@@ -136,18 +136,68 @@ class RecresultController extends Controller
               }
 
           } }
+          }
+      if($ante){
+        foreach($data as $key => $med){
+          $cis = DB::table('fcpmsp_cipemg_spe')
+         ->where('FCPMSP_SP_CODE_FK_PK','=',$med->SP_CODE_SQ_PK)
+         ->join('fcpmtx_fichecipemg_texte','FCPMSP_FCPM_CODE_FK_PK','=','FCPMTX_FCPM_CODE_FK_PK')
+         ->where('FCPMTX_NATURECIPEMG_FK_PK','=','C')
+         ->select('FCPMTX_TEXTE','FCPMTX_NATURECIPEMG_FK_PK','FCPMTX_FCPM_CODE_FK_PK')
+         ->get();
+            foreach($cis as $ci){
+              if(str_contains($ci->FCPMTX_TEXTE, $ante)){
+                unset($data[$key]);
+              }
+            }
 
-       }
-       if($etat) {
+        } }
+
+        if($allergie){
+          foreach($data as $key => $med){
+            $cis = DB::table('fcpmsp_cipemg_spe')
+           ->where('FCPMSP_SP_CODE_FK_PK','=',$med->SP_CODE_SQ_PK)
+           ->join('fcpmtx_fichecipemg_texte','FCPMSP_FCPM_CODE_FK_PK','=','FCPMTX_FCPM_CODE_FK_PK')
+           ->where('FCPMTX_NATURECIPEMG_FK_PK','=','C')
+           ->select('FCPMTX_TEXTE','FCPMTX_NATURECIPEMG_FK_PK','FCPMTX_FCPM_CODE_FK_PK')
+           ->get();
+              foreach($cis as $ci){
+                if(str_contains($ci->FCPMTX_TEXTE, $allergie)){
+                  unset($data[$key]);
+                }
+              }
+  
+          } }
+
+          if($medi){
+            foreach($data as $key => $med){
+              $cis = DB::table('fcpmsp_cipemg_spe')
+             ->where('FCPMSP_SP_CODE_FK_PK','=',$med->SP_CODE_SQ_PK)
+             ->join('fcpmtx_fichecipemg_texte','FCPMSP_FCPM_CODE_FK_PK','=','FCPMTX_FCPM_CODE_FK_PK')
+             ->where('FCPMTX_NATURECIPEMG_FK_PK','=','C')
+             ->select('FCPMTX_TEXTE','FCPMTX_NATURECIPEMG_FK_PK','FCPMTX_FCPM_CODE_FK_PK')
+             ->get();
+                foreach($cis as $ci){
+                  if(str_contains($ci->FCPMTX_TEXTE, $medi)){
+                    unset($data[$key]);
+                  }
+                }
+    
+            } }
+
+          
+       
+       
+          if($etat) {
         if($etat=="femme em age de procreer"){
           $catfp=1;
 
-       }
+       }}
        return view('user.recresult',['listmed'=>$data,'catfp'=>$catfp]);
        //dd($data->all());
        //return $etat;
     }
-  }
+  
     
     
   
