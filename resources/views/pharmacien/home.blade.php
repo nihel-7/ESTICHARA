@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app')
 @section('content')
 <body>
           <style type="text/css">
@@ -49,8 +49,9 @@
           </style>
            
       <div class="btnCenter">
-      <button class="btn1"><a href="/prescriptionanalysis">analyse de prescription</a></button>
-      <button class="btn1"><a href="/therapeuticrec">Recommendation therapeutique</a></button>
+        pharmacien dashboard
+      <button class="btn1"><a href="/pharmacien/prescriptionanalysis">analyse de prescription</a></button>
+      <button class="btn1"><a href="/pharmacien/therapeuticrec">Recommendation therapeutique</a></button>
       </div>
   </body>
   

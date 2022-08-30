@@ -25,20 +25,36 @@ use App\Http\Controllers\RecresultController;
 */
 //pages
 Route::get('/', function () {
-    return view('user.home');
+    return view('home1');
 });
 Route::get('/welcome', function () {
     return view('welcome');
 });
-Route::get('/therapeuticrec', function () {
+Route::get('/user', function () {
+    return view('user.home');
+});
+Route::get('/user/therapeuticrec', function () {
     return view('user.therapeuticrec');
 });
-Route::get('/analysisresult', function () {
+Route::get('/user/analysisresult', function () {
     return view('user.analysisresult');
 });
 
-Route::get('/prescriptionanalysis', function () {
+Route::get('/user/prescriptionanalysis', function () {
     return view('user.prescriptionanalysis');
+});
+//------------------------pharmacien
+Route::get('/pharmacien', function () {
+    return view('pharmacien.home');
+});
+Route::get('/pharmacien/therapeuticrec', function () {
+    return view('pharmacien.therapeuticrec');
+});
+Route::get('/pharmacien/analysisresult', function () {
+    return view('pharmacien.analysisresult');
+});
+Route::get('/pharmacien/prescriptionanalysis', function () {
+    return view('pharmacien.prescriptionanalysis');
 });
 
 
@@ -72,7 +88,7 @@ Auth::routes();
 Route::get('/recresulttest',function(){
 	return view('user.recresult');
 }); 
-Route::post('/recresult',[RecresultController::class,'getData'])->name('recresult');
+Route::post('/user/recresult',[RecresultController::class,'getData'])->name('recresult');
 
 
 
@@ -97,7 +113,11 @@ Route::prefix('user')->name('user.')->group(function(){
 		Route::Post('/logout',[UserController::class,'logout'])->name('logout');
 	});
 });
-Auth::routes();
+Route::get('/login',function(){
+	return view('user.login');});
+Route::get('/register',function(){
+	return view('user.register');});
+
 // Admin authentication
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::prefix('admin')->name('admin.')->group(function(){
@@ -113,17 +133,24 @@ Route::prefix('admin')->name('admin.')->group(function(){
 // pharmacien authentication
 Route::prefix('pharmacien')->name('pharmacien.')->group(function(){
 	Route::middleware(['guest:pharmacien'])->group(function(){
-		Route::view('/login','pharmacien.login')->name('login');
-		Route::view('/register','pharmacien.register')->name('register');
-		Route::Post('/create',[PharmacienController::class,'create'])->name('create');
-		Route::Post('check',[PharmacienController::class,'check'])->name('check');
+		Route::view('/loginPh','pharmacien.login')->name('loginPh');
+		Route::view('/registerPh','pharmacien.register')->name('registerPh');
+		Route::Post('/createPh',[PharmacienController::class,'createPh'])->name('createPh');
+		Route::Post('checkPh',[PharmacienController::class,'checkPh'])->name('checkPh');
 	});
     Route::middleware(['auth:pharmacien'])->group(function(){
         Route::view('/home','pharmacien.home')->name('home');
     });
 });
+Route::get('/loginPh',function(){
+	return view('pharmacien.login');});
+	Route::get('/registerPh',function(){
+	return view('pharmacien.register');});
 Route::get('/getDetail', [App\Http\Controllers\RecresultController::class,'getDetail'])->name('getDetail');
 Route::get('/show_info/{id}', [App\Http\Controllers\RecresultController::class,'show_info'])->name('show_info');
+
+
+
 
 
 

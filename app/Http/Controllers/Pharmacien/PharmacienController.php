@@ -11,7 +11,7 @@ use Hash;
 
 class PharmacienController extends Controller
 {
-    public function create(Request $request){
+    public function createPh(Request $request){
     	//validate inputs
     	$request->validate([
     		'name'=>'required',
@@ -40,7 +40,7 @@ class PharmacienController extends Controller
     	}
 
     }
-    function check (Request $request){
+    function checkPh (Request $request){
         //validation des inputs
         $request->validate([
             'email'=>'required|email|exists:pharmaciens,email',
@@ -53,7 +53,11 @@ class PharmacienController extends Controller
              return redirect()->route('pharmacien.home')->with('success','welcome to home');
         }
         else{
-             return redirect()->route('pharmacien.login')->with('fail','incorrect donnee');
+             return redirect()->route('pharmacien.loginPh')->with('fail','incorrect donnee');
         }
+    }
+    public function logout(){
+        Auth::guard('pharmacien')->logout();
+        return redirect('/');
     }
 }

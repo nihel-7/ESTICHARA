@@ -17,7 +17,7 @@
         @if(Session::has('fail'))
         <div class="alert alert-danger">{{Session::get('fail')}}</div>
         @endif
-				<form action="{{route('pharmacien.create')}}" method="Post">
+				<form action="{{route('pharmacien.createPh')}}" method="Post">
           @csrf
           <div class="mb-3">
             <label for="name" class="form-label">Full Name</label>
@@ -55,7 +55,7 @@
             <span class="text-danger">@error('cpassword'){{$message}} @enderror</span>
   				</div>
           <button type="submit" class="btn btn-primary">Submit</button>
-          I already registered <a href="{{route('pharmacien.login')}}"> login here </a>
+          I already registered <a href="{{route('pharmacien.loginPh')}}"> login here </a>
         </form>				
 			</div>
 		</div>

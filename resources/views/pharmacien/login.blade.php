@@ -17,7 +17,7 @@
         @if(Session::has('fail'))
         <div class="alert alert-danger">{{Session::get('fail')}}</div>
         @endif
-				<form action="{{route('pharmacien.check')}}" method="Post" autocomplete="off">
+				<form action="{{route('pharmacien.checkPh')}}" method="Post" autocomplete="off">
           @csrf
           <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
@@ -30,7 +30,7 @@
             <span class="text-danger">@error('password'){{$message}} @enderror</span>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
-          new User <a href="{{route('user.register')}}"> login here </a>
+          new User <a href="{{route('pharmacien.registerPh')}}"> login here </a>
         </form>				
 			</div>
 		</div>

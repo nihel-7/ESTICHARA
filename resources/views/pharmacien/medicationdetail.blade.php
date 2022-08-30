@@ -3,9 +3,6 @@
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-        <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
       </head>
         <body>
 
@@ -17,7 +14,7 @@
               </nav>
 
 
-            
+            <h1>pharmacien</h1>
               <section class="content-header">
                 <div class="container-fluid" >
                   <div class="row justify-content-md-center mb-2">
@@ -31,8 +28,8 @@
 
           <!--info general-->
               <div class="container fluid">
-                <div class="card text-center ">
-                  <div class="card-header ">
+                <div class="card text-center">
+                  <div class="card-header">
                     <ul class="nav nav-tab card-header-pills" id="myTab" role="tablist">
                       <li class="nav-item">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">General</a>
@@ -71,19 +68,11 @@
               <!--details-->
 
               <div class="container-fluid mt-5">
-                <div class="accordion">
-              <div class="row">                
-               <div class="col-lg-6 ">               
-              <div class="card accordion-item">
-              <h5 class="accordion-header card-header text-white" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style=" background-color: rgba(252, 118, 8, 0.89);">
-        Modalité de prise
-      </button>
-    </h5>
-               
-                
-                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="card-body accordion-body" >
+              <div class="row justify-content-md-center">
+              <div class="col-xl-3 col-md-6 ">
+              <div class="card  mb-3 ml-3" style="max-width: 18rem;">
+                <h5 class="card-header text-white " style=" background-color: rgba(252, 118, 8, 0.89);">Modalité de prise</h5>
+                <div class="card-body">
                   @if(!$pos)
                   <h5 class="card-title">Aucun</h5>
                   @else
@@ -91,11 +80,10 @@
                   @endif
                 </div>
               </div>
-            </div>
           </div>
               
-          <div class="col-lg-6">
-              <div class="card   " >
+          <div class="col-xl-3 col-md-6 ">
+              <div class="card  mb-3 " style="max-width: 18rem;">
                 <h5 class="card-header text-white " style=" background-color:#07461a;">Recommendation</h5>
                 <div class="card-body">
                   @if(!$recs)
@@ -108,10 +96,8 @@
                 </div>
               </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card ">
+          <div class="col-xl-3 col-md-6 ">
+            <div class="card  mb-3" style="max-width: 18rem;">
               <h5 class="card-header text-white bg-warning ">effect secondaire</h5>
               <div class="card-body">
               @if(!$eis)
@@ -124,8 +110,8 @@
               </div>
             </div>
         </div>
-        <div class="col-lg-6 ">
-            <div class="card " >
+        <div class="col-xl-3 col-md-6 ">
+            <div class="card  mb-3" style="max-width: 18rem;">
               <h5 class="card-header text-white bg-danger "> contre indication</h5>
               <div class="card-body">
                 @if(!$cis)
@@ -144,13 +130,11 @@
         </div>
         </div>
       </div>
-      </div>
-     
 
       <div class="container-fluid mt-5">
         <div class="row justify-content-md-center mb-2">
           <div class="col-md-12">
-          <div class="card ">
+          <div class="card mb-3">
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Education therapeutique</h5>

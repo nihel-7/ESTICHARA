@@ -29,6 +29,10 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="password" autocomplete="off">
             <span class="text-danger">@error('password'){{$message}} @enderror</span>
           </div>
+          <div>
+            <input type="radio">Pharmacien 
+            <input type="radio">Vendeur
+          </div>
           <button type="submit" class="btn btn-primary">Submit</button>
           new User <a href="{{route('user.register')}}"> login here </a>
         </form>				
