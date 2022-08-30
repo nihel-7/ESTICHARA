@@ -98,9 +98,13 @@
               <div class="card   " >
                 <h5 class="card-header text-white " style=" background-color:#07461a;">Recommendation</h5>
                 <div class="card-body">
+                  @if($cat)
+                  {{$cat->FGATX9_TEXTE}}
+                  @endif
                   @if(!$recs)
                   <h5 class="card-title">Aucun</h5>
                   @else
+                  
                   @foreach($recs as $rec)
                   <p class="card-text">{{$rec->FCPMTX_TEXTE}}</p>
                   @endforeach

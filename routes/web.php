@@ -94,7 +94,7 @@ Route::post('/user/recresult',[RecresultController::class,'getData'])->name('rec
 
 //medicationdetail
 
-Route::get('/medicationdetail/{id}',[MedicationController::class,'MedInfo'])->name('medicationdetail');
+Route::get('/medicationdetail/{id}/{cat}',[MedicationController::class,'MedInfo'])->name('medicationdetail');
 
 
 

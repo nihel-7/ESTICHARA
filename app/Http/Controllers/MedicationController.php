@@ -35,8 +35,8 @@ return response()->json($data);
   return response()->json($data);
       }
       
-      public function MedInfo($id){
-
+      public function MedInfo($id,$cat){
+        $cats=0;
         $med = DB::table('sp_specialite')
         ->where('SP_CODE_SQ_PK','=',$id)
         ->select('SP_NOMLONG')
@@ -73,8 +73,20 @@ return response()->json($data);
         ->join('atr_aviscommissiontransparence','ATR_CODE_SQ_PK','=','SPATR_ATR_CODE_FK_PK')
         ->select('ATR_TEXTE','ATR_CODE_SQ_PK')
         ->first();
+
+        if($cat){
+            $cat= DB::table('fgasp_gralspe')
+            ->where('FGASP_SP_CODE_FK_PK','=',$id)
+            ->join('fgatx9_fga_txrecommandat','FGATX9_FGA_CODE_FK_PK','=','FGASP_FGA_CODE_FK_PK')
+            ->select('FGATX9_TEXTE')
+            ->first();
+            if($cat){
+            if(str_contains($cat->FGATX9_TEXTE, 'en âge')){
+                $cats=$cat ;
+              }}
+        }
         
-          return view('user.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos]);
+          return view('user.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats]);
         
 
         
