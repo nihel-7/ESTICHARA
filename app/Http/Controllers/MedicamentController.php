@@ -23,9 +23,6 @@ class MedicamentController extends Controller
    	 return $medicament;
 
    }
-   /*public function multi()
-      {
-        return view('user.prescriptionanalysis');
-      }*/
+   
    
 }

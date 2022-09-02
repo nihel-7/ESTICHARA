@@ -3,9 +3,16 @@
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
         <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
       </head>
         <body>
 
@@ -70,35 +77,38 @@
               
               <!--details-->
 
+
               <div class="container-fluid mt-5">
-                <div class="accordion">
-              <div class="row">                
-               <div class="col-lg-6 ">               
-              <div class="card accordion-item">
-              <h5 class="accordion-header card-header text-white" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style=" background-color: rgba(252, 118, 8, 0.89);">
+                <div class="accordion accordion-flush " id="accordionExample">
+                  <div class="row">
+  <div class="accordion-item col-lg-6">
+    <h2 class="accordion-header card" id="flush-headingOne">
+      <div class="clearfix mb-0">
+      <button class="accordion-button card-header text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style=" background-color: rgba(252, 118, 8, 0.89);">
         Modalité de prise
       </button>
-    </h5>
-               
-                
-                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="card-body accordion-body" >
-                  @if(!$pos)
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse  " aria-labelledby="flush-headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body card-body">
+        @if(!$pos)
                   <h5 class="card-title">Aucun</h5>
                   @else
                   <p class="card-text">{{$pos->ATR_TEXTE}}</p>
                   @endif
-                </div>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+  </div></div>
+  
               
-          <div class="col-lg-6">
-              <div class="card   " >
-                <h5 class="card-header text-white " style=" background-color:#07461a;">Recommendation</h5>
-                <div class="card-body">
-                  @if($cat)
+          <div class="accordion-item col-lg-6">
+    <h2 class="accordion-header card" id="flush-headingTwo">
+      <button class="accordion-button collapsed card-header text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" style=" background-color:#07461a;">
+        Recommendation
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse  " aria-labelledby="flush-headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body card-body">
+         @if($cat)
                   {{$cat->FGATX9_TEXTE}}
                   @endif
                   @if(!$recs)
@@ -109,30 +119,38 @@
                   <p class="card-text">{{$rec->FCPMTX_TEXTE}}</p>
                   @endforeach
                   @endif
-                </div>
-              </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card ">
-              <h5 class="card-header text-white bg-warning ">effect secondaire</h5>
-              <div class="card-body">
-              @if(!$eis)
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item col-lg-6">
+    <div class="row">
+    <h2 class="accordion-header card" id="flush-headingthree">
+      <button class="accordion-button card-header text-white bg-warning" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsethree" aria-expanded="false" aria-controls="flush-collapsethree">
+        effet secondaire
+      </button>
+    </h2>
+    <div id="flush-collapsethree" class="accordion-collapse collapse  " aria-labelledby="flush-flush-headingthree" data-bs-parent="#accordionExample">
+      <div class="accordion-body card-body">
+         @if(!$eis)
                   <h5 class="card-title">Aucun</h5>
                   @else
                   @foreach($eis as $ei)
                   <p class="card-text">{{$ei->FEITX1_TEXTE}}</p>
                   @endforeach
                   @endif
-              </div>
-            </div>
-        </div>
-        <div class="col-lg-6 ">
-            <div class="card " >
-              <h5 class="card-header text-white bg-danger "> contre indication</h5>
-              <div class="card-body">
-                @if(!$cis)
+      </div>
+    </div>
+  </div></div>
+              
+          <div class="accordion-item col-lg-6">
+    <h2 class="accordion-header card" id="flush-headingfour">
+      <button class="accordion-button collapsed card-header text-white bg-danger" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour">
+        contre indication
+      </button>
+    </h2>
+    <div id="flush-collapsefour" class="accordion-collapse collapse  " aria-labelledby="flush-headingfour" data-bs-parent="#accordionExample">
+      <div class="accordion-body card-body">
+        @if(!$cis)
                 <h5 class="card-title">Aucun</h5>
                 @else
                 @foreach($cis2 as $ci2)
@@ -143,12 +161,11 @@
                 @endforeach 
                  
                 @endif
-              </div>
-            </div>
-        </div>
-        </div>
       </div>
-      </div>
+    </div>
+  </div>
+        </div>
+       </div>
      
 
       <div class="container-fluid mt-5">
@@ -164,7 +181,9 @@
           </div>
         </div> 
       </div>
-      </div>
+      
+      </div></div>
+
 
       
 
