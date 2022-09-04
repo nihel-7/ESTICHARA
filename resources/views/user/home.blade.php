@@ -1,5 +1,9 @@
-@extends('layouts.app2')
+@extends('layouts.topbar')
 @section('content')
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+      
+      </head>
 <body>
           <style type="text/css">
             body{

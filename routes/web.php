@@ -25,7 +25,7 @@ use App\Http\Controllers\RecresultController;
 */
 //pages
 Route::get('/', function () {
-    return view('home1');
+    return view('welcome');
 });
 Route::get('/welcome', function () {
     return view('welcome');
@@ -101,55 +101,7 @@ Route::get('/medicationdetail/{id}/{cat}',[MedicationController::class,'MedInfo'
 
 
 
-///////------------------authentication
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::prefix('user')->name('user.')->group(function(){
-	Route::middleware(['guest:web'])->group(function(){
-		Route::view('/login','user.login')->name('login');
-		Route::view('/register','user.register')->name('register');
-		Route::Post('/create',[UserController::class,'create'])->name('create');
-		Route::Post('/dologin',[UserController::class,'doLogin'])->name('dologin');
-	});
-	Route::middleware(['auth:web'])->group(function(){
-		Route::view('/home','user.home')->name('home');
-		Route::Post('/logout',[UserController::class,'logout'])->name('logout');
-	});
-});
-Route::get('/login',function(){
-	return view('user.login');});
-Route::get('/register',function(){
-	return view('user.register');});
 
-// Admin authentication
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::prefix('admin')->name('admin.')->group(function(){
-	Route::middleware(['guest:admin'])->group(function(){
-		Route::view('/login','admin.login')->name('login');
-		Route::Post('/dologin',[AdminController::class,'doLogin'])->name('dologin');
-	});
-	Route::middleware(['auth:admin'])->group(function(){
-		Route::view('/home','admin.home')->name('home');
-		Route::Post('/logout',[AdminController::class,'logout'])->name('logout');
-	});
-});
-// pharmacien authentication
-Route::prefix('pharmacien')->name('pharmacien.')->group(function(){
-	Route::middleware(['guest:pharmacien'])->group(function(){
-		Route::view('/loginPh','pharmacien.login')->name('loginPh');
-		Route::view('/registerPh','pharmacien.register')->name('registerPh');
-		Route::Post('/createPh',[PharmacienController::class,'createPh'])->name('createPh');
-		Route::Post('checkPh',[PharmacienController::class,'checkPh'])->name('checkPh');
-	});
-    Route::middleware(['auth:pharmacien'])->group(function(){
-        Route::view('/home','pharmacien.home')->name('home');
-    });
-});
-Route::get('/loginPh',function(){
-	return view('pharmacien.login');});
-	Route::get('/registerPh',function(){
-	return view('pharmacien.register');});
-Route::get('/getDetail', [App\Http\Controllers\RecresultController::class,'getDetail'])->name('getDetail');
-Route::get('/show_info/{id}', [App\Http\Controllers\RecresultController::class,'show_info'])->name('show_info');
 
 
 

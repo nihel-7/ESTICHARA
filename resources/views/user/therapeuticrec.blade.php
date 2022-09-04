@@ -1,3 +1,5 @@
+@extends('layouts.topbar')
+@section('content')
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +10,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 
       <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
       </head>
         <body>
           <style type="text/css">
@@ -16,7 +18,7 @@
             </style>
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="/">Pharm-project</a>
+                  
                   <div class="mx-auto">
                   <h3>Recommendation therapeutique</h3></div>
                 </div>
@@ -491,3 +493,4 @@
         ></script>
         
     </body></html>
+    @endsection
