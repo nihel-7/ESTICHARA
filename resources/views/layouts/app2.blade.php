@@ -28,7 +28,7 @@
             <div class="container">
                 <a class="navbar-brand" href="/">
                    <p> <span class="glyphicon glyphicon-home"></span>
-                   Pharm-project vendeur</p></a>
+                   Pharm-project </p></a>
                
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                    

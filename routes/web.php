@@ -156,3 +156,7 @@ Route::get('/show_info/{id}', [App\Http\Controllers\RecresultController::class,'
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

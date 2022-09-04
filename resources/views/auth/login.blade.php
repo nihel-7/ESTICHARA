@@ -38,12 +38,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <input type="radio" name="user" checked> Vendeur&nbsp;&nbsp;&nbsp;<input type="radio" name="user"> pharmacien&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                              
 
-                            </div>
-                        </div>
                         <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
