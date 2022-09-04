@@ -8,7 +8,7 @@ class AllergieController extends Controller
 {
     public function autocompleteA(Request $request)
     {
-        $data = Allergie::select('CDF_NUMERO_PK','CDF_NOM')
+        $data = Allergie::select('CDF_CODE_PK','CDF_NOM')
                     ->where('CDF_NOM', 'LIKE', '%'. $request->get('query'). '%')
                     ->get();
      

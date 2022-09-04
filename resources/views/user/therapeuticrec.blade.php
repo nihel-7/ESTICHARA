@@ -224,7 +224,7 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.CDF_NUMERO_PK);
+              console.log(item.CDF_CODE_PK);
      // $('#nomM').val(item.id);
 },
       });

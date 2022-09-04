@@ -10,13 +10,14 @@ class RecresultController extends Controller
 {
     function getData(Request $req)
     { $catfp=0;
+      $cias=0;
        // return $req->input('nomM') ;
        $etat=$req->input('etat');
        $age=$req->input('age');
        $ante=$req->input('antecedents');
        $allergie=$req->input('allergie');
        $medi=$req->input('medicament');
-       $medid=$req->input('nomM');
+       $pathid=$req->input('nomM');
       
        /*$ci2 = DB::table('fcptsp_cipemg_spe')
         ->where('FCPTSP_SP_CODE_FK_PK','=',$medid)
@@ -24,8 +25,8 @@ class RecresultController extends Controller
         ->select('FCPTTX1_TXTCI')
         ->get();*/
 
-       $data = DB::table('spccl_specialite_classecl')
-       ->where('SPCCL_CCL_CODE_FK_PK','=',$medid)
+       $data = DB::table('spccl_specialite_classecl') //list de medicaments adequats pour la pathologie 
+       ->where('SPCCL_CCL_CODE_FK_PK','=',$pathid)
        ->join('sp_specialite','SPCCL_SP_CODE_FK_PK','=','SP_CODE_SQ_PK')
        ->select('SP_CODE_SQ_PK','SP_NOM','SP_NOMLONG')
        ->get();
@@ -137,7 +138,37 @@ class RecresultController extends Controller
 
           } }
           }
-      if($ante){
+          foreach($data as $key => $med){
+           $cias = DB::table('nivcom_niveau_commentaire') // liste des contre indications du medicaments
+            ->where('NIVCOM_CDF_COM_CODE_FK_PK','=','X9')
+            ->join('fcpmsp_cipemg_spe','FCPMSP_FCPM_CODE_FK_PK','=','NIVCOM_FCPM_CODE_FK_PK')
+            ->where('FCPMSP_SP_CODE_FK_PK','=',$med->SP_CODE_SQ_PK)
+            ->join('cdf_codif','CDF_CODE_PK','=','NIVCOM_CDF_TER_CODE_FK_PK')
+            ->select('CDF_CODE_PK','CDF_NOM','FCPMSP_SP_CODE_FK_PK')
+            ->get();
+            $ciasA = DB::table('tercom_terrain_commentaire') //liste des allergie du medicament
+            ->where('TERCOM_NATURE_CIPEMG_FK_PK','=','C')
+            ->join('fcpmsp_cipemg_spe','FCPMSP_FCPM_CODE_FK_PK','=','TERCOM_FCPM_CODE_FK_PK')
+            ->where('FCPMSP_SP_CODE_FK_PK','=',$med->SP_CODE_SQ_PK)
+            ->join('cdf_codif','CDF_CODE_PK','=','TERCOM_CDF_COM_CODE_FK_PK')
+            ->select('CDF_CODE_PK','CDF_NOM','FCPMSP_SP_CODE_FK_PK')
+            ->get();
+            if($allergie){ // tester par rappor aux allergies du patients
+            foreach($ciasA as $ciaA){
+              if($ciaA->CDF_NOM == $allergie){
+                unset($data[$key]);
+              }
+            }}
+            if($ante){
+              foreach($cias as $cia){
+                if($cia->CDF_NOM == $ante){
+                  unset($data[$key]);
+                }
+              }
+            }
+
+          }
+      /*if($ante){
         foreach($data as $key => $med){
           $cis = DB::table('fcpmsp_cipemg_spe')
          ->where('FCPMSP_SP_CODE_FK_PK','=',$med->SP_CODE_SQ_PK)
@@ -183,7 +214,7 @@ class RecresultController extends Controller
                   }
                 }
     
-            } }
+            } }*/
 
           
        
@@ -194,7 +225,7 @@ class RecresultController extends Controller
 
        }}
        return view('user.recresult',['listmed'=>$data,'catfp'=>$catfp]);
-       //dd($data->all());
+       //dd($cias->all());
        //return $etat;
     }
   
