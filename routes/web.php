@@ -56,6 +56,9 @@ Route::get('/pharmacien/analysisresult', function () {
 Route::get('/pharmacien/prescriptionanalysis', function () {
     return view('pharmacien.prescriptionanalysis');
 });
+Route::get('/dashboardAdmin', function () {
+    return view('Admin.dashboard');
+});
 
 
 
