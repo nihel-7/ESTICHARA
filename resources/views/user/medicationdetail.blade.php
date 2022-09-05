@@ -3,26 +3,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <!-- for icons plus minus font awesome-->
-  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-        <!-- CSS only -->
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">                
-      </head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+      <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
         <body>
 <style type="text/css">
+  html, body {
+  background: #FFFFE0
+  font-family: Abel, Arial, Verdana, sans-serif;
+}
   body{
   margin:0;
   font-family: sans-serif;
@@ -97,6 +93,25 @@ position: absolute;
   color:#444444;
   margin:0px;
 }
+.row{
+    margin-top:40px;
+    padding: 0 10px;
+}
+
+.clickable{
+    cursor: pointer;   
+}
+
+.me {
+	margin-top: -20px;
+	font-size: 15px;
+}
+.meagain {
+    display:inline-block;
+    vertical-align: top;
+    width: 100%;
+    margin-bottom: 0;
+} 
 
 
 
@@ -106,51 +121,9 @@ position: absolute;
 
 
 </style>
-            
-            
-              <section class="content-header">
-                <div class="container-fluid" >
-                  <div class="row justify-content-md-center mb-2">
-                    <div class="col-md-6" style=" padding-bottom: 19px; padding-top: 19px;">
-                      <h1 class="text-center text-secondary" >Information sur le médicament</h1>
-                    </div>
-                    
-                  </div>
-                </div><!-- /.container-fluid -->
-              </section>
-             
 
-
-       
-
-
-
-<!-- jqurey code -->
-
-
-
-
-
-
-
-
-
-          <!--info general-->
-              <div class="container fluid">
-                <div class="card text-center ">
-                  <div class="card-header ">
-                    <ul class="nav nav-tab card-header-pills" id="myTab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">General</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Posologie</a>
-                      </li>
-                      
-                    </ul>
-                  </div>
-                  
-                    <div class="tab-content" id="myTabContent">
+<div class="container">
+<div class="tab-content" id="myTabContent">
                       <div class="card-body">
                       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <h5 class="card-title">{{$med->SP_NOMLONG}}</h5>
@@ -159,96 +132,32 @@ position: absolute;
                   </div>
                 </div>
               </div>
-                <div class="tab-content" id="myTabContent">
-                  <div class="card-body"></div>
-                  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <h5 class="card-title">details posologie</h5>
-                <p class="card-text"></p>
-                
-              </div>
-            </div>
-          </div>
-           
+</div>
             
-
-             
-
-              
-              <!--details-->
-
-
-
-
-
-  <div class="accordian">
-      <div class="card">
-          <div class="card-header" style=" background-color: rgba(252, 118, 8, 0.89);">
-             <h3>Modalité de prise</h3>
-             <span class="fa fa-minus"></span>
-             <i>
-             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z"/></svg></i>
-
+            
+<div class="container-fluid">
+  <!-- contre indication -->
+  <div class="row">
+		<div class="col-lg-6">
+			<div class="panel panel-danger ">
+				<div class="panel-heading  ">
+					<h4 class=" meagain">
+          Contre Indications
+          <div class="btn-group pull-right">  
+          <a class="" style="margin-right: 10px;"  href="#collapseOne">
+          <i class="glyphicon glyphicon-pencil"></i>
+           </a>
+           
+            <i class=" glyphicon glyphicon-chevron-down  clickable me "></i>
+            
           </div>
-          <div class="card-body active">
-                @if(!$pos)
-                  <h5 class="card-title">Aucun</h5>
-                  @else
-                  <p class="card-text">{{$pos->ATR_TEXTE}}</p>
-                  @endif
-          </div>
-      </div>
-
-      <div class="card">
-          <div class="card-header" style=" background-color:#07461a;">
-             <h3>Recommendation</h3>
-             <span class="fa fa-plus"></span>
-             <i>
-             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z"/></svg></i>
-
-          </div>
-          <div class="card-body">
-             
-                  @if($cat)
-                  {{$cat->FGATX9_TEXTE}}
-                  @endif
-                  @if(!$recs)
-                  <h5 class="card-title">Aucun</h5>
-                  @else
-                  
-                  @foreach($recs as $rec)
-                  <p class="card-text">{{$rec->FCPMTX_TEXTE}}</p>
-                  @endforeach
-                  @endif
-          </div>
-      </div>
-      <div class="card">
-          <div class="card-header bg-warning">
-             <h3>effet secondaire</h3>
-             <span class="fa fa-plus"></span>
-             <i>
-             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z"/></svg></i>
-
-          </div>
-          <div class="card-body">
-               @if(!$eis)
-                  <h5 class="card-title">Aucun</h5>
-                  @else
-                  @foreach($eis as $ei)
-                  <p class="card-text">{{$ei->FEITX1_TEXTE}}</p>
-                  @endforeach
-                  @endif
-          </div>
-      </div>
-      <div class="card">
-          <div class="card-header bg-danger">
-             <h3>contre indication</h3>
-             <span class="fa fa-plus"></span>
-             <i>
-             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z"/></svg></i>
-
-          </div>
-          <div class="card-body">
-              @if(!$cis)
+          </h4>
+           </div>
+        
+          
+				
+				<div class="panel-body"  style="display:none;">
+        @if(!$cis)
                 <h5 class="card-title">Aucun</h5>
                 @else
                 @foreach($cis2 as $ci2)
@@ -259,13 +168,95 @@ position: absolute;
                 @endforeach 
                  
                 @endif
-          </div>
+      
       </div>
-  </div>
+			</div>
+		</div>
+
+<!-- liste de recommendations -->
+    <div class="col-lg-6">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h4 class="">Recommendations
+          <span class="btn-group pull-right ">
+          <a class="" style="margin-right: 10px;" href="#collapseOne">
+          <i class="glyphicon glyphicon-pencil"></i>
+           </a>
+            <i class="glyphicon glyphicon-chevron-down clickable me"></i>
+          </span>
+          </h4>
+					
+				</div>
+				<div class="panel-body " style="display:none;">
+        @if($cat)
+                  {{$cat->FGATX9_TEXTE}}
+                  @endif
+                  @if(!$recs)
+                  <h5 class="card-title">Aucun</h5>
+                  @else
+                  
+                  @foreach($recs as $rec)
+                  <p class="card-text">{{$rec->FCPMTX_TEXTE}}</p>
+                  @endforeach
+                  @endif
+      
+      </div>
+		</div>
+	</div>
   </div>
 
-             
+  <div class="row">
+<!-- modalite de prise -->
+		<div class="col-md-6">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+        <h4 class=" meagain">
+          Modalite de Prise
+          <span class="btn-group pull-right ">
+          <a class="" style="margin-right: 10px;" href="#collapseOne">
+          <i class="glyphicon glyphicon-pencil"></i>
+           </a>
+            <i class="glyphicon glyphicon-chevron-down clickable me"></i>
+          </span>
+          </h4>
+				</div>
+				<div class="panel-body" style="display:none;">
+        @if(!$pos)
+                  <h5 class="card-title">Aucun</h5>
+                  @else
+                  <p class="card-text">{{$pos->ATR_TEXTE}}</p>
+                  @endif
+      </div>
+			</div>
+		</div>
 
+    <!-- liste des effets secondaires -->
+		<div class="col-md-6">
+			<div class="panel panel-warning">
+				<div class="panel-heading">
+					<h4 class="">Effets Secondaires
+          <span class="btn-group pull-right ">
+          <a class="" style="margin-right: 10px;" href="#collapseOne">
+          <i class="glyphicon glyphicon-pencil"></i>
+           </a>
+            <i class="glyphicon glyphicon-chevron-down clickable me"></i>
+          </span>
+          </h4>
+					
+				</div>
+				<div class="panel-body " style="display:none;">
+        @if(!$eis)
+                  <h5 class="card-title">Aucun</h5>
+                  @else
+                  @foreach($eis as $ei)
+                  <p class="card-text">{{$ei->FEITX1_TEXTE}}</p>
+                  @endforeach
+                  @endif
+      </div>
+		</div>
+	</div>
+  </div>
+    
 
       
 
@@ -277,6 +268,24 @@ position: absolute;
                   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>
+
+$(document).on('click', '.me.clickable', function(e){
+    var $this = $(this);
+	if(!$this.hasClass('panel-collapsed')) {
+		$this.parents('.panel').find('.panel-body').slideDown();
+		$this.addClass('panel-collapsed');
+		$this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+		
+	} else {
+		$this.parents('.panel').find('.panel-body').slideUp();
+		$this.removeClass('panel-collapsed');
+		$this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+		
+	}
+})
+
+
+
   $(document).ready(function(){
     $(".card-header").click(function(){
        // self clicking close
