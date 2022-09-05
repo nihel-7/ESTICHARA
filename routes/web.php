@@ -90,6 +90,9 @@ Route::get('/recresulttest',function(){
 }); 
 Route::post('/user/recresult',[RecresultController::class,'getData'])->name('recresult');
 
+//analyse
+Route::post('/user/analyseresult',[AnalyseController::class,'analyse'])->name('analyseresult');
+
 
 
 

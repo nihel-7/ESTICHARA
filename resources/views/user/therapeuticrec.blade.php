@@ -245,7 +245,7 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.id);
+              console.log(item.SP_CODE_SQ_PK);
      // $('#nomM').val(item.id);
 },
       });
