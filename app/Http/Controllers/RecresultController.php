@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\PathMedAssociation;
 use App\Models\Sp_specialite;
 use Illuminate\Support\Facades\DB;
+
+use Illuminate\Support\Facades\Auth;
 class RecresultController extends Controller
 {
     function getData(Request $req)
@@ -224,7 +226,11 @@ class RecresultController extends Controller
           $catfp=1;
 
        }}
-       return view('user.recresult',['listmed'=>$data,'catfp'=>$catfp]);
+        if(Auth::user()->role==0){
+       return view('pharmacien.recresult',['listmed'=>$data,'catfp'=>$catfp]);}
+       else{
+        return view('user.recresult',['listmed'=>$data,'catfp'=>$catfp]);
+       }
        //dd($cias->all());
        //return $etat;
     }

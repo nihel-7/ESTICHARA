@@ -39,7 +39,9 @@ Route::get('/user/therapeuticrec', function () {
 Route::get('/user/analysisresult', function () {
     return view('user.analysisresult');
 });
-
+Route::get('/user/rechercheMed', function () {
+    return view('user.rechercheMedicament');
+});
 Route::get('/user/prescriptionanalysis', function () {
     return view('user.prescriptionanalysis');
 });
@@ -56,8 +58,14 @@ Route::get('/pharmacien/analysisresult', function () {
 Route::get('/pharmacien/prescriptionanalysis', function () {
     return view('pharmacien.prescriptionanalysis');
 });
+Route::get('/pharmacien/rechercheMed', function () {
+    return view('pharmacien.rechercheMedicament');
+});
 Route::get('/dashboardAdmin', function () {
     return view('Admin.dashboard');
+});
+Route::get('/register', function () {
+    return view('auth.register');
 });
 
 
@@ -93,8 +101,13 @@ Route::get('/recresulttest',function(){
 }); 
 Route::post('/user/recresult',[RecresultController::class,'getData'])->name('recresult');
 
-//analyse
-Route::post('/user/analyseresult',[AnalyseController::class,'analyse'])->name('analyseresult');
+
+
+Route::get('/recresulttest',function(){
+    return view('pharmacien.recresult');
+}); 
+Route::post('/pharmacien/recresult',[RecresultController::class,'getData'])->name('recresult');
+
 
 
 
@@ -103,16 +116,6 @@ Route::post('/user/analyseresult',[AnalyseController::class,'analyse'])->name('a
 //medicationdetail
 
 Route::get('/medicationdetail/{id}/{cat}',[MedicationController::class,'MedInfo'])->name('medicationdetail');
-
-
-
-
-
-
-
-
-
-
 
 
 Auth::routes();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Sp_specialite;
+use Illuminate\Support\Facades\Auth;
 
 class MedicationController extends Controller
 {
@@ -85,8 +86,16 @@ return response()->json($data);
                 $cats=$cat ;
               }}
         }
-        
+         if(Auth::user()->role==0){
+            return view('pharmacien.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats]);
+        }else{
           return view('user.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats]);
+        }
+         
+            
+
+          
+        }
         
 
         
@@ -94,4 +103,4 @@ return response()->json($data);
         
       }
   
-}
+

@@ -56,6 +56,7 @@
         
       <button class="btn1"><a href="/user/prescriptionanalysis">analyse de prescription</a></button>
       <button class="btn1"><a href="/user/therapeuticrec">Recommendation therapeutique</a></button>
+      <button class="btn1"><a href="/user/rechercheMed">Medicament</a></button>
       </div>
   </body>
   

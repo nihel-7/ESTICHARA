@@ -1,3 +1,5 @@
+@extends('layouts.topbar')
+@section('content')
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +10,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 
       <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
       </head>
         <body>
           <style type="text/css">
@@ -16,12 +18,11 @@
             </style>
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="/">Pharm-project</a>
+                  
                   <div class="mx-auto">
                   <h3>Recommendation therapeutique</h3></div>
                 </div>
               </nav>
-            
           <div class="content-wrapper mt-2" >
             <!-- Content Header (Page header) -->
             <section class="content-header">
@@ -67,22 +68,23 @@
 
                                   <div class="row mb-4">
                                     <div class="col-md-4">
-                                      <input type="text" class="form-control form-control-lg " placeholder="Age" aria-label="age">
+                                      <input type="text" name="age" class="form-control form-control-lg " placeholder="Age" aria-label="age">
                                     </div>
                                     <div class="col-md-4 ">
                                       <input type="text" class="form-control form-control-lg" placeholder="Poids" aria-label="poids">
                                     </div>
                                     <div class="col-md-4">
-                                      <select class="form-select form-select-lg" aria-label="Default select example">
+                                      <select name="etat" class="form-select form-select-lg" aria-label="Default select example">
                                         <option selected>Tranche d'age</option>
-                                        <option value="1">Nourrisson</option>
-                                        <option value="2">Enfant</option>
-                                        <option value="3">Adolescent</option>
-                                        <option value="4">Adulte</option>
-                                        <option value="5">Femme en age de procreer</option>
-                                        <option value="6">Femme enceinte</option>
-                                        <option value="7">Femme qui allaite</option>
-                                        <option value="8">Femme ménopausée</option>
+                                        <option value="nouveau-né">nouveau-né</option>
+                                        <option value="nourrisson">Nourrisson</option>
+                                        <option value="enfant">Enfant</option>
+                                        <option value="adolescent">Adolescent</option>
+                                        <option value="adulte">Adulte</option>
+                                        <option value="femme em age de procreer">Femme en age de procreer</option>
+                                        <option value="femme enceinte">Femme enceinte</option>
+                                        <option value="femme qui allaite">Femme qui allaite</option>
+                                        <option value="femme menopausee">Femme ménopausée</option>
                                         
                                         
                                       </select>
@@ -92,7 +94,7 @@
                                     <div class="row mb-4">
                                     <div class="col-md-6">
                                     <div class="entry input-group ">
-                                  <input class="form-control" name="fields[]" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
+                                  <input class="form-control" name="antecedents" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
                                       <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAntecedents()">
                                     <span class="glyphicon glyphicon-plus"></span>
@@ -108,8 +110,8 @@
                                   
                                   <div class="col-md-6">
                                   <div class="entry input-group ">
-                                  <input class=" typeahead form-control" name="fields[]" type="text" id="nomAl" placeholder="Allergie" autocomplete="off" />
-                    	              <span class="input-group-btn">
+                                  <input class=" typeahead form-control" name="allergie" type="text" id="nomAl" placeholder="Allergie" autocomplete="off" />
+                                    <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAllergie()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                   </span>
@@ -129,7 +131,7 @@
                                      <label for="medicament" class="form-label mb-2">Traitements associés</label>
 
                                         <div class="input-group input-group-lg mb-3">
-                                       <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicamenti" placeholder="Medicaments">
+                                       <input type="search" name="medicament" class="typeahead form-control form-control-lg" name="meds" id="medicamenti" placeholder="Medicaments">
                                        <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addMedicament()">
                                       <span class="glyphicon glyphicon-plus"></span>
@@ -140,7 +142,7 @@
                                   </span>
                                     
                                     </div>
-                                    <ul id="listMedicament">
+                                    <ul name="list" id="listMedicament">
                          </ul>
                                     </div>
                                     </div>
@@ -222,7 +224,7 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.CDF_NUMERO_PK);
+              console.log(item.CDF_CODE_PK);
      // $('#nomM').val(item.id);
 },
       });
@@ -243,7 +245,7 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.id);
+              console.log(item.SP_CODE_SQ_PK);
      // $('#nomM').val(item.id);
 },
       });
@@ -489,4 +491,6 @@
                   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
                <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         ></script>
-</body></html>
+        
+    </body></html>
+    @endsection
