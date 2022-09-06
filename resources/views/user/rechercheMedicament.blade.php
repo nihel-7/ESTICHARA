@@ -49,11 +49,11 @@
                       <!-- form start -->
                       
                         <div class="card-body">
-                  <form method="post" action="recresult" >
+                  <form method="post" action="medresult" >
                   {{ csrf_field() }}
                           <div class="form-group input-group-lg ">
-                          <input type="text" name="nom" class=" typeahead form form-control form-control-sm"  placeholder="entrez medicament . . .  " id="nom" autocomplete="off" >
-                          
+                          <input type="text" name="nomM" class=" typeahead form form-control form-control-sm"  placeholder="entrez medicament . . .  " id="nomM" autocomplete="off" >
+                          <input type="hidden" name="codeM" id="id">
                           </div>
                          
                         
@@ -75,7 +75,27 @@
 
 
    
-
+                <script>
+            var path3 = "{{ route('autocompleteM') }}";
+  
+  $('#nomM').typeahead({
+      displayText: function(item){ return item.SP_NOM;},
+      
+          source: function (query, process) {
+              return $.get(path3, {
+                  query: query
+              }, function (data) {
+                  console.log(data)
+                  return process(data);
+              });
+          },
+          afterSelect: function(item) {
+              console.log(item.SP_CODE_SQ_PK);
+     $('#id').val(item.SP_CODE_SQ_PK);
+},
+      });
+        
+        </script>
            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
                     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>

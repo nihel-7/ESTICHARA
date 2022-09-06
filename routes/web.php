@@ -107,6 +107,8 @@ Route::get('/recresulttest',function(){
     return view('pharmacien.recresult');
 }); 
 Route::post('/pharmacien/recresult',[RecresultController::class,'getData'])->name('recresult');
+// recherch emedicament
+Route::post('/user/medresult',[MedicationController::class,'MedinfoLight'])->name('medresult');
 
 
 

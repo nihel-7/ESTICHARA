@@ -226,6 +226,7 @@ class RecresultController extends Controller
           $catfp=1;
 
        }}
+       //dd($ciasA->all());
         if(Auth::user()->role==0){
        return view('pharmacien.recresult',['listmed'=>$data,'catfp'=>$catfp]);}
        else{
