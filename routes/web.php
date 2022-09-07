@@ -45,6 +45,9 @@ Route::get('/user/rechercheMed', function () {
 Route::get('/user/prescriptionanalysis', function () {
     return view('user.prescriptionanalysis');
 });
+Route::get('/user/recherchePathologie', function () {
+    return view('user.recherchePathologie');
+});
 //------------------------pharmacien
 Route::get('/pharmacien', function () {
     return view('pharmacien.home');
@@ -60,6 +63,9 @@ Route::get('/pharmacien/prescriptionanalysis', function () {
 });
 Route::get('/pharmacien/rechercheMed', function () {
     return view('pharmacien.rechercheMedicament');
+});
+Route::get('/pharmacien/recherchePathologie', function () {
+    return view('pharmacien.recherchePathologie');
 });
 Route::get('/dashboardAdmin', function () {
     return view('Admin.dashboard');

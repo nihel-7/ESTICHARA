@@ -12,6 +12,13 @@
               display: flex;
               height: 31vh;
             }
+            body .btnCenter2{
+
+              justify-content: center;
+              align-items: center;
+              display: flex;
+              height: 15vh;
+            }
             .btn1{
               background: none;
               width: 250px;
@@ -51,7 +58,10 @@
       <div class="btnCenter">
       <button class="btn1"><a href="/pharmacien/prescriptionanalysis">analyse de prescription</a></button>
       <button class="btn1"><a href="/pharmacien/therapeuticrec">Recommendation therapeutique</a></button>
+    </div><div class="btnCenter2">
       <button class="btn1"><a href="/pharmacien/rechercheMed">Medicament</a></button>
+
+      <button class="btn1"><a href="/pharmacien/recherchePathologie">recherche Pathologie</a></button>
       </div>
   </body>
   

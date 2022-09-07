@@ -12,6 +12,13 @@
               display: flex;
               height: 31vh;
             }
+            body .btnCenter2{
+
+              justify-content: center;
+              align-items: center;
+              display: flex;
+              height: 15vh;
+            }
             .btn1{
               background: none;
               width: 250px;
@@ -46,12 +53,36 @@
               .btn1:hover::before{
                 width: 248px;
               }
+              
           </style>
+          <div class="w3-sidebar w3-bar-block w3-border-right " style="display:none" id="mySidebar">
+            <div class="header">  <a href="#" class="w3-bar-item w3-button">dashboard 1</a>
+              </div>
+              <div class="content">
+  <a href="#" class="w3-bar-item w3-button"><span><i class="fas fa-edit">editer allergie</i></span></a>
+  <a href="#" class="w3-bar-item w3-button">gerer utilisateur</a></div>
+
+
+  <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+</div>
            
-      <div class="btnCenter">
-      <button class="btn1"><a href="/prescriptionanalysis">analyse de prescription</a></button>
-      <button class="btn1"><a href="/therapeuticrec">Recommendation therapeutique</a></button>
+     <div class="btnCenter">
+      <button class="btn1"><a href="/pharmacien/prescriptionanalysis">analyse de prescription</a></button>
+      <button class="btn1"><a href="/pharmacien/therapeuticrec">Recommendation therapeutique</a></button>
+    </div><div class="btnCenter2">
+      <button class="btn1"><a href="/pharmacien/rechercheMed">Medicament</a></button>
+
+      <button class="btn1"><a href="/pharmacien/recherchePathologie">recherche Pathologie</a></button>
       </div>
+      <script>
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
   </body>
   
    @endsection

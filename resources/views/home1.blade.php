@@ -52,6 +52,10 @@
       
       <button class="btn1"><a href="/pharmacien/prescriptionanalysis">analyse de prescription</a></button>
       <button class="btn1"><a href="/pharmacien/therapeuticrec">Recommendation therapeutique</a></button>
+      
+      <button class="btn1"><a href="/pharmacien/rechercheMed">Medicament</a></button>
+
+      <button class="btn1"><a href="/pharmacien/rechercheMed">recherche Pathologie</a></button>
       </div>
   </body>
   
