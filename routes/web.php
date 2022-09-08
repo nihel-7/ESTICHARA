@@ -118,7 +118,8 @@ Route::post('/user/medresult',[MedicationController::class,'MedinfoLight'])->nam
 
 
 
-
+//analyse
+Route::post('/user/analyseresult',[AnalyseController::class,'analyse'])->name('analyseresult');
 
 
 //medicationdetail

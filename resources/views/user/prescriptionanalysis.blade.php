@@ -50,7 +50,8 @@
                </thead>
                <tbody>
                    <tr id="row_1">
-                     <td><input type="search" data-field-name="medicament" class="typeahead form-control" name="medicament[]" id="medicament1" placeholder="" autocomplete="off"></td>
+                     <td><input type="search" data-field-name="medicament" class="typeahead form-control" name="medicament" id="medicament1" placeholder="" autocomplete="off"></td>
+                     <input type="hidden" name="codeM" id="id">
                      <td><input type="text"  data-field-name="unite" class="typeahead form-control" name="auto[]" id="unite_1" placeholder="" autocomplete="off"></td>
                      <td><center><input type="checkbox" class="form-check-input" name="ch1[]" id="exampleCheck_1"></center></td>
                      <td><center><input type="checkbox" class="form-check-input" name="ch2[]" id="exampleCheck_2"></center></td>
@@ -138,6 +139,7 @@
 
                                         <div class="input-group input-group-lg mb-3">
                                        <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicamenti" placeholder="Medicaments">
+                                       <input type="hidden" name="codei" id="idi">
                                        <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addMedicament()">
                                       <span class="glyphicon glyphicon-plus"></span>
@@ -321,9 +323,10 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.id);
+              console.log(item.SP_CODE_SQ_PK);
               console.log(item.SPFOTX_TEXTE);
             $('#forme').val(item.SPFOTX_TEXTE);
+            $('#id').val(item.SP_CODE_SQ_PK);
 },
       });
         
@@ -344,7 +347,8 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.id);
+              console.log(item.SP_CODE_SQ_PK);
+              $('#idi').val(item.SP_CODE_SQ_PK);
      // $('#nomM').val(item.id);
 },
       });
