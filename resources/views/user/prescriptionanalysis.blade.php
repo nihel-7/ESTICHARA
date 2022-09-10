@@ -86,23 +86,24 @@
                                       <input type="text" class="form-control" placeholder="Poids" aria-label="poids">
                                     </div>
                                     <div class="col-md-4">
-                                      <select class="form-select form-select-lg" aria-label="Default select example">
-                                        <option selected>Tranche d'age</option>
-                                        <option value="1">Nourrisson</option>
-                                        <option value="2">Enfant</option>
-                                        <option value="3">Adolescent</option>
-                                        <option value="4">Adulte</option>
-                                        <option value="5">Femme en age de procreer</option>
-                                        <option value="6">Femme enceinte</option>
-                                        <option value="7">Femme qui allaite</option>
-                                        <option value="8">Femme ménopausée</option>
+                                      <select class="form-select form-select-lg" aria-label="Default select example" name="etat">
+                                      <option selected>Tranche d'age</option>
+                                        <option value="nouveau-né">nouveau-né</option>
+                                        <option value="nourrisson">Nourrisson</option>
+                                        <option value="enfant">Enfant</option>
+                                        <option value="adolescent">Adolescent</option>
+                                        <option value="adulte">Adulte</option>
+                                        <option value="femme em age de procreer">Femme en age de procreer</option>
+                                        <option value="femme enceinte">Femme enceinte</option>
+                                        <option value="femme qui allaite">Femme qui allaite</option>
+                                        <option value="femme menopausee">Femme ménopausée</option>
                                       </select>
                                     </div>
                                   </div>
                                   <div class="row mb-4">
                                     <div class="col-md-6">
                                     <div class="entry input-group ">
-                                  <input class="typeahead form-control" name="fields[]" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
+                                  <input class="typeahead form-control" name="ante" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
                                       <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAntecedent()">
                                     <span class="glyphicon glyphicon-plus"></span>
@@ -117,7 +118,7 @@
                                   </div>
                                   <div class="col-md-6">
                                   <div class="entry input-group ">
-                                  <input class=" typeahead form-control" name="fields[]" type="text" id="nomAl" placeholder="Allergie" autocomplete="off" />
+                                  <input class=" typeahead form-control" name="allergie" type="text" id="nomAl" placeholder="Allergie" autocomplete="off" />
                                     <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAllergie()">
                                     <span class="glyphicon glyphicon-plus"></span>
@@ -392,7 +393,7 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.CDF_NUMERO_PK);
+              console.log(item.CDF_CODE_PK);
      // $('#nomM').val(item.id);
 },
       });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class AnalyseController extends Controller
 {
     
@@ -52,7 +53,7 @@ class AnalyseController extends Controller
         $mecanismes=implode(',', $tab);
     return $mecanismes;
     }
-    protected function interaction_sp_medicamenteuse( $med_sp_id , $med_sp_id_next ) 
+    protected function interaction_sp_medicamenteuse( $med_sp_id , $med_sp_id_next , $nomM , $nomi ) 
     {
         $results = DB::select("select 
                     t1.it1sp_fit_code_fk_pk as idinter, 
@@ -150,6 +151,9 @@ class AnalyseController extends Controller
                 $i_array = array(
                     "item_sac_1" => $med_sp_id,
                     "item_sac_2" => $terme_2,
+                    "nomM"=>$nomM,
+                    "comment" => "Interaction medicamenteuse: ",
+                    "nomi"=>$nomi,
                     "niveau_inter" => $result->niveau,
                     "mecanisme"         => $mecanisme,
                     "fiche_interaction" => $fiche[0]->nofit);
@@ -158,13 +162,101 @@ class AnalyseController extends Controller
         }
     }
 
+    protected function allergies ($med_sp ,$ficheid) 
+   {
+        $result =  DB::select(" select distinct(t2.TERCOM_CDF_COM_CODE_FK_PK) as code_comment_terrain
+                                                     from fcpmsp_cipemg_spe t1 , tercom_terrain_commentaire t2 , nivcom_niveau_commentaire t4
+                                                    where
+                                                    t2.TERCOM_FCPM_CODE_FK_PK = t4.NIVCOM_FCPM_CODE_FK_PK
+                                                    and
+                                                    t4.NIVCOM_CDF_COM_CODE_FK_PK='X9'
+                                                    and
+                                                    t1.FCPMSP_FCPM_CODE_FK_PK = t4.NIVCOM_FCPM_CODE_FK_PK
+                                                    and
+                                                    t1.FCPMSP_SP_CODE_FK_PK = ?
+                                                    and 
+                                                    t2.TERCOM_CDF_TER_CODE_FK_PK='ab5' 
+                                                    and t2.tercom_fcpm_code_fk_pk = ? " , [$med_sp , $ficheid] ); // ab5 code terrain pour les hypersensibilités
+        return $result;
+   }
+
     public function analyse(Request $req){
 
         $id=$req->input('codeM');
         $id2=$req->input('codei');
-        $interaction= $this->interaction_sp_medicamenteuse( $id , $id2 );
-        return $interaction ;
+        $ante=$req->input('ante');
+        $allergie=$req->input('allergie');
+        $etat=$req->input('etat');
+        $nomM=$req->input('medicament');
+        $nomi=$req->input('meds');
+        $a_array =[];
+        $al_array =[];
+        $interaction= $this->interaction_sp_medicamenteuse( $id , $id2 , $nomM , $nomi );
+        //$allergies=0;
+
+        $cias = DB::table('nivcom_niveau_commentaire') // liste des contre indications du medicaments
+            ->where('NIVCOM_CDF_COM_CODE_FK_PK','=','X9')
+            ->join('fcpmsp_cipemg_spe','FCPMSP_FCPM_CODE_FK_PK','=','NIVCOM_FCPM_CODE_FK_PK')
+            ->where('FCPMSP_SP_CODE_FK_PK','=',$id)
+            ->join('cdf_codif','CDF_CODE_PK','=','NIVCOM_CDF_TER_CODE_FK_PK')
+            ->select('CDF_CODE_PK','CDF_NOM','FCPMSP_SP_CODE_FK_PK')
+            ->get();
+            $ciasA = DB::table('tercom_terrain_commentaire') //liste des allergie du medicament
+            ->where('TERCOM_NATURE_CIPEMG_FK_PK','=','C')
+            ->join('fcpmsp_cipemg_spe','FCPMSP_FCPM_CODE_FK_PK','=','TERCOM_FCPM_CODE_FK_PK')
+            ->where('FCPMSP_SP_CODE_FK_PK','=',$id)
+            ->join('cdf_codif','CDF_CODE_PK','=','TERCOM_CDF_COM_CODE_FK_PK')
+            ->select('CDF_CODE_PK','CDF_NOM','FCPMSP_SP_CODE_FK_PK')
+            ->get();
+            if($allergie){ // tester par rappor aux allergies du patients
+            foreach($ciasA as $ciaA){
+              if($ciaA->CDF_NOM == $allergie){
+                $al_array = array(
+                    "med" => $nomM,
+                    "allergie" => $allergie,
+                    "comment" => "medicament contre indique pour cette allergie: ");
+              }
+            }}
+            if($ante){
+              foreach($cias as $cia){
+                if($cia->CDF_NOM == $ante){
+                    $a_array = array(
+                        "med" => $nomM,
+                        "ante" => $ante,
+                        "comment" => "medicament contre indique pour cette pathologie: ");
+                }
+              }
+            }
+            $cis_absolue = DB::select(" select  t3.cdf_nom , t5.NIVCOM_FCPM_CODE_FK_PK as code_fiche 
+                                            FROM  fcpmsp_cipemg_spe T1, cdf_codif t3 ,nivcom_niveau_commentaire t5
+                                            WHERE t5.NIVCOM_FCPM_CODE_FK_PK = T1.FCPMSP_FCPM_CODE_FK_PK 
+                                            and t3.cdf_code_pk=t5.nivcom_cdf_ter_code_fk_pk
+                                            and t5.NIVCOM_NATURE_CIPEMG_FK_PK ='C'
+                                            AND T1.FCPMSP_SP_CODE_FK_PK       = ?
+                                            ORDER BY 1 " , [$id] );
+        
+      
+      for ($i=0; $i < count($cis_absolue); $i++) {
+
+        if ($cis_absolue[$i]->cdf_nom === "HYPERSENSIBILITE") { // test par rapprot à l'allergie
+            // resortir les allergies du médicament   
+           $allergies = $this->allergies($id , $cis_absolue[$i]->code_fiche);
+      }
+       // return $interaction ;
+       //dd($a_array);
+        if(Auth::user()->role==0){
+            return view('pharmacien.analysisresult',['medal'=>$al_array,'medpath'=>$a_array,'medinter'=>$interaction]);}
+            else{
+             return view('user.analysisresult',['medal'=>$al_array,'medpath'=>$a_array,'medinter'=>$interaction]);
+            }
         //dd($req->all());
+        //dd($cias);
+        //dd($cis_absolue);
+        //dd($ciasA);
+        //dd($allergies);
+       // dd($a_array);
+        //dd($al_array);
     }
 
+}
 }

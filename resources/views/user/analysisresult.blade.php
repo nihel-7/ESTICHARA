@@ -65,28 +65,43 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Medicaments</th>
-            <th scope="col">Details</th>
             <th scope="col">Problemes</th>
+            <th scope="col">Details</th>
           </tr>
         </thead>
         <tbody>
+          @if($medpath)
+          
           <tr>
             <th scope="row">1</th>
-            <td colspan="2">Biocalyptol</td>
-            <td>Aucun probleme</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Doliprane 500mg</td>
-            <td>Details</td>
-            <td>surdosage pour enfant de moins 20kg </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Aspegic</td>
-            <td>Aucun probleme</td>
+            <td >{{$medpath['med']}}</td>
+            <td colspan="2">{{$medpath['comment']}} {{$medpath['ante']}}</td>
+            <td></td>
           </tr>
          
+          @endif
+
+       <!--   @if($medal)
+          @foreach($medal as $medalitem)
+          <tr>
+            <th scope="row">1</th>
+            <td >{{$medalitem->med}}</td>
+            <td colspan="2">{{$medalitem->comment}} {{$medalitem->allergie}}</td>
+            <td></td>
+          </tr>
+          @endforeach
+          @endif
+          @if($medinter)
+          @foreach($medinter as $medinteritem)
+          <tr>
+            <th scope="row">2</th>
+            <td>{{$medinteritem->nomM}}</td>
+            <td>{{$medinteritem->comment}} {{$medinteritem->nomi}} </td>
+            <td>Details</td>
+          </tr>
+          @endforeach
+          @endif
+-->
         </tbody>
       </table>
     </div>
