@@ -31,6 +31,7 @@ return response()->json($data);
         ->where('SP_NOM', 'LIKE', '%'. $request->get('query'). '%')
         ->join('spfotx_spe_forme_texte', 'SP_CODE_SQ_PK', '=', 'SPFOTX_SP_CODE_FK_PK')
         ->select('SP_NOM', 'SP_CODE_SQ_PK', 'SPFOTX_TEXTE')
+        ->limit(25)
         ->get();
   
   return response()->json($data);
