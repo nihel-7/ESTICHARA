@@ -215,7 +215,9 @@ position: absolute;
         @if(!$pos)
                   <h5 class="card-title">Aucun</h5>
                   @else
-                  <p class="card-text">{{$pos->ATR_TEXTE}}</p>
+                  @foreach($pos as $positem)
+                  <p class="card-text">{{$positem->FPO_TEXTE}}</p>
+                  @endforeach
                   @endif
       </div>
 			</div>

@@ -19,7 +19,7 @@ class MedicationController extends Controller
     public function autocompleteM (Request $request){
       $data = Sp_specialite::select('SP_CODE_SQ_PK','SP_NOM')
       ->where('SP_NOM', 'LIKE', '%'. $request->get('query'). '%')
-      
+      ->limit(7)
       ->get();
 
 return response()->json($data);
@@ -70,11 +70,17 @@ return response()->json($data);
         ->select('FCPMTX_TEXTE','FCPMTX_NATURECIPEMG_FK_PK','FCPMTX_CDF_TER_CODE_FK_PK')
         ->get();
 
-        $pos = DB::table('spatr_spec_avistransparence')
+        /*$pos = DB::table('spatr_spec_avistransparence')
         ->where('SPATR_SP_CODE_FK_PK','=',$id)
         ->join('atr_aviscommissiontransparence','ATR_CODE_SQ_PK','=','SPATR_ATR_CODE_FK_PK')
         ->select('ATR_TEXTE','ATR_CODE_SQ_PK')
-        ->first();
+        ->first();*/
+        $pos = DB::table('fpo_ficheposo')
+        ->join('fposp_poso_spe','FPOSP_FPO_CODE_FK_PK','=','FPO_CODE_SQ_PK')
+        ->where('FPOSP_SP_CODE_FK_PK','=',$id)
+        ->select('FPO_TEXTE','FPOSP_SP_CODE_FK_PK')
+        ->get();
+
 
         if($cat){
             $cat= DB::table('fgasp_gralspe')
@@ -87,6 +93,7 @@ return response()->json($data);
                 $cats=$cat ;
               }}
         }
+       // return $pos;
          if(Auth::user()->role==0){
             return view('pharmacien.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats]);
         }else{
@@ -133,11 +140,16 @@ return response()->json($data);
         ->select('FCPMTX_TEXTE','FCPMTX_NATURECIPEMG_FK_PK','FCPMTX_CDF_TER_CODE_FK_PK')
         ->get();
 
-        $pos = DB::table('spatr_spec_avistransparence')
+       /* $pos = DB::table('spatr_spec_avistransparence')
         ->where('SPATR_SP_CODE_FK_PK','=',$id)
         ->join('atr_aviscommissiontransparence','ATR_CODE_SQ_PK','=','SPATR_ATR_CODE_FK_PK')
         ->select('ATR_TEXTE','ATR_CODE_SQ_PK')
-        ->first();
+        ->first();*/
+        $pos = DB::table('fpo_ficheposo')
+        ->join('fposp_poso_spe','FPOSP_FPO_CODE_FK_PK','=','FPO_CODE_SQ_PK')
+        ->where('FPOSP_SP_CODE_FK_PK','=',$id)
+        ->select('FPO_TEXTE','FPOSP_SP_CODE_FK_PK')
+        ->get();
 
         
             $cat= DB::table('fgasp_gralspe')
@@ -150,6 +162,7 @@ return response()->json($data);
                 $cats=$cat ;
               }}
         
+              //return $pos;
          if(Auth::user()->role==0){
             return view('pharmacien.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats]);
         }else{
