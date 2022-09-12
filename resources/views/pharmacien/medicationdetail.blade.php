@@ -5,10 +5,10 @@
     <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
-      <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </head>
@@ -111,11 +111,22 @@ position: absolute;
     width: 100%;
     margin-bottom: 0;
 } 
+.modal {
+    padding-right: 0px !important;
+}
+@media screen {
+   #printable {display: none;}
+              }
+@media print {
+    #printable{
+      display: block; margin-top: 0px;
+    }
+    }
 
 </style>
 
 <div class="container">
-<div class="tab-content" id="myTabContent">
+<div class="tab-content d-print-none" id="myTabContent">
                       <div class="card-body">
                       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <h5 class="card-title">{{$med->SP_NOMLONG}}</h5>
@@ -125,44 +136,54 @@ position: absolute;
                 </div>
               </div>
 </div>
-<!-- Button trigger modal-->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPush">Launch modal</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary d-print-none" data-toggle="modal" data-target="#exampleModalCenter">
+  education therapeutique
+</button>
 
-<!--Modal: modalPush-->
-<div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-notify modal-info" role="document">
-    <!--Content-->
-    <div class="modal-content text-center">
-      <!--Header-->
-      <div class="modal-header d-flex justify-content-center">
-        <p class="heading">Be always up to date</p>
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg d-print-none" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-print-none">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Education Therapeutique</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-
-      <!--Body-->
-      <div class="modal-body">
-
-        <i class="fas fa-bell fa-4x animated rotateIn mb-4"></i>
-
-        <p>Do you want to receive the push notification about the newest posts?</p>
-
+      <div class="modal-body d-print-none" >
+      <form id="eduform">
+          
+          <div class="form-group ">
+            <label for="message-text" class="col-form-label"></label>
+            
+            <textarea rows="10" class="form-control" id="edu-text"></textarea>
+          </div>
+        </form>
       </div>
-
-      <!--Footer-->
-      <div class="modal-footer flex-center">
-        <a href="https://mdbootstrap.com/docs/standard/pro/" class="btn btn-info">Yes</a>
-        <a type="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">No</a>
+      <div class="modal-footer d-print-none">
+      
+        
+        <button type="button" class="btn btn-primary glyphicon glyphicon-floppy-save"></button>
+        <button type="button" class="btn btn-danger glyphicon glyphicon-print" id="print" ></button>
+        
       </div>
     </div>
-    <!--/.Content-->
   </div>
 </div>
-<!--Modal: modalPush-->
+
+
+<section  id="printable">
+<h3> Education therapeutique {{$med->SP_NOMLONG}} </h3>
+<p id="sp"> yuggug </p>
+</section>
+
+
 
 <div class="container-fluid">
   <!-- contre indication -->
   <div class="row">
-		<div class="col-lg-6">
+		<div class="col-lg-6 d-print-none">
 			<div class="panel panel-danger ">
 				<div class="panel-heading  ">
 					<h4 class=" meagain">
@@ -198,7 +219,7 @@ position: absolute;
 		</div>
 
 <!-- liste de recommendations -->
-    <div class="col-lg-6">
+    <div class="col-lg-6 d-print-none">
 			<div class="panel panel-success">
 				<div class="panel-heading">
 					<h4 class="">Recommendations
@@ -220,7 +241,7 @@ position: absolute;
                   @else
                   
                   @foreach($recs as $rec)
-                  <input type="checkbox" id="myCheck" onclick="document.forms['name_of_the_form']['name_of_the_input'].value += 'value'"style="float: left;">
+                  <input type="checkbox" id="myCheck" onclick="document.forms['eduform']['edu-text'].value += {{ json_encode($rec->FCPMTX_TEXTE) }}"style="float: left;">
                   <div style="overflow: hidden; padding: 0px 0px 0px 5px;" class="card-text">{{$rec->FCPMTX_TEXTE}}</div>
                   @endforeach
                   @endif
@@ -230,7 +251,7 @@ position: absolute;
 	</div>
   </div>
 
-  <div class="row">
+  <div class="row d-print-none">
 <!-- modalite de prise -->
 		<div class="col-md-6">
 			<div class="panel panel-info">
@@ -294,6 +315,8 @@ position: absolute;
 
                   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+
+                  
 <script>
 
 $(document).on('click', '.me.clickable', function(e){
@@ -329,6 +352,19 @@ $(document).on('click', '.me.clickable', function(e){
     })
   })
 
+</script>
+
+<script>
+   
+const printbtn = document.getElementById('print');
+printbtn.addEventListener('click',function(){
+  var textarea = document.getElementById("edu-text");
+        var p = document.getElementById("sp");
+        var text =textarea.value;
+        p.textContent=text;
+  
+  print();
+})
 </script>
 
         </body>
