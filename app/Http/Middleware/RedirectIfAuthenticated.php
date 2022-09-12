@@ -17,11 +17,16 @@ class RedirectIfAuthenticated
      * @param  string|null  ...$guards
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, ...$guards)
+    public function handle($request, Closure $next, $guard = null)
     {
-        $guards = empty($guards) ? [null] : $guards;
+        if (Auth::guard($guard)->check()) {
+            return redirect(RouteServiceProvider::HOME);
+        }
 
-        foreach ($guards as $guard) {
+        return $next($request);
+       // $guards = empty($guards) ? [null] : $guards;
+
+       /* foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                 if($guard ==='admin')
                 {
@@ -32,9 +37,9 @@ class RedirectIfAuthenticated
                     return redirect()->route('pharmacien.home');
                 }
                 return redirect()->route('user.home');
-            }
-        }
+            }*/
+        //}
 
-        return $next($request);
+       // return $next($request);
     }
 }

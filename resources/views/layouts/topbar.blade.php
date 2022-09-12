@@ -26,7 +26,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="/user">
+                <a class="navbar-brand" href="/user/home">
                    <p> <span class="glyphicon glyphicon-home"></span>
                    Pharm-project </p></a>
                

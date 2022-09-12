@@ -88,6 +88,18 @@
           </tr>
           
           @endif
+         
+          @if($medetat)
+          
+          <tr>
+            <th scope="row">1</th>
+            <td >{{$medetat['med']}}</td>
+            <td colspan="2">{{$medetat['comment']}} {{$medetat['etat']}}</td>
+            <td></td>
+          </tr>
+          
+          @endif
+         
           @if($medinter)
           
           <tr>

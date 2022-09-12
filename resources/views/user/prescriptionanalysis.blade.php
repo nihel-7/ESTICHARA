@@ -90,12 +90,12 @@
                                       <option selected>Tranche d'age</option>
                                         <option value="nouveau-né">nouveau-né</option>
                                         <option value="nourrisson">Nourrisson</option>
-                                        <option value="enfant">Enfant</option>
+                                        <option value="ENFANT">Enfant</option>
                                         <option value="adolescent">Adolescent</option>
                                         <option value="adulte">Adulte</option>
                                         <option value="femme em age de procreer">Femme en age de procreer</option>
-                                        <option value="femme enceinte">Femme enceinte</option>
-                                        <option value="femme qui allaite">Femme qui allaite</option>
+                                        <option value="GROSSESSE">Femme enceinte</option>
+                                        <option value="ALLAITEMENT">Femme qui allaite</option>
                                         <option value="femme menopausee">Femme ménopausée</option>
                                       </select>
                                     </div>

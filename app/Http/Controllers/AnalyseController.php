@@ -191,6 +191,7 @@ class AnalyseController extends Controller
         $nomi=$req->input('meds');
         $a_array =[];
         $al_array =[];
+        $e_array=[];
         $interaction= $this->interaction_sp_medicamenteuse( $id , $id2 , $nomM , $nomi );
         //$allergies=0;
 
@@ -225,8 +226,19 @@ class AnalyseController extends Controller
                         "ante" => $ante,
                         "comment" => "medicament contre indique pour cette pathologie: ");
                 }
+                
+
               }
             }
+                foreach($cias as $cia){
+                    if($cia->CDF_NOM == $etat){
+                        $e_array = array(
+                            "med" => $nomM,
+                            "etat" => $etat,
+                            "comment" => "medicament contre indique pour ce patient: ");
+                    }
+                }
+            
             $cis_absolue = DB::select(" select  t3.cdf_nom , t5.NIVCOM_FCPM_CODE_FK_PK as code_fiche 
                                             FROM  fcpmsp_cipemg_spe T1, cdf_codif t3 ,nivcom_niveau_commentaire t5
                                             WHERE t5.NIVCOM_FCPM_CODE_FK_PK = T1.FCPMSP_FCPM_CODE_FK_PK 
@@ -242,12 +254,12 @@ class AnalyseController extends Controller
             // resortir les allergies du médicament   
            $allergies = $this->allergies($id , $cis_absolue[$i]->code_fiche);
       }
-       // return $interaction ;
-       //dd($a_array);
+        //return $cias ;
+       //dd($cias);
         if(Auth::user()->role==0){
             return view('pharmacien.analysisresult',['medal'=>$al_array,'medpath'=>$a_array,'medinter'=>$interaction]);}
             else{
-             return view('user.analysisresult',['medal'=>$al_array,'medpath'=>$a_array,'medinter'=>$interaction]);
+             return view('user.analysisresult',['medal'=>$al_array,'medpath'=>$a_array,'medinter'=>$interaction,'medetat'=>$e_array]);
             }
         //dd($req->all());
         //dd($cias);

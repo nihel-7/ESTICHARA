@@ -206,10 +206,12 @@ position: absolute;
                 <h5 class="card-title">Aucun</h5>
                 @else
                 @foreach($cis2 as $ci2)
-                <p class="card-text">2{{$ci2->FCPTTX1_TXTCI}} </p>
+                <input type="checkbox" id="myCheck" onclick="document.forms['eduform']['edu-text'].value += {{ json_encode($ci2->FCPTTX1_TXTCI) }}"style="float: left;">
+                <div style="overflow: hidden; padding: 0px 0px 0px 5px;" class="card-text">{{$ci2->FCPTTX1_TXTCI}} </div>
                 @endforeach
                 @foreach($cis as $ci)
-                <p class="card-text">{{$ci->FCPMTX_TEXTE}} </p>
+                <input type="checkbox" id="myCheck" onclick="document.forms['eduform']['edu-text'].value += {{ json_encode($ci->FCPMTX_TEXTE) }}"style="float: left;">
+                <div style="overflow: hidden; padding: 0px 0px 0px 5px;" class="card-text">{{$ci->FCPMTX_TEXTE}} </div>
                 @endforeach 
                  
                 @endif

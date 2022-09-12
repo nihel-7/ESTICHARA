@@ -30,7 +30,7 @@ Route::get('/', function () {
 Route::get('/welcome', function () {
     return view('home1');
 });
-Route::get('/user', function () {
+Route::get('/user/home', function () {
     return view('user.home');
 });
 Route::get('/user/therapeuticrec', function () {
