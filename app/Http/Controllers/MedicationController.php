@@ -94,7 +94,7 @@ return response()->json($data);
               }}
         }
        // return $pos;
-         if(Auth::user()->role==0){
+         if(Auth::user()->role==1){
             return view('pharmacien.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats]);
         }else{
           return view('user.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats]);

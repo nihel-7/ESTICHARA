@@ -102,8 +102,8 @@ position: absolute;
 }
 
 .me {
-  margin-top: -20px;
-  font-size: 15px;
+	margin-top: -20px;
+	font-size: 15px;
 }
 .meagain {
     display:inline-block;
@@ -111,6 +111,7 @@ position: absolute;
     width: 100%;
     margin-bottom: 0;
 } 
+
 </style>
 
 <div class="container">
@@ -124,15 +125,47 @@ position: absolute;
                 </div>
               </div>
 </div>
-            
-            
+<!-- Button trigger modal-->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPush">Launch modal</button>
+
+<!--Modal: modalPush-->
+<div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-info" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Be always up to date</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+
+        <i class="fas fa-bell fa-4x animated rotateIn mb-4"></i>
+
+        <p>Do you want to receive the push notification about the newest posts?</p>
+
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer flex-center">
+        <a href="https://mdbootstrap.com/docs/standard/pro/" class="btn btn-info">Yes</a>
+        <a type="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">No</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: modalPush-->
+
 <div class="container-fluid">
   <!-- contre indication -->
   <div class="row">
-    <div class="col-lg-6">
-      <div class="panel panel-danger ">
-        <div class="panel-heading  ">
-          <h4 class=" meagain">
+		<div class="col-lg-6">
+			<div class="panel panel-danger ">
+				<div class="panel-heading  ">
+					<h4 class=" meagain">
           Contre Indications
           <div class="btn-group pull-right">  
           <a class="" style="margin-right: 10px;"  href="#collapseOne">
@@ -146,8 +179,8 @@ position: absolute;
            </div>
         
           
-        
-        <div class="panel-body"  style="display:none;">
+				
+				<div class="panel-body"  style="display:none;">
         @if(!$cis)
                 <h5 class="card-title">Aucun</h5>
                 @else
@@ -161,14 +194,14 @@ position: absolute;
                 @endif
       
       </div>
-      </div>
-    </div>
+			</div>
+		</div>
 
 <!-- liste de recommendations -->
     <div class="col-lg-6">
-      <div class="panel panel-success">
-        <div class="panel-heading">
-          <h4 class="">Recommendations
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h4 class="">Recommendations
           <span class="btn-group pull-right ">
           <a class="" style="margin-right: 10px;" href="#collapseOne">
           <i class="glyphicon glyphicon-pencil"></i>
@@ -176,9 +209,9 @@ position: absolute;
             <i class="glyphicon glyphicon-chevron-down clickable me"></i>
           </span>
           </h4>
-          
-        </div>
-        <div class="panel-body " style="display:none;">
+					
+				</div>
+				<div class="panel-body " style="display:none;">
         @if($cat)
                   {{$cat->FGATX9_TEXTE}}
                   @endif
@@ -187,20 +220,21 @@ position: absolute;
                   @else
                   
                   @foreach($recs as $rec)
-                  <p class="card-text">{{$rec->FCPMTX_TEXTE}}</p>
+                  <input type="checkbox" id="myCheck" onclick="document.forms['name_of_the_form']['name_of_the_input'].value += 'value'"style="float: left;">
+                  <div style="overflow: hidden; padding: 0px 0px 0px 5px;" class="card-text">{{$rec->FCPMTX_TEXTE}}</div>
                   @endforeach
                   @endif
       
       </div>
-    </div>
-  </div>
+		</div>
+	</div>
   </div>
 
   <div class="row">
 <!-- modalite de prise -->
-    <div class="col-md-6">
-      <div class="panel panel-info">
-        <div class="panel-heading">
+		<div class="col-md-6">
+			<div class="panel panel-info">
+				<div class="panel-heading">
         <h4 class=" meagain">
           Modalite de Prise
           <span class="btn-group pull-right ">
@@ -210,22 +244,24 @@ position: absolute;
             <i class="glyphicon glyphicon-chevron-down clickable me"></i>
           </span>
           </h4>
-        </div>
-        <div class="panel-body" style="display:none;">
+				</div>
+				<div class="panel-body" style="display:none;">
         @if(!$pos)
                   <h5 class="card-title">Aucun</h5>
                   @else
-                  <p class="card-text">{{$pos->ATR_TEXTE}}</p>
+                  @foreach($pos as $positem)
+                  <p class="card-text">{{$positem->FPO_TEXTE}}</p>
+                  @endforeach
                   @endif
       </div>
-      </div>
-    </div>
+			</div>
+		</div>
 
     <!-- liste des effets secondaires -->
-    <div class="col-md-6">
-      <div class="panel panel-warning">
-        <div class="panel-heading">
-          <h4 class="">Effets Secondaires
+		<div class="col-md-6">
+			<div class="panel panel-warning">
+				<div class="panel-heading">
+					<h4 class="">Effets Secondaires
           <span class="btn-group pull-right ">
           <a class="" style="margin-right: 10px;" href="#collapseOne">
           <i class="glyphicon glyphicon-pencil"></i>
@@ -233,9 +269,9 @@ position: absolute;
             <i class="glyphicon glyphicon-chevron-down clickable me"></i>
           </span>
           </h4>
-          
-        </div>
-        <div class="panel-body " style="display:none;">
+					
+				</div>
+				<div class="panel-body " style="display:none;">
         @if(!$eis)
                   <h5 class="card-title">Aucun</h5>
                   @else
@@ -244,8 +280,8 @@ position: absolute;
                   @endforeach
                   @endif
       </div>
-    </div>
-  </div>
+		</div>
+	</div>
   </div>
     
 
@@ -262,17 +298,17 @@ position: absolute;
 
 $(document).on('click', '.me.clickable', function(e){
     var $this = $(this);
-  if(!$this.hasClass('panel-collapsed')) {
-    $this.parents('.panel').find('.panel-body').slideDown();
-    $this.addClass('panel-collapsed');
-    $this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
-    
-  } else {
-    $this.parents('.panel').find('.panel-body').slideUp();
-    $this.removeClass('panel-collapsed');
-    $this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
-    
-  }
+	if(!$this.hasClass('panel-collapsed')) {
+		$this.parents('.panel').find('.panel-body').slideDown();
+		$this.addClass('panel-collapsed');
+		$this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+		
+	} else {
+		$this.parents('.panel').find('.panel-body').slideUp();
+		$this.removeClass('panel-collapsed');
+		$this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+		
+	}
 })
 
 

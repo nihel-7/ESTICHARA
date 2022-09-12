@@ -111,6 +111,13 @@ position: absolute;
     width: 100%;
     margin-bottom: 0;
 } 
+
+@media print {
+  body *:not(.printable, .printable *) {
+    // hide everything but printable elements and their children
+    display: none;
+  }
+}
 </style>
 
 <div class="container">
@@ -129,7 +136,7 @@ position: absolute;
 <div class="container-fluid">
   <!-- contre indication -->
   <div class="row">
-		<div class="col-lg-6">
+		<div class="col-lg-6 d-print-none">
 			<div class="panel panel-danger ">
 				<div class="panel-heading  ">
 					<h4 class=" meagain">
@@ -171,14 +178,14 @@ position: absolute;
 					<h4 class="">Recommendations
           <span class="btn-group pull-right ">
           <a class="" style="margin-right: 10px;" href="#collapseOne">
-          <i class="glyphicon glyphicon-pencil"></i>
+          <i class="glyphicon glyphicon-print" id="print"></i>
            </a>
             <i class="glyphicon glyphicon-chevron-down clickable me"></i>
           </span>
           </h4>
 					
 				</div>
-				<div class="panel-body " style="display:none;">
+				<div class="panel-body printable" style="display:none;" id="content">
         @if($cat)
                   {{$cat->FGATX9_TEXTE}}
                   @endif
@@ -295,6 +302,13 @@ $(document).on('click', '.me.clickable', function(e){
     })
   })
 
+</script>
+
+<script>
+const printbtn = document.getElementById('print');
+printbtn.addEventListener('click',function(){
+  print();
+})
 </script>
 
         </body>
