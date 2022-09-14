@@ -152,19 +152,28 @@ position: absolute;
         </button>
       </div>
       <div class="modal-body d-print-none" >
-      <form id="eduform">
-          
+      <form method="post" action="{{route('education')}}" id="eduform" >
+      {{ csrf_field() }}
+      
           <div class="form-group ">
+
+          <input type="hidden" id="postId" name="med" value="{{$med->SP_CODE_SQ_PK}}">
             <label for="message-text" class="col-form-label"></label>
+            @if($edu)
             
-            <textarea rows="10" class="form-control" id="edu-text"></textarea>
+            <textarea rows="10" class="form-control" id="edu-text" name="edu" value="{{$edu->edu_text}}"></textarea>
+           
+            @else
+            <textarea rows="10" class="form-control" id="edu-text" name="edu" ></textarea>
+            @endif
           </div>
+          <button type="submit" class="btn btn-primary glyphicon glyphicon-floppy-save"></button>
         </form>
       </div>
       <div class="modal-footer d-print-none">
       
         
-        <button type="button" class="btn btn-primary glyphicon glyphicon-floppy-save"></button>
+        
         <button type="button" class="btn btn-danger glyphicon glyphicon-print" id="print" ></button>
         
       </div>

@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Pharmacien\PharmacienController;
 use App\Http\Controllers\AnalyseController;
 use App\Http\Controllers\RecresultController;
+use App\Http\Controllers\EducationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -120,6 +121,9 @@ Route::post('/user/medresult',[MedicationController::class,'MedinfoLight'])->nam
 
 //analyse
 Route::post('/user/analyseresult',[AnalyseController::class,'analyse'])->name('analyseresult');
+//education
+
+Route::POST('/user/education',[EducationController::class,'test'])->name('education');
 
 
 //medicationdetail

@@ -38,11 +38,18 @@ return response()->json($data);
       }
       
       public function MedInfo($id,$cat){
+
+
         $cats=0;
         $med = DB::table('sp_specialite')
         ->where('SP_CODE_SQ_PK','=',$id)
-        ->select('SP_NOMLONG')
+        ->select('SP_NOMLONG','SP_CODE_SQ_PK')
         ->first();
+        $edu= DB::table('educations')
+        ->where('id','=',$id)
+        ->select('edu_text')
+        ->first();
+        
 
         $ei = DB::table('feisp_effindspe')
         ->where('FEISP_SP_CODE_FK_PK','=',$id)
@@ -100,11 +107,12 @@ return response()->json($data);
                 $cats=$cat ;
               }}
         }
+        //return $edu;
         //return $ci;
          if(Auth::user()->role==1){
-            return view('pharmacien.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats]);
+            return view('pharmacien.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats,'edu'=>$edu]);
         }else{
-          return view('user.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats]);
+          return view('user.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats,'edu'=>$edu]);
         }
          
             
@@ -117,7 +125,7 @@ return response()->json($data);
         $cats=0;
         $med = DB::table('sp_specialite')
         ->where('SP_CODE_SQ_PK','=',$id)
-        ->select('SP_NOMLONG')
+        ->select('SP_NOMLONG','SP_CODE_SQ_PK')
         ->first();
         
         
