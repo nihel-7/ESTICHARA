@@ -183,8 +183,25 @@ position: absolute;
 
 
 <section  id="printable">
-<h3> Education therapeutique {{$med->SP_NOMLONG}} </h3>
-<p id="sp"> yuggug </p>
+{{ Auth::user()->name }}
+<br>
+<h2> Fiche medicament {{$med->SP_NOMLONG}} </h2>
+<br>
+<h3> Recommendations </h3>
+<p id="sp">  </p>
+<br>
+<h3> Modalite de prise </h3>
+<p id="md">  </p>
+<br>
+<h3> Contre Indications  </h3>
+<p id="ppp">  </p>
+<br>
+<h3> Effets secondaires  </h3>
+<p id="ei">  </p>
+<br>
+<h3> Remarques   </h3>
+<p id="r">  </p>
+
 </section>
 
 
@@ -215,11 +232,11 @@ position: absolute;
                 <h5 class="card-title">Aucun</h5>
                 @else
                 @foreach($cis2 as $ci2)
-                <input type="checkbox" id="myCheck" onclick="document.forms['eduform']['edu-text'].value += {{ json_encode($ci2->FCPTTX1_TXTCI) }}"style="float: left;">
+                <input type="checkbox" id="myCheck" onclick="myFunctionci(<?php echo htmlspecialchars(json_encode($ci2->FCPTTX1_TXTCI)) ?>)"style="float: left;">
                 <div style="overflow: hidden; padding: 0px 0px 0px 5px;" class="card-text">{{$ci2->FCPTTX1_TXTCI}} </div>
                 @endforeach
                 @foreach($cis as $ci)
-                <input type="checkbox" id="myCheck" onclick="document.forms['eduform']['edu-text'].value += {{ json_encode($ci->FCPMTX_TEXTE) }}"style="float: left;">
+                <input type="checkbox" id="myCheck" onclick="myFunctionci(<?php echo htmlspecialchars(json_encode($ci->FCPMTX_TEXTE)) ?>)"style="float: left;">
                 <div style="overflow: hidden; padding: 0px 0px 0px 5px;" class="card-text">{{$ci->FCPMTX_TEXTE}} </div>
                 @endforeach 
                  
@@ -252,7 +269,7 @@ position: absolute;
                   @else
                   
                   @foreach($recs as $rec)
-                  <input type="checkbox" id="myCheck" onclick="document.forms['eduform']['edu-text'].value += {{ json_encode($rec->FCPMTX_TEXTE) }}"style="float: left;">
+                  <input type="checkbox" id="myCheck" onclick="myFunction(<?php echo htmlspecialchars(json_encode($rec->FCPMTX_TEXTE)) ?>)" style="float: left;">
                   <div style="overflow: hidden; padding: 0px 0px 0px 5px;" class="card-text">{{$rec->FCPMTX_TEXTE}}</div>
                   @endforeach
                   @endif
@@ -282,6 +299,7 @@ position: absolute;
                   <h5 class="card-title">Aucun</h5>
                   @else
                   @foreach($pos as $positem)
+                  <input type="checkbox" id="myCheck" onclick="myFunctionmd(<?php echo htmlspecialchars(json_encode($positem->FPO_TEXTE)) ?>)" style="float: left;">
                   <p class="card-text">{{$positem->FPO_TEXTE}}</p>
                   @endforeach
                   @endif
@@ -308,6 +326,7 @@ position: absolute;
                   <h5 class="card-title">Aucun</h5>
                   @else
                   @foreach($eis as $ei)
+                  <input type="checkbox" id="myCheck" onclick="myFunctionei(<?php echo htmlspecialchars(json_encode($ei->FEITX1_TEXTE)) ?>)" style="float: left;">
                   <p class="card-text">{{$ei->FEITX1_TEXTE}}</p>
                   @endforeach
                   @endif
@@ -365,14 +384,53 @@ $(document).on('click', '.me.clickable', function(e){
 
 </script>
 
+<script> 
+
+function myFunction(rec) {
+  document.forms['eduform']['edu-text'].value += rec ;
+  document.forms['eduform']['edu-text'].value += '\n' ;
+  var p = document.getElementById("sp");
+  p.textContent += rec;
+  p.textContent += "\r\n";
+  p.setAttribute('style', 'white-space: pre;');
+}
+function myFunctionmd(rec) {
+  document.forms['eduform']['edu-text'].value += rec ;
+  document.forms['eduform']['edu-text'].value += '\n' ;
+  var p = document.getElementById("md");
+  p.textContent += rec;
+  p.textContent += "\r\n";
+  p.setAttribute('style', 'white-space: pre;');
+}
+function myFunctionci(rec) {
+  document.forms['eduform']['edu-text'].value += rec ;
+  document.forms['eduform']['edu-text'].value += '\n' ;
+  var p = document.getElementById("ppp");
+  p.textContent += rec;
+  p.textContent += "\r\n";
+  p.setAttribute('style', 'white-space: pre;');
+}
+
+function myFunctionei(rec) {
+  document.forms['eduform']['edu-text'].value += rec ;
+  document.forms['eduform']['edu-text'].value += '\n' ;
+  var p = document.getElementById("ei");
+  p.textContent += rec;
+  p.textContent += "\r\n";
+  p.setAttribute('style', 'white-space: pre;');
+}
+
+
+</script>
+
 <script>
    
 const printbtn = document.getElementById('print');
 printbtn.addEventListener('click',function(){
-  var textarea = document.getElementById("edu-text");
+  /*var textarea = document.getElementById("edu-text");
         var p = document.getElementById("sp");
         var text =textarea.value;
-        p.textContent=text;
+        p.textContent=text;*/
   
   print();
 })
