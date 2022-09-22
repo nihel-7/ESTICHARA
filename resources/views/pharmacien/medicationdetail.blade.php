@@ -417,7 +417,7 @@ function myFunctionei(rec) {
   var p = document.getElementById("ei");
   p.textContent += rec;
   p.textContent += "\r\n";
-  p.setAttribute('style', 'white-space: pre;');
+  p.setAttribute('style', 'white-space: pre;'); 
 }
 
 
