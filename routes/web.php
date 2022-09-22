@@ -97,7 +97,7 @@ Route::controller(SearchController::class)->group(function(){
 
 
 
-Route::POST('/patho',[SearchController::class,'getpathologyfunction'])->name('patho');
+
 Route::get('autocompleteA',[AllergieController::class,'autocompleteA'])->name('autocompleteA');
 Auth::routes();
 
@@ -140,3 +140,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin/recherchepathologie', function () {
     return view('admin.RecherchePathologie');
 })->name('admin.patho');
+
+Route::get('/admin/recherchallergie', function () {
+    return view('admin.RechercheAllergie');
+});
+
+Route::POST('/patho',[SearchController::class,'getpathologyfunction'])->name('patho');
+
+Route::POST('/allergie',[AllergieController::class,'getallergiefunction'])->name('allergie');
