@@ -68,9 +68,7 @@ Route::get('/pharmacien/rechercheMed', function () {
 Route::get('/pharmacien/recherchePathologie', function () {
     return view('pharmacien.recherchePathologie');
 });
-Route::get('/dashboardAdmin', function () {
-    return view('admin.dashboard');
-});
+
 Route::get('/register', function () {
     return view('auth.register');
 });
@@ -137,12 +135,20 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //admin routes
+
+Route::get('/dashboardAdmin', function () {
+    return view('layouts.admin');
+});
 Route::get('/admin/recherchepathologie', function () {
     return view('admin.RecherchePathologie');
 })->name('admin.patho');
 
 Route::get('/admin/recherchallergie', function () {
     return view('admin.RechercheAllergie');
+});
+
+Route::get('/historique', function () {
+    return view('admin.historiquerecherche');
 });
 
 Route::POST('/patho',[SearchController::class,'getpathologyfunction'])->name('patho');
