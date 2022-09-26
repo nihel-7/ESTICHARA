@@ -69,7 +69,7 @@ Route::get('/pharmacien/recherchePathologie', function () {
     return view('pharmacien.recherchePathologie');
 });
 Route::get('/dashboardAdmin', function () {
-    return view('Admin.dashboard');
+    return view('admin.dashboard');
 });
 Route::get('/register', function () {
     return view('auth.register');
@@ -97,7 +97,7 @@ Route::controller(SearchController::class)->group(function(){
 
 
 
-Route::POST('/easy',[SearchController::class,'getpathologyfunction']);
+
 Route::get('autocompleteA',[AllergieController::class,'autocompleteA'])->name('autocompleteA');
 Auth::routes();
 
@@ -134,3 +134,17 @@ Route::get('/medicationdetail/{id}/{cat}',[MedicationController::class,'MedInfo'
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//admin routes
+Route::get('/admin/recherchepathologie', function () {
+    return view('admin.RecherchePathologie');
+})->name('admin.patho');
+
+Route::get('/admin/recherchallergie', function () {
+    return view('admin.RechercheAllergie');
+});
+
+Route::POST('/patho',[SearchController::class,'getpathologyfunction'])->name('patho');
+
+Route::POST('/allergie',[AllergieController::class,'getallergiefunction'])->name('allergie');

@@ -133,6 +133,7 @@ return response()->json($data);
         ->where('FEISP_SP_CODE_FK_PK','=',$id)
         ->join('feitx1_ei_txdosether','FEITX1_FEI_CODE_FK_PK','=','FEISP_FEI_CODE_FK_PK')
         ->select('FEITX1_TEXTE')
+        ->distinct()
         ->get();
 
         $ci = DB::table('fcpmsp_cipemg_spe')
@@ -140,6 +141,7 @@ return response()->json($data);
         ->join('fcpmtx_fichecipemg_texte','FCPMSP_FCPM_CODE_FK_PK','=','FCPMTX_FCPM_CODE_FK_PK')
         ->where('FCPMTX_NATURECIPEMG_FK_PK','=','C')
         ->select('FCPMTX_TEXTE','FCPMTX_NATURECIPEMG_FK_PK','FCPMTX_FCPM_CODE_FK_PK')
+        ->distinct()
         ->get();
        // $ciu = array_unique($ci);
 
@@ -147,6 +149,7 @@ return response()->json($data);
         ->where('FCPTSP_SP_CODE_FK_PK','=',$id)
         ->join('fcpttx1_cipemg_txci','FCPTSP_FCPT_CODE_FK_PK','=','FCPTTX1_FCPT_CODE_FK_PK')
         ->select('FCPTTX1_TXTCI')
+        ->distinct()
         ->get();
          
         $rec = DB::table('fcpmsp_cipemg_spe')
@@ -154,6 +157,7 @@ return response()->json($data);
         ->join('fcpmtx_fichecipemg_texte','FCPMSP_FCPM_CODE_FK_PK','=','FCPMTX_FCPM_CODE_FK_PK')
         ->where('FCPMTX_NATURECIPEMG_FK_PK','=','P')
         ->select('FCPMTX_TEXTE','FCPMTX_NATURECIPEMG_FK_PK','FCPMTX_CDF_TER_CODE_FK_PK')
+        ->distinct()
         ->get();
 
        /* $pos = DB::table('spatr_spec_avistransparence')
@@ -165,6 +169,7 @@ return response()->json($data);
         ->join('fposp_poso_spe','FPOSP_FPO_CODE_FK_PK','=','FPO_CODE_SQ_PK')
         ->where('FPOSP_SP_CODE_FK_PK','=',$id)
         ->select('FPO_TEXTE','FPOSP_SP_CODE_FK_PK')
+        ->distinct()
         ->get();
 
         

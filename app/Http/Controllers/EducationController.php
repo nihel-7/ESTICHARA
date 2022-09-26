@@ -20,7 +20,7 @@ class EducationController extends Controller
             $education->id= $req->input('med');
             $education->edu_text= $req->input('edu');
             $education->save();
-            return redirect()->action('medicationdetail',['id'=>$req->input('med'),'cat'=>$cat]);
+           // return redirect()->action('medicationdetail',['id'=>$req->input('med'),'cat'=>$cat]);
 
 
 
