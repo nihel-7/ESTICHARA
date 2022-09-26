@@ -52,7 +52,7 @@
                   <form method="post" action="recresult" >
                   {{ csrf_field() }}
                           <div class="form-group input-group-lg ">
-                          <input type="text" name="nom" class=" typeahead form form-control form-control-sm"  placeholder="entrez medicament . . .  " id="nom" autocomplete="off" >
+                          <input type="text" name="nom" class=" typeahead form form-control form-control-sm"  placeholder="saisir medicament . . .  " id="nom" autocomplete="off" >
                           
                           </div>
                          

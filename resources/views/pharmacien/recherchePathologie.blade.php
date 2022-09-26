@@ -20,7 +20,7 @@
                 <div class="container-fluid">
                   
                   <div class="mx-auto">
-                  <h3>Recherche par medicament</h3></div>
+                  <h3>Recherche par pathologie</h3></div>
                 </div>
               </nav>
           <div class="content-wrapper mt-2" >
@@ -52,10 +52,12 @@
                   <form method="post" action="medresult" >
                   {{ csrf_field() }}
                           <div class="form-group input-group-lg ">
-                          <input type="text" name="nomM" class=" typeahead form form-control form-control-sm"  placeholder="entrez Pathologie . . .  " id="nomP" autocomplete="off" >
+                          <input type="text" name="nomM" class=" typeahead form form-control form-control-sm"  placeholder="saisir Pathologie . . .  " id="nomP" autocomplete="off" >
                           <input type="hidden" name="codeP" id="id">
                           </div>
-                         
+
+                        <!------------------------------------------------------------<>-->
+                        
                         
 
                                   
@@ -67,6 +69,7 @@
                           <div class="col-md-12 bg-light text-right">
                           <button type="submit" class="btn btn-primary btn-lg ">Lancer recherche</button>
                         </div>
+                        
                         </div>  
                     </form>  
                     </div>
