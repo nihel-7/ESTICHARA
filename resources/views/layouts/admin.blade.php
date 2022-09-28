@@ -57,13 +57,100 @@
       // Bootstrap ID
       gtag('config', 'UA-118965717-5');
     </script>
-    <link href="vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
   </head>
   <body>
+    <style type="text/css">
+            body{
+              background-image:url(/image/medicament.jpg);
+            }
+            body .btnCenter {
+
+              justify-content: center;
+              align-items: center;
+              display: flex;
+              height: 31vh;
+            }
+            body .btnCenter2 {
+
+              justify-content: center;
+              align-items: center;
+              display: flex;
+              height: 15vh;
+            }
+            .btn1{
+              background: none;
+              width: 250px;
+              height: 80px;
+              border:2px solid #a6a6a6;
+              font-size: 20px;
+              font-weight: bold;
+              color: #878787;
+              margin-left: 8px;
+              transition: .4s linear;
+              position: relative;
+              cursor: pointer;
+            }
+            .btn1 a{
+                text-decoration: none;
+                color: #878787;
+              }
+            .btn1 a:hover{
+              color: white;
+            }
+            .btn1::before{
+              content: "";
+              position: absolute;
+              width: 0px;
+              height: 78px;
+              top: 0px;
+              left: 0px;
+              background-color: #a6a6a6;
+              z-index: -1;
+              transition: .4s linear;
+              }
+              .btn1:hover::before{
+                width: 248px;
+              }
+              .btn2{
+              background: none;
+              width: 250px;
+              height: 80px;
+              border:2px solid #a6a6a6;
+              font-size: 20px;
+              font-weight: bold;
+              color: #878787;
+              margin-left: 8px;
+              transition: .4s linear;
+              position: relative;
+              cursor: pointer;
+            }
+            .btn2 a{
+                text-decoration: none;
+                color: #878787;
+              }
+            .btn2 a:hover{
+              color: white;
+            }
+            .btn2::before{
+              content: "";
+              position: absolute;
+              width: 0px;
+              height: 78px;
+              top: 0px;
+              left: 0px;
+              background-color: #a6a6a6;
+              z-index: -1;
+              transition: .4s linear;
+              }
+              .btn2:hover::before{
+                width: 248px;
+              }
+          </style>
+    
     <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
       <div class="sidebar-brand d-none d-md-flex">
         <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
-          <use xlink:href="../assets/brand/coreui.svg#full"></use>
+          <use xlink:href="../assets/images/coreui.svg#full"></use>
         </svg>
         <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
           <use xlink:href="../assets/brand/coreui.svg#signet"></use>
@@ -71,39 +158,29 @@
       </div>
       <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
         
-        <li class="nav-title">Components</li>
-        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
-            <svg class="nav-icon">
-              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
-            </svg> Gestion utilisateurs</a>
-          <ul class="nav-group-items">
-            <li class="nav-item"><a class="nav-link" href="base/accordion.html"><span class="nav-icon"></span> Accordion</a></li>
-            <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html"><span class="nav-icon"></span> Breadcrumb</a></li>
-           
-          </ul>
-        </li>
-
-        <li class="nav-item"><a class="nav-link" href="charts.html">
-            <svg class="nav-icon">
-              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
-            </svg> Analyse prescription</a></li>
         
-        <li class="nav-item"><a class="nav-link" href="charts.html">
+        
+        <li class="nav-item"><a class="nav-link" href="/pharmacien/prescriptionanalysis">
             <svg class="nav-icon">
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
-            </svg> Recommendation </a></li>
-        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+            </svg> Analyse Prescription</a></li>
+            <li class="nav-item"><a class="nav-link" href="/pharmacien/therapeuticrec">
             <svg class="nav-icon">
-              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
-            </svg> Historique<span class="badge badge-sm bg-info ms-auto">NEW</span></a>
-          <ul class="nav-group-items">
-            <li class="nav-item"><a class="nav-link" href="forms/form-control.html"> Analyses</a></li>
-            <li class="nav-item"><a class="nav-link" href="forms/select.html"> Recommendations</a></li>
-            <li class="nav-item"><a class="nav-link" href="forms/checks-radios.html"> Recherches</a></li>
-            
-          </ul>
-        </li>
-       
+              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
+            </svg> Recommandation Therapeutique</a></li>
+            <li class="nav-item"><a class="nav-link" href="/pharmacien/rechercheMed">
+            <svg class="nav-icon">
+              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
+            </svg> Recherche Medicament</a></li>
+            <li class="nav-item"><a class="nav-link" href="/pharmacien/recherchePathologie">
+            <svg class="nav-icon">
+              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
+            </svg> Recherche Pathologie</a></li>
+             <li class="nav-item"><a class="nav-link" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
+            </svg> Gestion utilisateurs</a></li>
+               
         
         <li class="nav-item"><a class="nav-link" href="/admin/recherchepathologie">
             <svg class="nav-icon">
@@ -113,41 +190,15 @@
             <svg class="nav-icon">
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-calculator"></use>
             </svg> Gestion Allergies</a></li>
-        <li class="nav-divider"></li>
-        <li class="nav-title">Extras</li>
-        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+             <li class="nav-item"><a class="nav-link" href="/historique">
             <svg class="nav-icon">
-              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-star"></use>
-            </svg> Pages</a>
-          <ul class="nav-group-items">
-            <li class="nav-item"><a class="nav-link" href="login.html" target="_top">
-                <svg class="nav-icon">
-                  <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
-                </svg> Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="register.html" target="_top">
-                <svg class="nav-icon">
-                  <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
-                </svg> Register</a></li>
-            <li class="nav-item"><a class="nav-link" href="404.html" target="_top">
-                <svg class="nav-icon">
-                  <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-bug"></use>
-                </svg> Error 404</a></li>
-            <li class="nav-item"><a class="nav-link" href="500.html" target="_top">
-                <svg class="nav-icon">
-                  <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-bug"></use>
-                </svg> Error 500</a></li>
-          </ul>
-        </li>
-        <li class="nav-item mt-auto"><a class="nav-link" href="https://coreui.io/docs/templates/installation/" target="_blank">
-            <svg class="nav-icon">
-              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-description"></use>
-            </svg> Docs</a></li>
-        <li class="nav-item"><a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
-            <svg class="nav-icon">
-              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-layers"></use>
-            </svg> Try CoreUI
-            <div class="fw-semibold">PRO</div>
-          </a></li>
+              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-calculator"></use>
+            </svg> Historique</a></li>
+        
+
+       
+        
+        
       </ul>
       <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
     </div>
@@ -158,7 +209,8 @@
             <svg class="icon icon-lg">
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
             </svg>
-          </button><a class="header-brand d-md-none" href="#">
+          </button>
+          <a class="header-brand d-md-none" href="#">
             <svg width="118" height="46" alt="CoreUI Logo">
               <use xlink:href="../assets/brand/coreui.svg#full"></use>
             </svg></a>
@@ -202,19 +254,9 @@
                         @endguest
           </ul>
         </div>
-        <div class="header-divider"></div>
-        <div class="container-fluid">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb my-0 ms-2">
-              <li class="breadcrumb-item">
-                <!-- if breadcrumb is single--><span>Home</span>
-              </li>
-              <li class="breadcrumb-item active"><span>Dashboard</span></li>
-            </ol>
-          </nav>
-        </div>
+        
       </header>
-      <div class="body flex-grow-1 px-3">
+      <div class=" flex-grow-1 px-3">
         <div class="container-lg">
           <div class="row">
            
@@ -228,11 +270,12 @@
           </div>
           <div class="container-fluid">
             @yield('content')
-            </div>
+
+          
         </div>
       </div>
       <footer class="footer">
-        <div><a href="https://coreui.io">ESTICHARA </a><a href="https://coreui.io"></a> © 2022 </div>
+        <div><a href="{{'/home'}}">ESTICHARA </a><a href="https://coreui.io"></a> © 2022 </div>
         
       </footer>
     </div>

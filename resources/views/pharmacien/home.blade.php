@@ -95,14 +95,14 @@
            
       <div class="btnCenter">
         
-      <button class="btn1"><a href="/user/prescriptionanalysis">analyse de prescription</a></button>
-      <button class="btn1"><a href="/user/therapeuticrec">Recommendation therapeutique</a></button>
+      <button class="btn1"><a href="/pharmacien/prescriptionanalysis">analyse de prescription</a></button>
+      <button class="btn1"><a href="/pharmacien/therapeuticrec">Recommendation therapeutique</a></button>
       </div>
       <div class="btnCenter2">
         
-      <button class="btn2"><a href="/user/rechercheMed">Medicament</a></button>
+      <button class="btn2"><a href="/pharmacien/rechercheMed">Medicament</a></button>
 
-      <button class="btn2"><a href="/user/recherchePathologie">Recherche pathologie</a></button>
+      <button class="btn2"><a href="/pharmacien/recherchePathologie">Recherche pathologie</a></button>
       </div>
   </body>
   

@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"
-        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Flexy lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Flexy admin lite design, Flexy admin lite dashboard bootstrap 5 dashboard template">
-    <meta name="description"
-        content="Flexy Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    
+   
     <meta name="robots" content="noindex,nofollow">
-    <title>Flexy Admin Lite Template by WrapPixel</title>
+    <title>ESTICHARA</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/Flexy-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/assets/images/favicon.png')}}">
     <!-- Custom CSS -->
     <link href="{{asset('/assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">
     <link href="{{asset('/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Custom CSS -->
     <link href="{{asset('/dist/css/style.min.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -29,6 +29,93 @@
 </head>
 
 <body>
+     <style type="text/css">
+            body{
+              background-image:url(/image/medicament.jpg);
+            }
+            body .btnCenter {
+
+              justify-content: center;
+              align-items: center;
+              display: flex;
+              height: 31vh;
+            }
+            body .btnCenter2 {
+
+              justify-content: center;
+              align-items: center;
+              display: flex;
+              height: 15vh;
+            }
+            .btn1{
+              background: none;
+              width: 250px;
+              height: 80px;
+              border:2px solid #a6a6a6;
+              font-size: 20px;
+              font-weight: bold;
+              color: #878787;
+              margin-left: 8px;
+              transition: .4s linear;
+              position: relative;
+              cursor: pointer;
+            }
+            .btn1 a{
+                text-decoration: none;
+                color: #878787;
+              }
+            .btn1 a:hover{
+              color: white;
+            }
+            .btn1::before{
+              content: "";
+              position: absolute;
+              width: 0px;
+              height: 78px;
+              top: 0px;
+              left: 0px;
+              background-color: #a6a6a6;
+              z-index: -1;
+              transition: .4s linear;
+              }
+              .btn1:hover::before{
+                width: 248px;
+              }
+              .btn2{
+              background: none;
+              width: 250px;
+              height: 80px;
+              border:2px solid #a6a6a6;
+              font-size: 20px;
+              font-weight: bold;
+              color: #878787;
+              margin-left: 8px;
+              transition: .4s linear;
+              position: relative;
+              cursor: pointer;
+            }
+            .btn2 a{
+                text-decoration: none;
+                color: #878787;
+              }
+            .btn2 a:hover{
+              color: white;
+            }
+            .btn2::before{
+              content: "";
+              position: absolute;
+              width: 0px;
+              height: 78px;
+              top: 0px;
+              left: 0px;
+              background-color: #a6a6a6;
+              z-index: -1;
+              transition: .4s linear;
+              }
+              .btn2:hover::before{
+                width: 248px;
+              }
+          </style>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -117,12 +204,7 @@
                     </ul>
             </nav>
         </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
+        
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
@@ -130,23 +212,24 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
-                                    class="hide-menu">Gestion utilisateurs</span></a></li>
+                                href="index.html" aria-expanded="false"><i class="fa-light fa-users"></i><span
+                                    class="hide-menu">Gestion utilisateurs</span></a>
+                                </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-profile.html" aria-expanded="false"><i
-                                    class="mdi mdi-account-network"></i><span class="hide-menu">Recommendation Therapeutique</span></a></li>
+                                href="/admin/recherchallergie" aria-expanded="false"><i
+                                    class="mdi mdi-account-network"></i><span class="hide-menu">Gestion Allergies</span></a>
+                                </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="table-basic.html" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
-                                    class="hide-menu">Analyse Pharmaceutique</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="/admin/recherchepathologie" aria-expanded="false"><i class="mdi mdi-face"></i><span
+                                href="/admin/recherchepathologie" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
                                     class="hide-menu">Gestion Pathologie</span></a></li>
+                        
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="/admin/recherchallergie" aria-expanded="false"><i class="mdi mdi-file"></i><span
-                                    class="hide-menu">Gestion Allergie</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="error-404.html" aria-expanded="false"><i class="mdi mdi-alert-outline"></i><span
-                                    class="hide-menu">Historique </span></a></li>
+                                href="error-404.html" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
+  <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
+  <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
+  <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+</svg>  <span
+                                    class="hide-menu">  Historique </span></a></li>
                         <li class="text-center p-40 upgrade-btn">
                             <a href="https://www.wrappixel.com/templates/flexy-bootstrap-admin-template/"
                                 class="btn d-block w-100 btn-danger text-white" target="_blank">Upgrade to Pro</a>
@@ -164,51 +247,25 @@
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-        <div class="page-wrapper">
+        <div>
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-            <div class="page-breadcrumb">
-                <div class="row align-items-center">
-                    <div class="col-6">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb mb-0 d-flex align-items-center">
-                              <li class="breadcrumb-item"><a href="index.html" class="link"><i class="mdi mdi-home-outline fs-4"></i></a></li>
-                              <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                            </ol>
-                          </nav>
-                        <h1 class="mb-0 fw-bold">Dashboard</h1> 
-                    </div>
-                    <div class="col-6">
-                        <div class="text-end upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/flexy-bootstrap-admin-template/" class="btn btn-primary text-white"
-                                target="_blank">Upgrade to Pro</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="row">
+                <div class="btnCenter">
+        
+      <button class="btn1"><a href="/pharmacien/prescriptionanalysis">analyse de prescription</a></button>
+      <button class="btn1"><a href="/pharmacien/therapeuticrec">Recommendation therapeutique</a></button>
+      </div>
+      <div class="btnCenter2">
+        
+      <button class="btn2"><a href="/pharmacien/rechercheMed">Medicament</a></button>
+
+      <button class="btn2"><a href="/pharmacien/recherchePathologie">Recherche pathologie</a></button>
+      </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center">
-                All Rights Reserved by Flexy Admin. Designed and Developed by <a
-                    href="https://www.wrappixel.com">WrapPixel</a>.
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
+           
+            
         </div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
@@ -228,10 +285,7 @@
     <script src="/dist/js/waves.js"></script>
     <!--Menu sidebar -->
     <script src="/dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
     <script src="/dist/js/custom.js"></script>
-    <!--This page JavaScript -->
-    <!--chartis chart-->
     <script src="/assets/libs/chartist/dist/chartist.min.js"></script>
     <script src="/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="/dist/js/pages/dashboards/dashboard1.js"></script>
