@@ -74,27 +74,21 @@
         
         
         
-        <li class="nav-item"><a class="nav-link" href="/pharmacien/prescriptionanalysis">
+        
+            
+           
+             <li class="nav-item"><a class="nav-link" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
+            </svg> Gestion utilisateurs</a></li>
+            <li class="nav-item"><a class="nav-link" href="/pharmacien/prescriptionanalysis">
             <svg class="nav-icon">
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
             </svg> Analyse Prescription</a></li>
             <li class="nav-item"><a class="nav-link" href="/pharmacien/therapeuticrec">
             <svg class="nav-icon">
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
-            </svg> Recommandation Therapeutique</a></li>
-            <li class="nav-item"><a class="nav-link" href="/pharmacien/rechercheMed">
-            <svg class="nav-icon">
-              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
-            </svg> Recherche Medicament</a></li>
-            <li class="nav-item"><a class="nav-link" href="/pharmacien/recherchePathologie">
-            <svg class="nav-icon">
-              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
-            </svg> Recherche Pathologie</a></li>
-             <li class="nav-item"><a class="nav-link" href="#">
-            <svg class="nav-icon">
-              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
-            </svg> Gestion utilisateurs</a></li>
-               
+            </svg> Recommandation </a></li> 
         
         <li class="nav-item"><a class="nav-link" href="/admin/recherchepathologie">
             <svg class="nav-icon">
@@ -104,10 +98,22 @@
             <svg class="nav-icon">
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-calculator"></use>
             </svg> Gestion Allergies</a></li>
-             <li class="nav-item"><a class="nav-link" href="/historique">
+            <li class="nav-item"><a class="nav-link" href="/pharmacien/rechercheMed">
             <svg class="nav-icon">
-              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-calculator"></use>
-            </svg> Historique</a></li>
+              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
+            </svg> Recherche Medicament</a></li>
+            <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
+            </svg> Historique<span class="badge badge-sm bg-info ms-auto">NEW</span></a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="forms/form-control.html"> Analyses</a></li>
+            <li class="nav-item"><a class="nav-link" href="forms/select.html"> Recommendations</a></li>
+            <li class="nav-item"><a class="nav-link" href="forms/checks-radios.html"> Recherches</a></li>
+            
+          </ul>
+        </li>
+       
         
 
        
@@ -181,6 +187,7 @@
           
         </div>
       </div>
+    </div>
       <footer class="footer">
         <div><a href="{{'/home'}}">ESTICHARA </a><a href="https://coreui.io"></a> © 2022 </div>
         

@@ -54,6 +54,7 @@
                           <div class="form-group input-group-lg ">
                           <input type="text" name="nom" class=" typeahead form form-control form-control-sm"  placeholder="Pathologie a traiter " id="nom" autocomplete="off" >
                           <input type="hidden" name="nomM" id="nomM" required>
+                          <input type="hidden" name="user" id="" value="{{ Auth::user()->name }}" required>
                           </div>
                          
                           <div class="accordion" id="accordionExample">

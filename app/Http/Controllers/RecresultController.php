@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PathMedAssociation;
 use App\Models\Sp_specialite;
+use App\Models\Recommandation;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -226,6 +227,14 @@ class RecresultController extends Controller
           $catfp=1;
 
        }}
+
+       $recommandation = new Recommandation();
+       $recommandation->utilisateur = $req->input('user');
+       $recommandation->pathologie = $req->input('nom');
+       $recommandation->allergie = $allergie;
+       $recommandation->antecedent = $ante;
+       $recommandation->save();
+
        //dd($ciasA->all());
        //dd($cias->all());
         if(Auth::user()->role==1){

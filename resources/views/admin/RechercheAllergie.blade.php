@@ -112,6 +112,7 @@
               console.log(item.CDF_CODE_PK);
       $('#id').val(item.CDF_CODE_PK);
       $('#description').val(item.CDF_TEXTE);
+      $('#pdesc').val(item.CDF_TEXTE);
 },
       });
         
