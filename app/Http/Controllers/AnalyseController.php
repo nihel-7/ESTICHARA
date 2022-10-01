@@ -266,7 +266,7 @@ class AnalyseController extends Controller
         //return $cias ;
        //dd($cias);
         if(Auth::user()->role==0){
-            return view('pharmacien.analysisresult',['medal'=>$al_array,'medpath'=>$a_array,'medinter'=>$interaction]);}
+            return view('pharmacien.analysisresult',['medal'=>$al_array,'medpath'=>$a_array,'medinter'=>$interaction,'medetat'=>$e_array]);}
             else{
              return view('user.analysisresult',['medal'=>$al_array,'medpath'=>$a_array,'medinter'=>$interaction,'medetat'=>$e_array]);
             }

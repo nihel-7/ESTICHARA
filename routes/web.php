@@ -113,14 +113,17 @@ Route::get('/recresulttest',function(){
     return view('pharmacien.recresult');
 }); 
 Route::post('/pharmacien/recresult',[RecresultController::class,'getData'])->name('recresult');
+Route::post('/admin/recresult',[RecresultController::class,'getData'])->name('recresult');
 // recherch emedicament
 Route::post('/user/medresult',[MedicationController::class,'MedinfoLight'])->name('medresult');
+Route::post('/pharmacien/medresult',[MedicationController::class,'MedinfoLight'])->name('medresult');
 
 
 
 //analyse
 Route::post('/user/analyseresult',[AnalyseController::class,'analyse'])->name('analyseresult');
 Route::post('/pharmacien/analyseresult',[AnalyseController::class,'analyse'])->name('analyseresultp');
+Route::post('/admin/analyseresult',[AnalyseController::class,'analyse'])->name('analyseresulta');
 //education
 
 Route::POST('/user/education',[EducationController::class,'test'])->name('education');
@@ -147,6 +150,14 @@ Route::get('/admin/recherchepathologie', function () {
 
 Route::get('/admin/recherchallergie', function () {
     return view('admin.RechercheAllergie');
+});
+
+Route::get('/admin/analyse', function () {
+    return view('admin.analyse');
+});
+
+Route::get('/admin/recommandation', function () {
+    return view('admin.recommandation');
 });
 
 Route::get('/historique', function () {
