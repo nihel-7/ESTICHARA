@@ -57,9 +57,9 @@ Route::get('/pharmacien', function () {
 Route::get('/pharmacien/therapeuticrec', function () {
     return view('pharmacien.therapeuticrec');
 });
-Route::get('/pharmacien/analysisresult', function () {
+/*Route::get('/pharmacien/analysisresult', function () {
     return view('pharmacien.analysisresult');
-});
+});*/
 Route::get('/pharmacien/prescriptionanalysis', function () {
     return view('pharmacien.prescriptionanalysis');
 });
@@ -120,6 +120,7 @@ Route::post('/user/medresult',[MedicationController::class,'MedinfoLight'])->nam
 
 //analyse
 Route::post('/user/analyseresult',[AnalyseController::class,'analyse'])->name('analyseresult');
+Route::post('/pharmacien/analyseresult',[AnalyseController::class,'analyse'])->name('analyseresultp');
 //education
 
 Route::POST('/user/education',[EducationController::class,'test'])->name('education');
