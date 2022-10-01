@@ -233,6 +233,7 @@ class RecresultController extends Controller
        $recommandation->pathologie = $req->input('nom');
        $recommandation->allergie = $allergie;
        $recommandation->antecedent = $ante;
+       $recommandation->resultat = $etat;
        $recommandation->save();
 
        //dd($ciasA->all());

@@ -14,6 +14,7 @@ use App\Http\Controllers\Pharmacien\PharmacienController;
 use App\Http\Controllers\AnalyseController;
 use App\Http\Controllers\RecresultController;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\HistoriqueController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -150,6 +151,9 @@ Route::get('/admin/recherchallergie', function () {
 Route::get('/historique', function () {
     return view('admin.historiquerecherche');
 });
+Route::get('/historiquerec',[HistoriqueController::class,'indexrec'])->name('historiquerec');
+Route::get('/historiqueanalyse',[HistoriqueController::class,'indexanalyse'])->name('historiqueanalyse');
+
 
 Route::POST('/patho',[SearchController::class,'getpathologyfunction'])->name('patho');
 

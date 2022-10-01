@@ -34,6 +34,7 @@
                         <div class="card-body">
                          <form method="post" action="analyseresult"> 
                          {{ csrf_field() }}
+                         <input type="hidden" name="user" id="" value="{{ Auth::user()->name }}" required>
                         <div >
            <table id="medication_table" class="table " >
                <thead class="thead-light">
