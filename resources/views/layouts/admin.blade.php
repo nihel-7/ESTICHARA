@@ -17,7 +17,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>CoreUI Free Bootstrap Admin Template</title>
+    <title>ESTICHARA</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
@@ -77,10 +77,11 @@
         
             
            
-             <li class="nav-item"><a class="nav-link" href="#">
+             
+        <li class="nav-item"><a class="nav-link" href="/listUser">
             <svg class="nav-icon">
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
-            </svg> Gestion utilisateurs</a></li>
+            </svg> Gestion des utilisateurs</a></li>
             <li class="nav-item"><a class="nav-link" href="/pharmacien/prescriptionanalysis">
             <svg class="nav-icon">
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>

@@ -8,12 +8,12 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AllergieController;
 use App\Http\Controllers\MedicamentController;
 use Illuminate\Routing\RouteRegistrar;
-use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Pharmacien\PharmacienController;
 use App\Http\Controllers\AnalyseController;
 use App\Http\Controllers\RecresultController;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -150,7 +150,26 @@ Route::get('/admin/recherchallergie', function () {
 Route::get('/historique', function () {
     return view('admin.historiquerecherche');
 });
+Route::get('/creeCompte', function () {
+    return view('admin.creeCompte');
+});
+Route::get('/modifierCompte', function () {
+    return view('admin.modifierCompte');
+});
+
 
 Route::POST('/patho',[SearchController::class,'getpathologyfunction'])->name('patho');
 
 Route::POST('/allergie',[AllergieController::class,'getallergiefunction'])->name('allergie');
+Route::GET('/listUser',[UserController::class,'index'])->name('listUser');
+
+Route::resource('users',UserController::class);
+Route::get('user/create',[UserController::class,'create'])->name('user.create');
+Route::get('user/add',[UserController::class,'addUser'])->name('user.add');
+Route::post('user/save',[UserController::class,'store'])->name('user.save');
+Route::get('edit/{id}', [UserController::class,'edit'])->name('edit');
+Route::get('delete/{id}', [UserController::class,'delete'])->name('delete');
+//Route::post('/update',[UserController::class,'update'])->name('update');
+Route::put('/{id}/update',[UserController::class,'update'])->name('update');
+
+
