@@ -109,7 +109,7 @@ return response()->json($data);
         }
         //return $edu;
         //return $ci;
-         if(Auth::user()->role==1){
+         if(Auth::user()->role==1 || Auth::user()->role==0){
             return view('pharmacien.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats,'edu'=>$edu]);
         }else{
           return view('user.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats,'edu'=>$edu]);
@@ -182,12 +182,17 @@ return response()->json($data);
             if(str_contains($cat->FGATX9_TEXTE, 'en âge')){
                 $cats=$cat ;
               }}
+
+              $edu= DB::table('educations')
+        ->where('id','=',$id)
+        ->select('edu_text')
+        ->first();
         
               //return $ci;
-         if(Auth::user()->role==0){
-            return view('pharmacien.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats]);
+         if(Auth::user()->role==0 || Auth::user()->role==1){
+            return view('pharmacien.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats ,'edu'=>$edu]);
         }else{
-          return view('user.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats]);
+          return view('user.medicationdetail',['cis'=>$ci,'recs'=>$rec,'med'=>$med,'cis2'=>$ci2,'eis'=>$ei,'pos'=>$pos,'cat'=>$cats,'edu'=>$edu]);
         }
 
         dd($req->all());

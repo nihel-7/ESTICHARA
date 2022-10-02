@@ -1,15 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.topbar')
 @section('content')
+
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+
+      <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-</head>
+      </head>
+            
           <div class="content-wrapper mt-2" >
             <!-- Content Header (Page header) -->
             <section class="content-header">
@@ -30,7 +32,9 @@
                       <!-- form start -->
                       
                         <div class="card-body">
-                         <form> 
+                         <form method="post" action="analyseresultp"> 
+                         {{ csrf_field() }}
+                         <input type="hidden" name="user" id="" value="{{ Auth::user()->name }}" required>
                         <div >
            <table id="medication_table" class="table " >
                <thead class="thead-light">
@@ -47,7 +51,8 @@
                </thead>
                <tbody>
                    <tr id="row_1">
-                     <td><input type="search" data-field-name="medicament" class="typeahead form-control" name="medicament[]" id="medicament1" placeholder="" autocomplete="off"></td>
+                     <td><input type="search" data-field-name="medicament" class="typeahead form-control" name="medicament" id="medicament1" placeholder="" autocomplete="off"></td>
+                     <input type="hidden" name="codeM" id="id">
                      <td><input type="text"  data-field-name="unite" class="typeahead form-control" name="auto[]" id="unite_1" placeholder="" autocomplete="off"></td>
                      <td><center><input type="checkbox" class="form-check-input" name="ch1[]" id="exampleCheck_1"></center></td>
                      <td><center><input type="checkbox" class="form-check-input" name="ch2[]" id="exampleCheck_2"></center></td>
@@ -62,7 +67,7 @@
            <div class="text-right">
                           <button type="button" class="btn btn-primary" id="addNew"><i class="glyphicon glyphicon-plus"></i></button>
                         </div></div>
-    </form>
+    
                           
                           
                           <div class="accordion" id="accordionExample">
@@ -82,23 +87,24 @@
                                       <input type="text" class="form-control" placeholder="Poids" aria-label="poids">
                                     </div>
                                     <div class="col-md-4">
-                                      <select class="form-select form-select-lg" aria-label="Default select example">
-                                        <option selected>Tranche d'age</option>
-                                        <option value="1">Nourrisson</option>
-                                        <option value="2">Enfant</option>
-                                        <option value="3">Adolescent</option>
-                                        <option value="4">Adulte</option>
-                                        <option value="5">Femme en age de procreer</option>
-                                        <option value="6">Femme enceinte</option>
-                                        <option value="7">Femme qui allaite</option>
-                                        <option value="8">Femme ménopausée</option>
+                                      <select class="form-select form-select-lg" aria-label="Default select example" name="etat">
+                                      <option selected>Tranche d'age</option>
+                                        <option value="nouveau-né">nouveau-né</option>
+                                        <option value="nourrisson">Nourrisson</option>
+                                        <option value="ENFANT">Enfant</option>
+                                        <option value="adolescent">Adolescent</option>
+                                        <option value="adulte">Adulte</option>
+                                        <option value="femme em age de procreer">Femme en age de procreer</option>
+                                        <option value="GROSSESSE">Femme enceinte</option>
+                                        <option value="ALLAITEMENT">Femme qui allaite</option>
+                                        <option value="femme menopausee">Femme ménopausée</option>
                                       </select>
                                     </div>
                                   </div>
                                   <div class="row mb-4">
                                     <div class="col-md-6">
                                     <div class="entry input-group ">
-                                  <input class="typeahead form-control" name="fields[]" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
+                                  <input class="typeahead form-control" name="ante" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
                                       <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAntecedent()">
                                     <span class="glyphicon glyphicon-plus"></span>
@@ -113,7 +119,7 @@
                                   </div>
                                   <div class="col-md-6">
                                   <div class="entry input-group ">
-                                  <input class=" typeahead form-control" name="fields[]" type="text" id="nomAl" placeholder="Allergie" autocomplete="off" />
+                                  <input class=" typeahead form-control" name="allergie" type="text" id="nomAl" placeholder="Allergie" autocomplete="off" />
                                     <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAllergie()">
                                     <span class="glyphicon glyphicon-plus"></span>
@@ -135,6 +141,7 @@
 
                                         <div class="input-group input-group-lg mb-3">
                                        <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicamenti" placeholder="Medicaments">
+                                       <input type="hidden" name="codei" id="idi">
                                        <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addMedicament()">
                                       <span class="glyphicon glyphicon-plus"></span>
@@ -165,6 +172,7 @@
                           <button type="submit" class="btn btn-primary btn-lg ">Lancer Analyse</button>
                         </div>
                         </div>
+                </form >
                   </div>
                 </div>
             <script type="text/javascript">
@@ -301,7 +309,7 @@
 },
       });
         
-        </script>-->
+        </script> -->
        <script>
             var path5 = "{{ route('autocompleteMF') }}";
   
@@ -317,13 +325,14 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.id);
+              console.log(item.SP_CODE_SQ_PK);
               console.log(item.SPFOTX_TEXTE);
             $('#forme').val(item.SPFOTX_TEXTE);
+            $('#id').val(item.SP_CODE_SQ_PK);
 },
       });
         
-        </script>-->
+        </script>
         
         <script>
             var path4 = "{{ route('autocompleteM') }}";
@@ -340,7 +349,8 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.id);
+              console.log(item.SP_CODE_SQ_PK);
+              $('#idi').val(item.SP_CODE_SQ_PK);
      // $('#nomM').val(item.id);
 },
       });
@@ -384,7 +394,7 @@
               });
           },
           afterSelect: function(item) {
-              console.log(item.CDF_NUMERO_PK);
+              console.log(item.CDF_CODE_PK);
      // $('#nomM').val(item.id);
 },
       });

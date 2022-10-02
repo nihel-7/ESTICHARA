@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Analyse;
 class AnalyseController extends Controller
 {
     
@@ -254,10 +255,18 @@ class AnalyseController extends Controller
             // resortir les allergies du médicament   
            $allergies = $this->allergies($id , $cis_absolue[$i]->code_fiche);
       }
+
+      $recommandation = new Analyse();
+      $recommandation->utilisateur = $req->input('user');
+      $recommandation->medicament = $req->input('medicament');
+      $recommandation->allergie = $allergie;
+      $recommandation->antecedent = $ante;
+      $recommandation->resultat = $etat;
+      $recommandation->save();
         //return $cias ;
        //dd($cias);
         if(Auth::user()->role==0){
-            return view('pharmacien.analysisresult',['medal'=>$al_array,'medpath'=>$a_array,'medinter'=>$interaction]);}
+            return view('pharmacien.analysisresult',['medal'=>$al_array,'medpath'=>$a_array,'medinter'=>$interaction,'medetat'=>$e_array]);}
             else{
              return view('user.analysisresult',['medal'=>$al_array,'medpath'=>$a_array,'medinter'=>$interaction,'medetat'=>$e_array]);
             }

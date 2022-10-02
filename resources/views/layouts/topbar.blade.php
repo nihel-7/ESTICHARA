@@ -26,7 +26,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="/user/home">
+
+                <a class="navbar-brand" href="/home">
                    <p> <span class="glyphicon glyphicon-home"></span>
                    ESTICHARA </p></a>
                

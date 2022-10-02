@@ -14,6 +14,7 @@ use App\Http\Controllers\AnalyseController;
 use App\Http\Controllers\RecresultController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HistoriqueController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,9 +57,9 @@ Route::get('/pharmacien', function () {
 Route::get('/pharmacien/therapeuticrec', function () {
     return view('pharmacien.therapeuticrec');
 });
-Route::get('/pharmacien/analysisresult', function () {
+/*Route::get('/pharmacien/analysisresult', function () {
     return view('pharmacien.analysisresult');
-});
+});*/
 Route::get('/pharmacien/prescriptionanalysis', function () {
     return view('pharmacien.prescriptionanalysis');
 });
@@ -112,13 +113,17 @@ Route::get('/recresulttest',function(){
     return view('pharmacien.recresult');
 }); 
 Route::post('/pharmacien/recresult',[RecresultController::class,'getData'])->name('recresult');
+Route::post('/admin/recresult',[RecresultController::class,'getData'])->name('recresult');
 // recherch emedicament
 Route::post('/user/medresult',[MedicationController::class,'MedinfoLight'])->name('medresult');
+Route::post('/pharmacien/medresult',[MedicationController::class,'MedinfoLight'])->name('medresult');
 
 
 
 //analyse
 Route::post('/user/analyseresult',[AnalyseController::class,'analyse'])->name('analyseresult');
+Route::post('/pharmacien/analyseresult',[AnalyseController::class,'analyse'])->name('analyseresultp');
+Route::post('/admin/analyseresult',[AnalyseController::class,'analyse'])->name('analyseresulta');
 //education
 
 Route::POST('/user/education',[EducationController::class,'test'])->name('education');
@@ -147,6 +152,14 @@ Route::get('/admin/recherchallergie', function () {
     return view('admin.RechercheAllergie');
 });
 
+Route::get('/admin/analyse', function () {
+    return view('admin.analyse');
+});
+
+Route::get('/admin/recommandation', function () {
+    return view('admin.recommandation');
+});
+
 Route::get('/historique', function () {
     return view('admin.historiquerecherche');
 });
@@ -156,6 +169,8 @@ Route::get('/creeCompte', function () {
 Route::get('/modifierCompte', function () {
     return view('admin.modifierCompte');
 });
+Route::get('/historiquerec',[HistoriqueController::class,'indexrec'])->name('historiquerec');
+Route::get('/historiqueanalyse',[HistoriqueController::class,'indexanalyse'])->name('historiqueanalyse');
 
 
 Route::POST('/patho',[SearchController::class,'getpathologyfunction'])->name('patho');
@@ -169,7 +184,6 @@ Route::get('user/add',[UserController::class,'addUser'])->name('user.add');
 Route::post('user/save',[UserController::class,'store'])->name('user.save');
 Route::get('edit/{id}', [UserController::class,'edit'])->name('edit');
 Route::get('delete/{id}', [UserController::class,'delete'])->name('delete');
-//Route::post('/update',[UserController::class,'update'])->name('update');
 Route::put('/{id}/update',[UserController::class,'update'])->name('update');
 
 
