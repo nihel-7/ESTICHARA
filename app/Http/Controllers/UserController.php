@@ -10,7 +10,7 @@ use DB;
 class UserController extends Controller
 {
    public function index(){
-   	$users = user::all();
+   	$users = user::all()->sortByDesc("created_at");
    	//dd($users);
    	return view('admin.listUser',['users'=>$users]);
    }
@@ -28,8 +28,10 @@ class UserController extends Controller
     	$user->role = $request->input('role');
     	$user->password = $request->input('password');
     	$user->save();
+    	return redirect()->route('listUser');
+        //return view('admin.listUser',['user'=>$user]);
     	//return redirect('listUser','sucess');
-    	return back()->with("success","user crée avec succé");
+    	//return back()->with("success","user crée avec succé");
     }
     public function editUser($id){
 		$user=user::find($id);

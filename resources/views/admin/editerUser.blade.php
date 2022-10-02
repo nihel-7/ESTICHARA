@@ -22,16 +22,9 @@
     <label>Email</label>  
     <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{$user->email}}" required>  
   </div>  
-  <div class="form-group">  
-    <label >Mot de passe</label>  
-    <input type="password" class="form-control" id="password" name="password" value="{{$user->password}}" placeholder="Mot de pass">
-  </div>
+  
     <div class="col-sm-6 mb-3 mb-sm-0">       
-        <label>
-            <font size="4px" style="padding-left:20px;">Admin
-            <input type="radio" checked="checked" name="role" onclick="handleClick(this)" value="{{$user->role}}"></font>
-            <span class="checkmark"></span>
-        </label>               
+                       
         <label><font size="4px" style="padding-left:20px;">Pharmacien
             <input type="radio" checked="checked" name="role" onclick="handleClick(this)" value="{{$user->role}}"></font>
             <span class="checkmark"></span>
