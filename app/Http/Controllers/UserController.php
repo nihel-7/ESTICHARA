@@ -37,15 +37,6 @@ class UserController extends Controller
 		$user=user::find($id);
         return view ('admin.editerUser',['user'=>$user]);
     }
-    public function delete($id){
-    	$user = User::find($id);
-        $user->delete();
-        $users=User::all();
-        return view('admin.listUser',['users' => $users]);
-    	
-    }
-     
-
        public function edit($id){
     	$user = User::find($id);
     	return view('admin.editerUser', ['user'=>$user]);
@@ -59,6 +50,13 @@ class UserController extends Controller
     	$user->save();
     	//return redirect('listUser','sucess');
     	return back()->with("success","user crée avec succé");    	
+    }
+     public function delete($id){
+    	$user = User::find($id);
+        $user->delete();
+        $users=User::all();
+        return view('admin.listUser',['users' => $users]);
+    	
     }
 
  
