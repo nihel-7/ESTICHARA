@@ -108,8 +108,8 @@
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
             </svg> Historique<span class="badge badge-sm bg-info ms-auto">NEW</span></a>
           <ul class="nav-group-items">
-            <li class="nav-item"><a class="nav-link" href="forms/form-control.html"> Analyses</a></li>
-            <li class="nav-item"><a class="nav-link" href="forms/select.html"> Recommendations</a></li>
+            <li class="nav-item"><a class="nav-link" href="/historiqueanalyse"> Analyses</a></li>
+            <li class="nav-item"><a class="nav-link" href="/historiquerec"> Recommendations</a></li>
             <li class="nav-item"><a class="nav-link" href="forms/checks-radios.html"> Recherches</a></li>
             
           </ul>
