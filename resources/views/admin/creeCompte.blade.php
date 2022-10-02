@@ -25,11 +25,7 @@
     <input type="password" class="form-control" id="password" name="password" placeholder="Mot de pass">
   </div>
     <div class="col-sm-6 mb-3 mb-sm-0">       
-        <label>
-            <font size="4px" style="padding-left:20px;">Admin
-            <input type="radio" checked="checked" name="role" onclick="handleClick(this)" value="0"></font>
-            <span class="checkmark"></span>
-        </label>               
+                     
         <label><font size="4px" style="padding-left:20px;">Pharmacien
             <input type="radio" checked="checked" name="role" onclick="handleClick(this)" value="1"></font>
             <span class="checkmark"></span>
