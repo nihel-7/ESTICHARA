@@ -70,7 +70,7 @@
   
   <div class="card-body">
     <h5 class="card-title">Fiche Allergie</h5>
-    <form id="patho" method="post" action="{{route('patho')}}">
+    <form id="patho" method="post" action="{{route('allergie')}}">
     {{ csrf_field() }} 
   <div class="form-group">
     <label for="exampleFormControlInput1">Nom Allergie</label>
