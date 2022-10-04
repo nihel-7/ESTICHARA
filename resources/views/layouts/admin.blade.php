@@ -82,11 +82,11 @@
             <svg class="nav-icon">
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
             </svg> Gestion des utilisateurs</a></li>
-            <li class="nav-item"><a class="nav-link" href="/pharmacien/prescriptionanalysis">
+            <li class="nav-item"><a class="nav-link" href="/admin/analyse">
             <svg class="nav-icon">
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
             </svg> Analyse Prescription</a></li>
-            <li class="nav-item"><a class="nav-link" href="/pharmacien/therapeuticrec">
+            <li class="nav-item"><a class="nav-link" href="/admin/recommandation">
             <svg class="nav-icon">
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
             </svg> Recommandation </a></li> 
