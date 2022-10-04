@@ -96,7 +96,7 @@
       <div class="btnCenter">
         
       <button class="btn1"><a href="/user/prescriptionanalysis">analyse de prescription</a></button>
-      <button class="btn1"><a href="/user/therapeuticrec">Recommendation therapeutique</a></button>
+      <button class="btn1"><a href="/user/therapeuticrec">Recommandation therapeutique</a></button>
       </div>
       <div class="btnCenter2">
         

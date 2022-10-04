@@ -138,7 +138,7 @@ position: absolute;
 </div>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary d-print-none" data-toggle="modal" data-target="#exampleModalCenter">
-  education therapeutique
+  Conseils pharmaceutiques
 </button>
 
 <!-- Modal -->
@@ -267,7 +267,9 @@ position: absolute;
                   @if(!$recs)
                   <h5 class="card-title">Aucun</h5>
                   @else
-                  
+                <!--  <input type="checkbox" id=""  style="float: left;">
+                  <div style="overflow: hidden; padding: 0px 0px 0px 5px;" class="card-text">Ce médicament contient du saccharose comme excipient. - Voie d'administration : Orale - Seuil : 5 g - Informations Ce médicament contient x g de saccharose par "unité de prise", dont il faut tenir compte dans la ration journalière en cas de régime pauvre en sucre ou en cas de diabète. Réf. : Journal Officiel du 12/05/2010.</div>
+                -->
                   @foreach($recs as $rec)
                   <input type="checkbox" id="myCheck" onclick="myFunction(<?php echo htmlspecialchars(json_encode($rec->FCPMTX_TEXTE)) ?>)" style="float: left;">
                   <div style="overflow: hidden; padding: 0px 0px 0px 5px;" class="card-text">{{$rec->FCPMTX_TEXTE}}</div>

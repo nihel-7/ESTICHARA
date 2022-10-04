@@ -30,8 +30,8 @@
               <div class="card  mb-3" style="max-width: 18rem;">
                 <h5 class="card-header text-white bg-danger ">Problemes majeurs</h5>
                 <div class="card-body">
-                  <h5 class="card-title">Aucun</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title">Medicament contre-indiqué en cas de grocesse</h5>
+                  <p class="card-text"></p>
                 </div>
               </div>
           </div>
@@ -40,7 +40,7 @@
               <div class="card  mb-3" style="max-width: 18rem;">
                 <h5 class="card-header text-white " style=" background-color: rgba(252, 118, 8, 0.89);">Problemes moderes</h5>
                 <div class="card-body">
-                  <h5 class="card-title">Surdosage</h5>
+                  <h5 class="card-title">Interactiom medicamenteuse</h5>
                   <p class="card-text"></p>
                 </div>
               </div>
@@ -50,7 +50,7 @@
               <h5 class="card-header text-white bg-warning ">Problemes mineurs</h5>
               <div class="card-body">
                 <h5 class="card-title">Aucun</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text"></p>
               </div>
             </div>
         </div>

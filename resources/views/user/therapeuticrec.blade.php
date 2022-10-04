@@ -20,7 +20,7 @@
                 <div class="container-fluid">
                   
                   <div class="mx-auto">
-                  <h3>Recommendation therapeutique</h3></div>
+                  <h3>Recommandation therapeutique</h3></div>
                 </div>
               </nav>
           <div class="content-wrapper mt-2" >

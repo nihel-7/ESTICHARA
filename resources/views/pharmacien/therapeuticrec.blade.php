@@ -20,7 +20,7 @@
                 <div class="container-fluid">
                   
                   <div class="mx-auto">
-                  <h3>Recommendation therapeutique</h3></div>
+                  <h3>Recommandation therapeutique</h3></div>
                 </div>
               </nav>
           <div class="content-wrapper mt-2" >
@@ -96,14 +96,14 @@
                                     <div class="col-md-6">
                                     <div class="entry input-group ">
                                   <input class="form-control" name="antecedents" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
-                                      <span class="input-group-btn">
+                                   <!--   <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAntecedents()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                   </span>
                                   <span class="input-group-btn">
                                       <button class="btn btn-danger btn-delete" type="button" onclick="deleteAntecedent()">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                  </span>
+                                  </span> -->
                                    </div>
                                     <ul id="listAntecedant">
                                     </ul>
@@ -112,14 +112,14 @@
                                   <div class="col-md-6">
                                   <div class="entry input-group ">
                                   <input class=" typeahead form-control" name="allergie" type="text" id="nomAl" placeholder="Allergie" autocomplete="off" />
-                                    <span class="input-group-btn">
+                                  <!--  <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAllergie()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                   </span>
                                   <span class="input-group-btn">
                                       <button class="btn btn-danger btn-delete" type="button" onclick="deleteAllergie()">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                  </span>
+                                  </span> -->
 
                                    </div>
                                    <ul id="listAllergie">
@@ -133,14 +133,14 @@
 
                                         <div class="input-group input-group-lg mb-3">
                                        <input type="search" name="medicament" class="typeahead form-control form-control-lg" name="meds" id="medicamenti" placeholder="Medicaments">
-                                       <span class="input-group-btn">
+                                      <!-- <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addMedicament()">
                                       <span class="glyphicon glyphicon-plus"></span>
                                         </span>
                                       <span class="input-group-btn">
                                       <button class="btn btn-danger btn-delete" type="button" onclick="deleteMedicament()">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                  </span>
+                                  </span> -->
                                     
                                     </div>
                                     <ul name="list" id="listMedicament">
