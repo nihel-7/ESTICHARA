@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use DB;
 
@@ -26,7 +27,7 @@ class UserController extends Controller
     	$user->name = $request->input('nom');
     	$user->email = $request->input('email');
     	$user->role = $request->input('role');
-    	$user->password = $request->input('password');
+    	$user->password = Hash::make($request->input('password'));
     	$user->save();
     	return redirect()->route('listUser');
         //return view('admin.listUser',['user'=>$user]);
