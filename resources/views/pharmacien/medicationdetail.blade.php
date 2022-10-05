@@ -158,6 +158,7 @@ position: absolute;
       {{ csrf_field() }}
       
           <div class="form-group ">
+            <label> Education thérapeutique</label>
 
           <input type="hidden" id="postId" name="med" value="{{$med->SP_CODE_SQ_PK}}">
             <label for="message-text" class="col-form-label"></label>
@@ -168,10 +169,10 @@ position: absolute;
             @else
             <textarea rows="10" class="form-control" id="edu-text" name="edu" ></textarea>
             @endif
-            <label for="message-text" class="col-form-label"> education </label>
+            
             
           </div>
-          <button type="submit" class="btn btn-primary glyphicon glyphicon-floppy-save"></button>
+         <!-- <button type="submit" class="btn btn-primary glyphicon glyphicon-floppy-save"></button>-->
         </form>
       </div>
       <div class="modal-footer d-print-none">
