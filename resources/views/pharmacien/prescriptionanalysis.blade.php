@@ -142,7 +142,7 @@
                                      <label for="medicament" class="form-label mb-2">Traitements associés</label>
 
                                         <div class="input-group input-group-lg mb-3">
-                                       <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicamenti" placeholder="Medicaments">
+                                       <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicamenti" placeholder="Medicaments" autocomplete="off">
                                        <input type="hidden" name="codei" id="idi">
                                       <!--  <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addMedicament()"> 
