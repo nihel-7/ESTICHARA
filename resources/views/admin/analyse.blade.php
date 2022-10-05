@@ -54,13 +54,13 @@
                      <td><center><input type="checkbox" class="form-check-input" name="ch3[]" id="exampleCheck_3"></center></td>
                      <td><center><input type="checkbox" class="form-check-input" name="ch4[]"id="exampleCheck_4"></center></td>
                      <td><input type="search" data-field-name="forme" class="typeahead form-control" name="auto2[]" id="forme" placeholder="" autocomplete="off"></td>
-                     <td><button type="button" class="btn btn-danger delete_row" id="delete_1"><i class="glyphicon glyphicon-minus"></i></button></td>
+                     <!--<td><button type="button" class="btn btn-danger delete_row" id="delete_1"><i class="glyphicon glyphicon-minus"></i></button></td>-->
                       
                     </tr>
                 </tbody>
            </table>
            <div class="text-right">
-                          <button type="button" class="btn btn-primary" id="addNew"><i class="glyphicon glyphicon-plus"></i></button>
+                        <!--  <button type="button" class="btn btn-primary" id="addNew"><i class="glyphicon glyphicon-plus"></i></button>-->
                         </div></div>
     
                           
@@ -100,14 +100,14 @@
                                     <div class="col-md-6">
                                     <div class="entry input-group ">
                                   <input class="typeahead form-control" name="ante" type="text" id="nomA" placeholder="Antecedents" autocomplete="off"/>  
-                                      <span class="input-group-btn">
+                                     <!-- <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAntecedent()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                   </span>
                                   <span class="input-group-btn">
                                       <button class="btn btn-danger btn-delete" type="button" onclick="deleteAntecedent()">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                  </span>
+                                  </span>-->
                                    </div>
                                    <ul id="listAntecedant">
                                     </ul>
@@ -115,14 +115,14 @@
                                   <div class="col-md-6">
                                   <div class="entry input-group ">
                                   <input class=" typeahead form-control" name="allergie" type="text" id="nomAl" placeholder="Allergie" autocomplete="off" />
-                                    <span class="input-group-btn">
+                                   <!-- <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addAllergie()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                   </span>
                                   <span class="input-group-btn">
                                       <button class="btn btn-danger btn-delete" type="button" onclick="deleteAllergie()">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                  </span>
+                                  </span>-->
                                    </div>
                                    <ul id="listAllergie">
                                     </ul>
@@ -137,14 +137,14 @@
                                         <div class="input-group input-group-lg mb-3">
                                        <input type="search" class="typeahead form-control form-control-lg" name="meds" id="medicamenti" placeholder="Medicaments">
                                        <input type="hidden" name="codei" id="idi">
-                                       <span class="input-group-btn">
+                                      <!-- <span class="input-group-btn">
                                       <button class="btn btn-primary btn-add mr-3" type="button" onclick="addMedicament()">
                                       <span class="glyphicon glyphicon-plus"></span>
                                         </span>
                                       <span class="input-group-btn">
                                       <button class="btn btn-danger btn-delete" type="button" onclick="deleteMedicament()">
                                     <span class="glyphicon glyphicon-minus"></span>
-                                  </span>
+                                  </span>-->
                                     
                                     </div>
                                     <ul id="listMedicament">
