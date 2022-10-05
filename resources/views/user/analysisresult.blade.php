@@ -71,7 +71,11 @@
         </div>
         </div>
       </div>
+      <div>
+        <center><h3>Tableau des alertes</h3></center>
+      </div>
       <div class="container-fluid mt-5 ">
+
       <table class="table table-striped">
         <thead>
           <tr>
