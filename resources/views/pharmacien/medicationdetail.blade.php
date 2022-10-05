@@ -137,13 +137,8 @@ position: absolute;
               </div>
 </div>
 <!-- Button trigger modal -->
-<<<<<<< HEAD
-<button type="button" class="btn btn-primary d-print-none" data-toggle="modal" data-target="#exampleModalCenter">
-  Conseils pharmaceutiques
-</button>
-=======
 
->>>>>>> 6c5929c85d7e9c012e44e433ee9b429ba68a0a7c
+
 
 <!-- Modal -->
 <div class="modal fade bd-example-modal-lg d-print-none" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -342,7 +337,7 @@ position: absolute;
   </div>
   <div class="d-flex justify-content-center"> 
     <button type="button" class="btn btn-primary d-print-none " data-toggle="modal" data-target="#exampleModalCenter">
-  education therapeutique
+   Conseils pharmaceutiques
 </button>
   </div>
     

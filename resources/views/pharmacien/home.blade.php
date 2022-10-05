@@ -99,10 +99,16 @@
       <button class="btn1"><a href="/pharmacien/therapeuticrec">Recommandation therapeutique</a></button>
       </div>
       <div class="btnCenter2">
+        <button class="btn2"><a href="/pharmacien/rechercheAllergie">Recherche Allergie</a></button>
         
-      <button class="btn2"><a href="/pharmacien/rechercheMed">Medicament</a></button>
+      
 
       <button class="btn2"><a href="/pharmacien/recherchePathologie">Recherche pathologie</a></button>
+      </div>
+      <div class="btnCenter2">
+<button class="btn2"><a href="/pharmacien/rechercheMed">Recherche Medicament</a></button>
+        
+
       </div>
   </body>
   

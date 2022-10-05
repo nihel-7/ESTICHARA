@@ -69,6 +69,9 @@ Route::get('/pharmacien/rechercheMed', function () {
 Route::get('/pharmacien/recherchePathologie', function () {
     return view('pharmacien.recherchePathologie');
 });
+Route::get('/pharmacien/rechercheAllergie', function () {
+    return view('pharmacien.rechercheAllergie');
+});
 
 Route::get('/register', function () {
     return view('auth.register');

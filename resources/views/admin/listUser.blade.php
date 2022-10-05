@@ -15,8 +15,14 @@
   	<td>{{$user->id}}</td>
   	<td>{{$user->name}}</td>
   	<td>{{$user->email}}</td>
-  	<td>{{$user->role}}
-  </td>
+  		@if($user->role==1) 
+  			<td> pharmacien</td>
+  		@elseif($user->role==2) 
+  			<td>vendeur</td>
+  		@else
+  			<td> admin</td>
+  		@endif
+  		
   	<td>
   		<a href="/edit/{{$user->id}}" class="btn btn-info">editer</a>
   		<a href="/delete/{{$user->id}}" class="btn btn-danger">supprimer</a>
