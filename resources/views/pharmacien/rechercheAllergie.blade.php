@@ -80,7 +80,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <P id="description"  > hello </P>
+      <P id="description"  >  </P>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -119,7 +119,7 @@
               console.log(item.CDF_CODE_PK);
      // $('#nomM').val(item.id);
      
-        $('#description').text(item.Description);
+        $('#description').text(item.CDF_TEXTE);
 },
       });
         
