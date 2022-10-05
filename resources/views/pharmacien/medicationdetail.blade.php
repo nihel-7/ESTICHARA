@@ -121,6 +121,9 @@ position: absolute;
     #printable{
       display: block; margin-top: 0px;
     }
+    h3 {
+      color: red;
+    }
     }
 
 </style>
@@ -192,7 +195,7 @@ position: absolute;
 <h3> Modalite de prise </h3>
 <p id="md">  </p>
 <br>
-<h3> Contre Indications  </h3>
+<h3 > Contre Indications  </h3>
 <p id="ppp">  </p>
 <br>
 <h3> Effets secondaires  </h3>

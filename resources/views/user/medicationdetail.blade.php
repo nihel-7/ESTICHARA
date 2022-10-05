@@ -190,7 +190,7 @@ position: absolute;
           Contre Indications
           <div class="btn-group pull-right">  
           <a class="" style="margin-right: 10px;"  href="#collapseOne">
-          <i class="glyphicon glyphicon-pencil"></i>
+         <!-- <i class="glyphicon glyphicon-pencil"></i>-->
            </a>
            
             <i class=" glyphicon glyphicon-chevron-down  clickable me "></i>
@@ -206,12 +206,16 @@ position: absolute;
                 <h5 class="card-title">Aucun</h5>
                 @else
                 @foreach($cis2 as $ci2)
+                @if($ci2 != "")
                 <input type="checkbox" id="myCheck" onclick="document.forms['eduform']['edu-text'].value += {{ json_encode($ci2->FCPTTX1_TXTCI) }}"style="float: left;">
                 <div style="overflow: hidden; padding: 0px 0px 0px 5px;" class="card-text">{{$ci2->FCPTTX1_TXTCI}} </div>
+                @endif
                 @endforeach
                 @foreach($cis as $ci)
+                @if($ci != "")
                 <input type="checkbox" id="myCheck" onclick="document.forms['eduform']['edu-text'].value += {{ json_encode($ci->FCPMTX_TEXTE) }}"style="float: left;">
                 <div style="overflow: hidden; padding: 0px 0px 0px 5px;" class="card-text">{{$ci->FCPMTX_TEXTE}} </div>
+                @endif
                 @endforeach 
                  
                 @endif
@@ -227,7 +231,7 @@ position: absolute;
 					<h4 class="">Recommendations
           <span class="btn-group pull-right ">
           <a class="" style="margin-right: 10px;" href="#collapseOne">
-          <i class="glyphicon glyphicon-pencil"></i>
+        <!--  <i class="glyphicon glyphicon-pencil"></i> -->
            </a>
             <i class="glyphicon glyphicon-chevron-down clickable me"></i>
           </span>
@@ -262,7 +266,7 @@ position: absolute;
           Modalite de Prise
           <span class="btn-group pull-right ">
           <a class="" style="margin-right: 10px;" href="#collapseOne">
-          <i class="glyphicon glyphicon-pencil"></i>
+         <!-- <i class="glyphicon glyphicon-pencil"></i> -->
            </a>
             <i class="glyphicon glyphicon-chevron-down clickable me"></i>
           </span>
@@ -287,7 +291,7 @@ position: absolute;
 					<h4 class="">Effets Secondaires
           <span class="btn-group pull-right ">
           <a class="" style="margin-right: 10px;" href="#collapseOne">
-          <i class="glyphicon glyphicon-pencil"></i>
+        <!--  <i class="glyphicon glyphicon-pencil"></i> -->
            </a>
             <i class="glyphicon glyphicon-chevron-down clickable me"></i>
           </span>
