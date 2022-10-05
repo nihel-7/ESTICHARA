@@ -97,10 +97,7 @@
             <svg class="nav-icon">
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-calculator"></use>
             </svg> Gestion Allergies</a></li>
-            <li class="nav-item"><a class="nav-link" href="/pharmacien/rechercheMed">
-            <svg class="nav-icon">
-              <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
-            </svg> Recherche Medicament</a></li>
+            
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
             <svg class="nav-icon">
               <use xlink:href="../vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
