@@ -30,17 +30,32 @@
               <div class="card  mb-3" style="max-width: 18rem;">
                 <h5 class="card-header text-white bg-danger ">Problemes majeurs</h5>
                 <div class="card-body">
-                  <h5 class="card-title">Medicament contre-indiqué en cas de grocesse</h5>
-                  <p class="card-text"></p>
+                @if($medpath == null && $medetat == null)
+                <h5 class="card-title">Aucun </h5>
+                @endif
+                  @if($medpath)
+                  <h5 class="card-title">Medicament contre-indiqué pour les patients soufrants d' {{$medpath['ante']}} </h5>
+                @endif
+                @if($medetat) 
+                <h5 class="card-title">Medicament contre-indiqué en cas de {{$medetat['etat']}} </h5> 
+                @endif  
                 </div>
               </div>
           </div>
               
           <div class="col-xl-3 col-md-6 ml-5">
               <div class="card  mb-3" style="max-width: 18rem;">
-                <h5 class="card-header text-white " style=" background-color: rgba(252, 118, 8, 0.89);">Problemes moderes</h5>
+                <h5 class="card-header text-white " style=" background-color: rgba(252, 118, 8, 0.89);">problèmes modérés</h5>
                 <div class="card-body">
-                  <h5 class="card-title">Interactiom medicamenteuse</h5>
+                @if($medinter == null && $medal == null)
+                <h5 class="card-title">Aucun </h5>
+                @endif
+                @if($medinter)
+                  <h5 class="card-title">Interaction  médicamenteuse</h5>
+                  @endif
+                  @if($medal)
+                  <h5 class="card-title">Le patient peut faire une réaction allergique a ce  médicament</h5>
+                  @endif
                   <p class="card-text"></p>
                 </div>
               </div>
