@@ -186,7 +186,7 @@ position: absolute;
 <br>
 <h2> Fiche medicament {{$med->SP_NOMLONG}} </h2>
 <br>
-<h3> Recommendations </h3>
+<h3 style="background: purple "> Recommendations </h3>
 <p id="sp">  </p>
 <br>
 <h3> Modalite de prise </h3>
@@ -227,7 +227,7 @@ position: absolute;
           Contre Indications
           <div class="btn-group pull-right">  
           <a class="" style="margin-right: 10px;"  href="#collapseOne">
-          <i class="glyphicon glyphicon-pencil"></i>
+          <!--<i class="glyphicon glyphicon-pencil"></i>-->
            </a>
            
             <i class=" glyphicon glyphicon-chevron-down  clickable me "></i>
@@ -264,7 +264,7 @@ position: absolute;
 					<h4 class="">Recommendations
           <span class="btn-group pull-right ">
           <a class="" style="margin-right: 10px;" href="#collapseOne">
-          <i class="glyphicon glyphicon-pencil"></i>
+         <!-- <i class="glyphicon glyphicon-pencil"></i>-->
            </a>
             <i class="glyphicon glyphicon-chevron-down clickable me"></i>
           </span>
@@ -301,7 +301,7 @@ position: absolute;
           Modalite de Prise
           <span class="btn-group pull-right ">
           <a class="" style="margin-right: 10px;" href="#collapseOne">
-          <i class="glyphicon glyphicon-pencil"></i>
+          <!--<i class="glyphicon glyphicon-pencil"></i>-->
            </a>
             <i class="glyphicon glyphicon-chevron-down clickable me"></i>
           </span>
@@ -327,7 +327,7 @@ position: absolute;
 					<h4 class="">Effets Secondaires
           <span class="btn-group pull-right ">
           <a class="" style="margin-right: 10px;" href="#collapseOne">
-          <i class="glyphicon glyphicon-pencil"></i>
+         <!-- <i class="glyphicon glyphicon-pencil"></i>-->
            </a>
             <i class="glyphicon glyphicon-chevron-down clickable me"></i>
           </span>
