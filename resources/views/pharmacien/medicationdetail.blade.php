@@ -213,15 +213,10 @@ position: absolute;
 <div>
   <div class="d-flex justify-content-center"> 
     <button type="button" class="btn btn-primary d-print-none " data-toggle="modal" data-target="#exampleModalCenter">
-   Conseils pharmaceutiques
-</button>
-  </div>
-  <br>
-  <div class="d-flex justify-content-center">
-    <button type="button" class="btn btn-primary d-print-none " data-toggle="modal" data-target="#exampleModalCenter">
    Education thérapeutique
 </button>
   </div>
+  
 
 <div class="container-fluid">
   <!-- contre indication -->
