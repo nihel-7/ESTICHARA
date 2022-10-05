@@ -24,7 +24,7 @@
 </head>
 <header>
     <div>
-        <img src="/image/medicament.png" alt="monLogo" width="129px" height="113px"/>
+        <img src="/image/logo.png" alt="monLogo" width="50px" height="40px"/>
     </div>
 </header>
 <body>
