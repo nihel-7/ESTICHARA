@@ -168,6 +168,8 @@ position: absolute;
             @else
             <textarea rows="10" class="form-control" id="edu-text" name="edu" ></textarea>
             @endif
+            <label for="message-text" class="col-form-label"> education </label>
+            
           </div>
           <button type="submit" class="btn btn-primary glyphicon glyphicon-floppy-save"></button>
         </form>
@@ -182,6 +184,7 @@ position: absolute;
     </div>
   </div>
 </div>
+
 
 
 <section  id="printable">
@@ -201,8 +204,8 @@ position: absolute;
 <h3> Effets secondaires  </h3>
 <p id="ei">  </p>
 <br>
-<h3> Remarques   </h3>
-<p id="r">  </p>
+<!--<h3> Remarques   </h3> 
+<p id="r">  </p> -->
 
 </section>
 

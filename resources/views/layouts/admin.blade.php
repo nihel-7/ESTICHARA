@@ -108,7 +108,7 @@
           <ul class="nav-group-items">
             <li class="nav-item"><a class="nav-link" href="/historiqueanalyse"> Analyses</a></li>
             <li class="nav-item"><a class="nav-link" href="/historiquerec"> Recommendations</a></li>
-            <li class="nav-item"><a class="nav-link" href="forms/checks-radios.html"> Recherches</a></li>
+            
             
           </ul>
         </li>
