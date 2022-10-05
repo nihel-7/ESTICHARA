@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {   if(Auth::user()->role==0){
-        return view('layouts.admin');
+        return view('admin.RechercheAllergie');
     }
     else  if(Auth::user()->role==1){
         return view('pharmacien.home');
