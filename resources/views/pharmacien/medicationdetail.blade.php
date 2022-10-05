@@ -186,7 +186,7 @@ position: absolute;
 <br>
 <h2> Fiche medicament {{$med->SP_NOMLONG}} </h2>
 <br>
-<h3> Recommendations </h3>
+<h3 style="text-decoration-color: red"> Recommendations </h3>
 <p id="sp">  </p>
 <br>
 <h3> Modalite de prise </h3>

@@ -22,13 +22,18 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+<header>
+    
+</header>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
 
                 <a class="navbar-brand" href="/home">
-                   <p> <span class="glyphicon glyphicon-home"></span>
+                   <p>
+        <img src="/image/logo.png" alt="monLogo" width="50px" height="40px"/>
+    
                    ESTICHARA </p></a>
                
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">

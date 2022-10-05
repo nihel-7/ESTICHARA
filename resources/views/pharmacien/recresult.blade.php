@@ -1,3 +1,5 @@
+@extends('layouts.topbar')
+@section('content')
 <!DOCTYPE html>
 <html>
     <head>
@@ -76,3 +78,4 @@
         
     
 </html>
+@endsection
